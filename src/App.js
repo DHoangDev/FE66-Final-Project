@@ -7,6 +7,7 @@ import AdminTemplate from './AdminTemplate/AdminTemplate';
 
 import Home from './HomeTemplate/Home/Home';
 import About from './HomeTemplate/About/About';
+import Test from './HomeTemplate/Test/Test';
 import Login from './HomeTemplate/Login/Login';
 
 import Admin from './AdminTemplate/Admin/Admin';
@@ -26,6 +27,7 @@ export default class App extends Component {
               <HomeTemplate exact path="/" component={Home} />
               <HomeTemplate exact path="/Home" component={Home} />
               <HomeTemplate exact path="/About" component={About} />
+              <HomeTemplate exact path="/Test" component={Test} />
               <HomeTemplate exact path="/Login" component={Login} />
 
               <AdminTemplate exact path="/Admin" component={Admin} />
