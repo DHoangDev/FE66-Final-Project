@@ -1,0 +1,146 @@
+header {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    top: 0;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  header nav {
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  header nav.navbar {
+    padding: 5px 1rem;
+  }
+  
+  header nav.navbar .navbar-toggler {
+    border: none;
+    padding: 0;
+    width: 25px;
+    height: 20px;
+  }
+  
+  header nav.navbar .navbar-menu {
+    margin-left: 35%;
+  }
+  
+  header nav.navbar .navbar-menu .nav-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    margin-right: .5rem;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+  }
+  
+  header nav.navbar .navbar-menu .nav-link:hover {
+    color: #fb4226;
+  }
+  
+  header nav.navbar .navbar-login .nav-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: #9b9b9b;
+    padding: 0 1rem;
+    line-height: 2.5;
+  }
+  
+  header nav.navbar .navbar-login .nav-link i {
+    margin-right: .5rem;
+  }
+  
+  header nav.navbar .navbar-login .nav-link.dropdown-toggle::after {
+    margin-left: .5rem;
+  }
+  
+  header nav.navbar .navbar-login .nav-item .nav-link .nav-avatar {
+    width: 30px;
+    height: auto;
+    border-radius: 25px;
+  }
+  
+  header nav.navbar .navbar-login .dropdown-menu {
+    font-size: 14px;
+    height: 300px;
+    overflow-y: scroll;
+    top: 36px;
+  }
+  
+  header nav.navbar .navbar-login .dropdown-menu .dropdown-item {
+    color: #333;
+    font-weight: 600;
+  }
+  
+  header nav.navbar .navbar-login .dropdown-menu .dropdown-item:hover {
+    background-color: #60c5ef;
+    color: #fff;
+  }
+  
+  @media only screen and (max-width: 991px) {
+    header {
+      width: 100vw;
+    }
+    header nav .navbar-login .nav-link {
+      font-size: 11px;
+    }
+  }
+  
+  @media screen and (max-width: 767px) {
+    header nav.navbar .navbar-collapse {
+      position: absolute;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start;
+      top: 0;
+      right: -75%;
+      background: white;
+      height: 100vh;
+      width: 75%;
+      -webkit-transition: all .3s;
+      transition: all .3s;
+    }
+    header nav.navbar .navbar-collapse ul:nth-child(1) {
+      margin-left: 1rem;
+    }
+    header nav.navbar .navbar-collapse ul:nth-child(1) .nav-link {
+      font-size: 18px;
+    }
+    header nav.navbar .navbar-collapse ul:nth-child(2) {
+      margin: .5rem 0;
+    }
+    header nav.navbar .navbar-collapse ul:nth-child(2) .nav-link {
+      font-size: 18px;
+      font-weight: 600;
+      color: black;
+      padding: 0 1rem;
+      line-height: 2.5;
+      border: none !important;
+    }
+    header nav.navbar .navbar-collapse #close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+    header nav.navbar .navbar-collapse #close.navbar-close {
+      border: none;
+      background: none;
+    }
+    header nav.navbar .navbar-collapse.collapsing {
+      -webkit-transition: all .3s;
+      transition: all .3s;
+    }
+    header nav.navbar .navbar-collapse.show {
+      right: 0;
+    }
+  }
