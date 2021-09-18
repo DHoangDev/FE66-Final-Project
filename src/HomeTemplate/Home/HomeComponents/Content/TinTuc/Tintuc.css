@@ -1,0 +1,158 @@
+#newsBlock {
+    max-width: 940px;
+  }
+  
+  #newsBlock nav .nav-tabs {
+    border-bottom: unset;
+  }
+  
+  #newsBlock nav .nav-tabs .nav-link {
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    color: #000;
+  }
+  
+  #newsBlock nav .nav-tabs .nav-link.active {
+    font-size: 24px;
+    color: #fa5238;
+  }
+  
+  #newsBlock nav .nav-tabs .nav-link:hover {
+    font-size: 24px;
+  }
+  
+  #newsBlock .row {
+    margin: 0 .5rem;
+  }
+  
+  #newsBlock .newsContent a {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 20px;
+    height: 42px;
+    font-size: 16px;
+    font-weight: 600;
+    -webkit-transition: color .2s;
+    transition: color .2s;
+    text-decoration: none;
+    color: black;
+    margin: .75rem 0;
+  }
+  
+  #newsBlock .newsContent a:hover {
+    color: #fb4226;
+  }
+  
+  #newsBlock .newsContent p {
+    text-align: justify;
+    font-size: 13px;
+    color: #4a4a4a;
+    padding: 0 5px 0 0;
+    line-height: 19px;
+    letter-spacing: .17;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 55px;
+    margin-bottom: 15px;
+  }
+  
+  #newsBlock .newsContent .reaction {
+    height: 25px;
+    margin-bottom: 20px;
+  }
+  
+  #newsBlock .newsContent .reaction .like, #newsBlock .newsContent .reaction .comments {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  #newsBlock .newsContent .reaction .like a, #newsBlock .newsContent .reaction .comments a {
+    height: unset;
+    padding: 0;
+    margin: 0 .5rem 0 0;
+  }
+  
+  #newsBlock .newsContent .reaction .like a:hover, #newsBlock .newsContent .reaction .comments a:hover {
+    color: unset;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  
+  #newsBlock .newsContent .reaction .like p, #newsBlock .newsContent .reaction .comments p {
+    height: unset;
+    padding: 0;
+    margin: 0 1rem 0 0;
+  }
+  
+  #newsBlock .news {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: .5rem;
+  }
+  
+  #newsBlock .news .img {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-right: .75rem;
+  }
+  
+  #newsBlock .news .img img {
+    border-radius: 4px;
+  }
+  
+  #newsBlock .news .link {
+    width: calc(100% - 50px);
+  }
+  
+  #newsBlock .news .link a {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 20px;
+    height: 42px;
+    font-size: 16px;
+    -webkit-transition: color .2s;
+    transition: color .2s;
+    text-decoration: none;
+    color: black;
+  }
+  
+  #newsBlock .news .link a:hover {
+    color: #fb4226;
+  }
+  
+  #newsBlock .navShowmore .btn {
+    border: 1px solid #888;
+  }
+  
+  #newsBlock .navShowmore .btn:hover {
+    background-color: #fb4226;
+    border-color: #fb4226;
+    color: #fff;
+  }
+  
+  @media only screen and (max-width: 576px) {
+    #newsBlock nav .nav-tabs .nav-link {
+      font-size: 16px;
+    }
+    #newsBlock nav .nav-tabs .nav-link.active {
+      font-size: 18px;
+      color: #fa5238;
+    }
+    #newsBlock nav .nav-tabs .nav-link:hover {
+      font-size: 18px;
+    }
+  }

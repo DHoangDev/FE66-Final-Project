@@ -1,0 +1,232 @@
+  #banner {
+    position: relative;
+    margin-top: 60px;
+  }
+  
+  #banner .banner_section {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  #banner .banner_section .banner_all {
+    -webkit-filter: blur(10px);
+            filter: blur(10px);
+    margin: 0px 0 0px -5px;
+    width: calc(100% + 10px);
+  }
+  
+  #banner .banner_section .styleGardient {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: -webkit-gradient(linear, left bottom, left top, from(#0a2029), to(transparent));
+    background: linear-gradient(to top, #0a2029, transparent 100%);
+  }
+  
+  #banner .banner_section .playtrailer1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    z-index: 3;
+    background: 0 0;
+    border: none;
+    display: none;
+  }
+  
+  #banner .banner_width {
+    max-width: 870px;
+    float: none;
+    margin: auto;
+    clear: both;
+  }
+  
+  #banner .banner_detail {
+    position: absolute;
+    top: 70%;
+    width: 100%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, -90%, 0);
+            transform: translate3d(-50%, -90%, 0);
+  }
+  
+  /* #banner .banner_detail .poster {
+    background-image: url("../public/assets/images/trang-ti-16194120693380_215x318.jpg");
+    height: 320px;
+    width: 220px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  } */
+  
+  #banner .banner_detail .poster .showposter {
+    opacity: 0;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+  }
+  
+  #banner .banner_detail .poster .playtrailer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    z-index: 3;
+    background: 0 0;
+    border: none;
+  }
+  
+  #banner .banner_detail .poster:hover .playtrailer {
+    opacity: 1;
+  }
+  
+  #banner .banner_detail .banner_info {
+    float: none;
+    clear: both;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    left: 27%;
+  }
+  
+  #banner .banner_detail .banner_info .banner_detail1 {
+    font-size: 14px;
+    color: #e9e9e9;
+  }
+  
+  #banner .banner_detail .banner_info .banner_content .banner_info1 {
+    font-size: 24px;
+    font-family: 'SF Medium';
+    color: #e9e9e9;
+    font-weight: normal;
+  }
+  
+  #banner .banner_detail .banner_info .banner_content .banner_info1 .banner_P {
+    background-color: #00ac4d;
+    margin-right: 6px;
+    margin-top: 6px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 0 5px;
+    display: inline-block;
+    text-align: center;
+    min-width: 33px;
+  }
+  
+  #banner .banner_detail .circle {
+    text-align: center;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  
+  #banner .banner_detail .circle .circle100 {
+    position: relative;
+    font-size: 126px;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  #banner .banner_detail .circle .circle100 .circleBorder {
+    width: 1em;
+    height: 1em;
+    background: 0 0;
+    border: 7.5px solid #3a3a3a;
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  #banner .banner_detail .circle .circle100 span {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    line-height: 2.4em;
+    font-size: .42em;
+    color: #fff;
+    display: block;
+    text-align: center;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  
+  #banner .banner_detail .circle .circle100 .splice {
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    clip: rect(auto, auto, auto, auto);
+  }
+  
+  #banner .banner_detail .circle .circle100 .splice .bar {
+    position: absolute;
+    border: .06em solid #7ed321;
+    width: 1em;
+    height: 1em;
+    clip: rect(0, 0.5em, 1em, 0);
+    border-radius: 50%;
+    -webkit-transform: rotate(223.2deg);
+            transform: rotate(223.2deg);
+  }
+  
+  #banner .banner_detail .circle .circle100 .splice .fill {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    position: absolute;
+    border: .06em solid #7ed321;
+    width: 1em;
+    height: 1em;
+    clip: rect(0, 0.5em, 1em, 0);
+    border-radius: 50%;
+  }
+  
+  #banner .banner_detail .circle .star {
+    margin-top: 10px;
+  }
+  
+  #banner .banner_detail .circle .star img {
+    width: 100%;
+  }
+  
+  #banner .banner_detail .circle .star .star_icon {
+    max-width: 25px;
+  }
+  
+  #banner .banner_detail .circle .danhgia {
+    margin-top: 10px;
+  }
+  
+  #banner .banner_detail .circle .danhgia span {
+    font-size: 14px;
+    color: #e9e9e9;
+  }
+  
+  @media screen and (max-width: 768px) {
+    #banner .banner_section .banner_all {
+      -webkit-filter: none;
+              filter: none;
+    }
+    #banner .banner_section .playtrailer1 {
+      display: inline;
+    }
+    #banner .banner_detail {
+      display: none !important;
+    }
+    #banner .banner_section .playtrailer1 img {
+      width: 54px;
+    }
+  }

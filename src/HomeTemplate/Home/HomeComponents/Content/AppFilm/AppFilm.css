@@ -1,0 +1,100 @@
+#appBlock {
+    /* background-image: url("../public/assets/images/backapp.jpg"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  #appBlock .wrapHomeapp {
+    max-width: 940px;
+    padding: 120px 15px 80px 15px;
+  }
+  
+  #appBlock .wrapHomeapp .wrap {
+    color: white;
+  }
+  
+  #appBlock .wrapHomeapp .wrap .appTitle h2 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 3.5rem;
+  }
+  
+  #appBlock .wrapHomeapp .wrap .appContent {
+    margin: 2rem 0;
+    font-weight: 600;
+  }
+  
+  #appBlock .wrapHomeapp .wrap .appButton button {
+    font-weight: 600;
+  }
+  
+  #appBlock .wrapHomeapp .wrap .appService {
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+  
+  #appBlock .wrapHomeapp .wrap .appService a {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  #appBlock .wrapHomeapp .mobile-box {
+    position: relative;
+    padding: 0 28%;
+    overflow: hidden;
+  }
+  
+  #appBlock .wrapHomeapp .mobile-box .carousel_slick_4 {
+    position: absolute;
+    padding: 1.5% 29.3% 0 29.3%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 98%;
+  }
+  
+  #appBlock .wrapHomeapp .mobile-box .carousel_slick_4 .slick-list {
+    border-radius: 20px;
+    height: 100%;
+  }
+  
+  #appBlock .wrapHomeapp .mobile-box .carousel_slick_4 .slick-list .slick-track {
+    height: 100%;
+  }
+  
+  #appBlock .wrapHomeapp .mobile-box .carousel_slick_4 .slick-list .slick-track .carousel-item {
+    height: 100%;
+  }
+  
+  #appBlock .wrapHomeapp .mobile-box .carousel_slick_4 .slick-list .slick-track .carousel-item .img-width {
+    width: 194px;
+    height: 100%;
+  }
+  
+  @media only screen and (min-width: 992px) {
+    #appBlock .text-lg-start {
+      text-align: start !important;
+    }
+  }
+  
+  @media only screen and (max-width: 991px) {
+    #appBlock .mobile-box .img-width {
+      width: 390px !important;
+      height: 100%;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    #appBlock .mobile-box .img-width {
+      width: 318px !important;
+      height: 100%;
+    }
+  }
+  
+  @media only screen and (max-width: 576px) {
+    #appBlock .mobile-box .img-width {
+      width: 194px !important;
+      height: 100%;
+    }
+  }
