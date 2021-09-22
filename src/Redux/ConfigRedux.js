@@ -1,8 +1,8 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import ReduxThunk from 'redux-thunk';
-
+import {QuanLyNguoiDungReducer} from './reducer/QuanLyNguoiDungReducer'
 const rootReducer = combineReducers({
-
+    QuanLyNguoiDungReducer
 });
 
 export const store = createStore(

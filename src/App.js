@@ -7,10 +7,7 @@ import AdminTemplate from './AdminTemplate/AdminTemplate';
 
 import Home from './HomeTemplate/Home/Home';
 import About from './HomeTemplate/About/About';
-<<<<<<< HEAD
-=======
 import Test from './HomeTemplate/Test/Test';
->>>>>>> fa277a0d631c8973e9f39c7e5fb7947654d6f62d
 import Login from './HomeTemplate/Login/Login';
 
 import Admin from './AdminTemplate/Admin/Admin';
@@ -31,7 +28,7 @@ export default class App extends Component {
               <HomeTemplate exact path="/Home" component={Home} />
               <HomeTemplate exact path="/About" component={About} />
               <HomeTemplate exact path="/Test" component={Test} />
-              <HomeTemplate exact path="/Login" component={Login} />
+              <Route exact path="/Login" component={Login} />
 
               <AdminTemplate exact path="/Admin" component={Admin} />
               <AdminTemplate exact path="/Admin/admin" component={Admin} />
