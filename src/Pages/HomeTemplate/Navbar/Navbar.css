@@ -89,7 +89,7 @@ header {
     }
   }
   
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 991px) {
     header nav.navbar .navbar-collapse {
       position: absolute;
       display: -webkit-box;
@@ -143,4 +143,4 @@ header {
     header nav.navbar .navbar-collapse.show {
       right: 0;
     }
-  }
+}

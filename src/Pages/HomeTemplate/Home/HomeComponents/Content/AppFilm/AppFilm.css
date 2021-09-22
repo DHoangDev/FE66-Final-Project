@@ -1,0 +1,113 @@
+#appBlock {
+    background-image: url("http://localhost:3000/assets/images/backapp.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#appBlock .wrapHomeapp {
+    max-width: 940px;
+    padding: 120px 15px 80px 15px;
+}
+#appBlock .wrapHomeapp .wrap {
+    color: white;
+}
+#appBlock .wrapHomeapp .wrap .appTitle h2 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 3.5rem;
+}
+#appBlock .wrapHomeapp .wrap .appContent {
+    margin: 2rem 0;
+    font-weight: 600;
+}
+#appBlock .wrapHomeapp .wrap .appButton button {
+    font-weight: 600;
+}
+#appBlock .wrapHomeapp .wrap .appService {
+    margin-top: 1rem;
+    font-weight: 600;
+}
+#appBlock .wrapHomeapp .wrap .appService a {
+    color: white;
+    text-decoration: underline;
+}
+#appBlock .wrapHomeapp .mobile-box {
+    position: relative;
+    padding: 0 28%;
+}
+.app {
+    position: relative;
+    padding-bottom: 220%;
+}
+.mobile {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url("http://localhost:3000/assets/images/mobile.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.app-carousel {
+    position: absolute;
+    height: 94%;
+    width: 96%;
+    top: 14px;
+    left: 5px;
+    border-radius: 24px;
+    overflow: hidden;
+}
+.pad-bot{
+    display: block !important;
+}
+@media only screen and (min-width: 992px) {
+    #appBlock .text-lg-start {
+        text-align: start !important;
+    }
+}
+@media only screen and (max-width: 992px) and (min-width: 769px) {
+    #appBlock .text-center {
+        padding: 0 5rem;
+    }
+    #appBlock .wrapHomeapp .wrap .appTitle h2 {
+        font-size: 1.8rem;
+        padding: 0 5rem;
+    }
+    .app-carousel {
+        height: 94%;
+        width: 94%;
+        top: 25px;
+        left: 10px;
+        border-radius: 40px;
+    }
+    #appBlock .wrapHomeapp .mobile-box {
+        padding: 5% 28%;
+    }
+}
+@media only screen and (max-width: 768px) and (min-width: 577px) {
+    .app-carousel {
+        height: 92%;
+        width: 95%;
+        top: 25px;
+        left: 6px;
+        border-radius: 30px;
+    }
+}
+@media only screen and (max-width: 576px) and (min-width: 361px) {
+  .app-carousel {
+      height: 93%;
+      width: 95%;
+      top: 12px;
+      left: 4px;
+      border-radius: 18px;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .app-carousel {
+      height: 93%;
+      width: 95%;
+      top: 8px;
+      border-radius: 10px;
+      left: 4px;
+  }
+}

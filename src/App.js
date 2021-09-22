@@ -2,18 +2,20 @@ import React, { Component } from 'react'
 import { Router, Switch, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
-import HomeTemplate from './HomeTemplate/HomeTemplate';
-import AdminTemplate from './AdminTemplate/AdminTemplate';
+import './App.css';
 
-import Home from './HomeTemplate/Home/Home';
-import About from './HomeTemplate/About/About';
-import Test from './HomeTemplate/Test/Test';
-import Login from './HomeTemplate/Login/Login';
+import HomeTemplate from './Pages/HomeTemplate/HomeTemplate';
+import AdminTemplate from './Pages/AdminTemplate/AdminTemplate';
 
-import Admin from './AdminTemplate/Admin/Admin';
-import Dashboard from './AdminTemplate/Dashboard/Dashboard';
+import Home from './Pages/HomeTemplate/Home/Home';
+import About from './Pages/HomeTemplate/About/About';
+import Test from './Pages/HomeTemplate/Test/Test';
+import Login from './Pages/HomeTemplate/Login/Login';
 
-import Error from './Error/Error';
+import Admin from './Pages/AdminTemplate/Admin/Admin';
+import Dashboard from './Pages/AdminTemplate/Dashboard/Dashboard';
+
+import Error from './Pages/Error/Error';
 
 export const history = createBrowserHistory();
 

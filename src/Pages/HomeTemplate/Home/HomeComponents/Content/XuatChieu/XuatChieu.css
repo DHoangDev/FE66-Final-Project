@@ -1,0 +1,98 @@
+  #cine-TimetoShow {
+    max-width: 940px;
+  }
+  #cine-TimetoShow #cine-pills-tab {
+    padding-bottom: 170%;
+  }
+  #cine-TimetoShow .card .row {
+    height: 100%;
+  }
+  #cine-TimetoShow .card .row .nav a {
+    margin: 0 auto;
+  }
+  #cine-TimetoShow .card .row .nav a .cine-logo {
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  #cine-TimetoShow .card .row .nav a .cine-logo img {
+    width: 100%;
+  }
+  #cine-TimetoShow .card .row .cineBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /* width: 100%; */
+  }
+  #cine-TimetoShow .card .row .cineBox .img-tab-pane {
+    min-width: 50px;
+    height: 50px;
+  }
+  #cine-TimetoShow .card .row .cineBox .img-tab-pane img {
+    width: 100%;
+    height: 100%;
+  }
+  #cine-TimetoShow .card .row .cineBox .content {
+    width: 71%;
+    margin-left: 1rem;
+  }
+  
+  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) {
+    margin: 0;
+    font-size: 14px;
+  }
+  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) .bhd {
+    color: #8bc541;
+  }
+  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) .cns {
+    color: #df0d7a;
+  }
+  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) .beta {
+    color: #008fe5;
+  }
+  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) .ddc {
+    color: #9c9c9c;
+  }
+  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) .megaGS {
+    color: #e5a813;
+  }
+  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) .dCine {
+    color: #000;
+  }
+  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) .lotte {
+    color: #ca4137;
+  }
+  #cine-TimetoShow .card .row .cineBox .content span {
+    display: block;
+    width: 100%;
+  }
+  #cine-TimetoShow .card .row .cineBox .content .infoMovieCine {
+    font-weight: 600;
+    margin: 0;
+    font-size: 12px;
+    color: #949494;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  #cine-TimetoShow .card .row .cineBox .content a {
+    color: #fb4226 !important;
+    font-size: 12px;
+  }
+  #cine-TimetoShow .card .row .cineBox:hover {
+    cursor: pointer;
+  }
+@media only screen and (max-width: 767px) {
+  #cine-TimetoShow>.card{
+    margin: 0 1rem;
+  }
+  #cine-TimetoShow .card .row .nav a {
+    margin: 0 auto 0 1rem;
+  }
+  #cine-TimetoShow #cine-pills-tab {
+    padding-bottom: 0%;
+  }
+}

@@ -3,6 +3,7 @@
   }
   
   #selectFilm .card {
+    z-index: 12;
     max-width: 940px;
     padding: 12px 0;
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);

@@ -1,0 +1,171 @@
+#BannelCarousel {
+  margin-top: 60px;
+}
+.padding-bottom {
+  position: relative;
+  padding-bottom: 43%;
+}
+.venobox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  z-index: 10;
+}
+.img {
+  width: 100%;
+  height: 100%;
+}
+.venobox button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 10;
+  background: 0 0;
+  border: none;
+  opacity: 0;
+}
+.venobox:hover > button {
+  cursor: pointer;
+  opacity: 1;
+}
+.background-linear {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 11;
+  width: 100%;
+  height: 16%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#000), color-stop(100%, transparent));
+  background: linear-gradient(to top, #000, transparent 100%);
+}
+#BannelCarousel .carousel-indicators{
+  margin-bottom: 5rem;
+}
+#BannelCarousel .bannel-dotsline{
+  position: relative;
+  margin: 0 30px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  text-indent: unset;
+  text-align: center;
+  transition: unset;
+  font-size: .75rem;
+}
+#BannelCarousel .bannel-dotsline.m::before{
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  content: "";
+  background-color: white;
+  width: 30px;
+  height: 2px;
+}
+#BannelCarousel .bannel-dotsline.m::after{
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  content: "";
+  background-color: white;
+  width: 30px;
+  height: 2px;
+}
+#BannelCarousel .bannel-dotsline.e::before{
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  content: "";
+  background-color: white;
+  width: 30px;
+  height: 2px;
+}
+#BannelCarousel .bannel-dotsline.e::after{
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  content: "";
+  width: 30px;
+  height: 2px;
+}
+#BannelCarousel .bannel-dotsline.s::after{
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  content: "";
+  background-color: white;
+  width: 30px;
+  height: 2px;
+}
+#BannelCarousel .bannel-dotsline.s::before{
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  content: "";
+  width: 30px;
+  height: 2px;
+}
+#BannelCarousel .bannel-dotsline.active::before{
+  opacity: .5;
+}
+#BannelCarousel .bannel-dotsline.active::after{
+  opacity: .5;
+}
+#BannelCarousel .carousel-control-next, #BannelCarousel .carousel-control-prev {
+  width: 10%;
+  z-index: 10;
+}
+#BannelCarousel .carousel-control-next .next-icon, #BannelCarousel .carousel-control-prev .prev-icon {
+  position: relative;
+}
+#BannelCarousel .carousel-control-prev .prev-icon::after {
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: '\f100';
+  color: gray;
+  font-size: 3rem;
+  top: -40px;
+  left: 0;
+}
+#BannelCarousel .carousel-control-next .next-icon::before {
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: '\f101';
+  color: gray;
+  font-size: 3rem;
+  top: -40px;
+  right: 0;
+}
+@media only screen and (max-width: 767px) {
+  #BannelCarousel .carousel-indicators{
+      margin-bottom: .25rem;
+  }
+  #BannelCarousel .bannel-dotsline{
+      margin: 0 10px;
+  }
+  #BannelCarousel .bannel-dotsline.m::before{
+      width: 10px;
+  }
+  #BannelCarousel .bannel-dotsline.m::after{
+      width: 10px;
+  }
+  #BannelCarousel .bannel-dotsline.e::before{
+      width: 10px;
+  }
+  #BannelCarousel .bannel-dotsline.e::after{
+      width: 10px;
+  }
+  #BannelCarousel .bannel-dotsline.s::after{
+      width: 10px;
+  }
+  #BannelCarousel .bannel-dotsline.s::before{
+      width: 10px;
+  }
+}

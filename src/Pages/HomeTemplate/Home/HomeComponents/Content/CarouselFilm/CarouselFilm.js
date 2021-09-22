@@ -1,22 +1,33 @@
 import React, { Component } from 'react'
+import Slider from "react-slick";
 
 import './CarouselFilm.css';
 
 export default class CarouselFilm extends Component {
     render() {
+
+        const settings = {
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false
+        };
+
         return (
-            <div>
-                <section id="timeCine" className="ml-auto mr-auto mt-4">
-                    <nav>
-                        <div className="nav nav-tabs align-items-end" id="nav-tab" role="tablist">
-                            <a className="nav-link ml-auto active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Đang Chiếu</a>
-                            <a className="nav-link mr-auto" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Sắp Chiếu</a>
-                        </div>
-                    </nav>
-                </section>
+            <section id="timeCine" className="ml-auto mr-auto mt-4">
+                <nav>
+                    <div className="nav nav-tabs align-items-end" id="nav-tab" role="tablist">
+                        <a className="nav-link ml-auto active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
+                            role="tab" aria-controls="nav-home" aria-selected="true">Đang Chiếu</a>
+                        <a className="nav-link mr-auto" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+                            role="tab" aria-controls="nav-profile" aria-selected="false">Sắp Chiếu</a>
+                    </div>
+                </nav>
                 <div className="tab-content" id="nav-tabContent">
                     <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div className="carousel_slick_2">
+                        <Slider {...settings} className="carousel_slick_2">
                             <div className="item">
                                 <div className="row">
                                     <div className="col-6 col-sm-4 col-md-3">
@@ -417,10 +428,10 @@ export default class CarouselFilm extends Component {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </Slider>
                     </div>
                     <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <div className="carousel_slick_3">
+                        <Slider {...settings} className="carousel_slick_3">
                             <div className="item">
                                 <div className="row">
                                     <div className="col-6 col-sm-4 col-md-3">
@@ -781,10 +792,10 @@ export default class CarouselFilm extends Component {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </Slider>
                     </div>
                 </div>
-            </div>
+            </section>
         )
     }
 }
