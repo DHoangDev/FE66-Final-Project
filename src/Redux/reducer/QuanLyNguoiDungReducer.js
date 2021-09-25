@@ -1,17 +1,17 @@
 import { USER_LOGIN } from "../../util/setting";
-import { DANG_NHAP } from "../action/type/type"
+import { DANG_NHAP } from "../action/type/QuanLyNguoiDungType"
 
 
 
 
-const usLogin = null;
+let usLogin = {};
 if(localStorage.getItem(USER_LOGIN)){
-    usLogin =JSON.parse(localStorage.getItem(USER_LOGIN))
+    usLogin = JSON.parse(localStorage.getItem(USER_LOGIN))
 }
 
 
 const initialState = {
-    userLogin:usLogin
+    userLogin:usLogin,
 }
 
 export const QuanLyNguoiDungReducer= (state = initialState,action) => {
@@ -19,7 +19,6 @@ export const QuanLyNguoiDungReducer= (state = initialState,action) => {
 
     case DANG_NHAP:
         return { ...state,userLogin:action.userLogin}
-
     default:
         return state
     }

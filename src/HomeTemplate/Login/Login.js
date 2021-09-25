@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import loginAnimated from '../../js/login.js'
 import './Login.css'
 import Register from '../Login/Register/Register.js'
 import { useFormik } from 'formik'
 import { useDispatch } from 'react-redux'
 import { dangNhapAction } from '../../Redux/action/QuanLyNguoiDungAction.js'
+import * as Yup from 'yup';
 
 window.onload = function(){
   loginAnimated()
@@ -17,6 +18,12 @@ export default function Login(props) {
           taiKhoan: '',
           matKhau: '',
       },
+      validationSchema:  Yup.object().shape({
+        taiKhoan: Yup.string().required('Không được bỏ trống'),
+        matKhau: Yup.string().required('Mật khẩu không được bỏ trống!').min(6,'Mật khẩu từ 6 - 32 ký tự !').max(32,'Mật khẩu từ 6 - 32 ký tự !')
+        // email: Yup.string().required('Email không được bỏ trống!').matches(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,'Email không hợp lệ'),
+       
+      }),
       onSubmit:(value)=>{
         console.log('value',value)
         dispatch(dangNhapAction(value))
@@ -28,17 +35,20 @@ export default function Login(props) {
         <div className="bg-login">
   <div className="forms-container">
     <div className="signin-signup">
-      <form  className="sign-in-form" onSubmit={formik.handleSubmit}>
+      <form  className="sign-in-form" onSubmit={formik.handleSubmit} >
         <h2 className="title">Đăng Nhập</h2>
         <div className="input-field">
           <i className="fas fa-user" />
           <input name="taiKhoan" type="text" placeholder="Tài Khoản" onChange={formik.handleChange}/>
+          <div className="text text-danger">{formik.errors.taiKhoan && formik.touched.taiKhoan ? (<div>{formik.errors.taiKhoan}</div>) : null}</div>
         </div>
         <div className="input-field">
           <i className="fas fa-lock" />
           <input name="matKhau" type="password" placeholder="Mật Khẩu" onChange={formik.handleChange}/>
+          <div className="text text-danger">{formik.errors.matKhau && formik.touched.matKhau ? (<div>{formik.errors.matKhau}</div>) : null} </div>
         </div>
-        <button type="submit" className="btn solid" >Xác nhận</button>
+        <button type="submit" className="btn solid"  >Xác nhận</button>
+        
         <p className="social-text">Or Sign in with social platforms</p>
         <div className="social-media">
           <a href="/#" className="social-icon">
@@ -85,10 +95,11 @@ export default function Login(props) {
           Đăng Nhập
         </button>
       </div>
-      <img src='./assets/images/PngItem_3014574.png' className="image" alt='' />
+      <img src='./assets/images/PngItem_3014574.png' className="image right" alt='' />
     </div>
   </div>
   </div>
 
     )
+    
 }

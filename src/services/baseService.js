@@ -1,4 +1,4 @@
-import {DOMAIN,USER_LOGIN} from '../util/setting'
+import {DOMAIN,USER_LOGIN,ACCESS_TOKEN} from '../util/setting'
 import axios from "axios"
 import { CYBERSOFTTOKEN } from '../util/setting' 
 export class baseService{
@@ -7,7 +7,7 @@ export class baseService{
             url:`${DOMAIN}/${url}`,
             method:'GET',
             headers:{
-                'Authorization':`Bearer ${localStorage.getItem(USER_LOGIN)}`,
+                'Authorization':`Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
                 'TokenCybersoft':CYBERSOFTTOKEN
            }
         })
@@ -18,7 +18,7 @@ export class baseService{
             data:data,
             method:'POST',
             headers:{
-                'Authorization': `Bearer ${localStorage.getItem(USER_LOGIN)}`,
+                'Authorization': `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
                'TokenCybersoft':CYBERSOFTTOKEN
             }
         })
@@ -29,7 +29,7 @@ export class baseService{
             data:data,
             method:'PUT',
             headers:{
-                'Authorization':`Bearer ${localStorage.getItem(USER_LOGIN)}`,
+                'Authorization':`Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
                 'TokenCybersoft':CYBERSOFTTOKEN
            }
         })
@@ -39,7 +39,7 @@ export class baseService{
             url:`${DOMAIN}/${url}`,
             method:'DELETE',
             headers:{
-                'Authorization':`Bearer ${localStorage.getItem(USER_LOGIN)}`,
+                'Authorization':`Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
                 'TokenCybersoft':CYBERSOFTTOKEN
            }
         })

@@ -14,15 +14,16 @@ import Admin from './AdminTemplate/Admin/Admin';
 import Dashboard from './AdminTemplate/Dashboard/Dashboard';
 
 import Error from './Error/Error';
+import LoadingComponent from './Loading/LoadingComponent';
 
-export const history = createBrowserHistory();
+export const history = createBrowserHistory(); //{forceRefresh:true}
 
 export default class App extends Component {
   render() {
     return (
       <div>
         <Router history={history}>
-          <div>
+            <LoadingComponent />
             <Switch>
               <HomeTemplate exact path="/" component={Home} />
               <HomeTemplate exact path="/Home" component={Home} />
@@ -33,10 +34,9 @@ export default class App extends Component {
               <AdminTemplate exact path="/Admin" component={Admin} />
               <AdminTemplate exact path="/Admin/admin" component={Admin} />
               <AdminTemplate exact path="/Admin/dashboard" component={Dashboard} />
-
               <Route path="*" component={Error} />
             </Switch>
-          </div>
+
         </Router>
       </div>
     )
