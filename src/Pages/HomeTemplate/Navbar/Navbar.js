@@ -5,19 +5,19 @@ import './Navbar.css';
 export default class Navbar extends Component {
     render() {
 
-        window.onload = () => {
+        document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll('header .navbar a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     window.scroll({ top: document.querySelector(this.getAttribute('href')).offsetTop - 70, behavior: 'smooth' });
                 });
             });
-        }
+        });
 
         return (
             <header>
                 <nav className="navbar navbar-expand-lg">
-                    <a className="navbar-brand p-0" href="#">
+                    <a className="navbar-brand p-0" href="/#">
                         <img className="w-50" src="./assets/images/web-logo.png" alt="..." />
                     </a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">

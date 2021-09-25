@@ -30,7 +30,7 @@ export default class App extends Component {
               <HomeTemplate exact path="/Home" component={Home} />
               <HomeTemplate exact path="/About" component={About} />
               <HomeTemplate exact path="/Test" component={Test} />
-              <HomeTemplate exact path="/Login" component={Login} />
+              <Route exact path="/Login" component={Login} />
 
               <AdminTemplate exact path="/Admin" component={Admin} />
               <AdminTemplate exact path="/Admin/admin" component={Admin} />

@@ -53,16 +53,3 @@
   #selectFilm .small-block {
     width: calc(70% / 4);
   }
-  
-  #bg_img {
-    max-width: 940px;
-    margin: 0 auto;
-  }
-  
-  #bg_img .img {
-    padding-top: 120px;
-    background-size: 100%;
-    background-repeat: no-repeat;
-  }
-  
-  /*# sourceMappingURL=style.css.map */

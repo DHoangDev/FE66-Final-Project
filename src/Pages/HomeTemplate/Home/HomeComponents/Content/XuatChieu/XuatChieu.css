@@ -9,6 +9,10 @@
   }
   #cine-TimetoShow .card .row .nav a {
     margin: 0 auto;
+    cursor: pointer;
+  }
+  #cine-TimetoShow .card .row .nav a.rap.active .cine-logo img {
+    opacity: 1;
   }
   #cine-TimetoShow .card .row .nav a .cine-logo {
     display: flex;
@@ -20,79 +24,99 @@
   }
   #cine-TimetoShow .card .row .nav a .cine-logo img {
     width: 100%;
+    opacity: .7;
   }
-  #cine-TimetoShow .card .row .cineBox {
+  #cine-TimetoShow .card .row .nav a:hover>.cine-logo img {
+    opacity: 1;
+  }
+  #cine-TimetoShow .cumRap .cineBox {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    /* width: 100%; */
+    opacity: .7;
+    min-width: 0;
+    width: 100%;
+    margin: 15px 15px 0 15px;
+    padding-bottom: 15px;
   }
-  #cine-TimetoShow .card .row .cineBox .img-tab-pane {
+  #cine-TimetoShow .cumRap .cineBox.active {
+    opacity: 1;
+  }
+  #cine-TimetoShow .cumRap .cineBox:hover {
+    opacity: 1;
+  }
+  #cine-TimetoShow .cumRap .cineBox .img-tab-pane {
     min-width: 50px;
     height: 50px;
   }
-  #cine-TimetoShow .card .row .cineBox .img-tab-pane img {
+  #cine-TimetoShow .cumRap .cineBox .img-tab-pane img {
     width: 100%;
     height: 100%;
   }
-  #cine-TimetoShow .card .row .cineBox .content {
-    width: 71%;
-    margin-left: 1rem;
+  #cine-TimetoShow .cumRap .cineBox .content {
+    min-width: 0;
+    width: auto;
+    margin-left: 15px;
+    line-height: 1.3;
   }
-  
-  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) {
+  #cine-TimetoShow .cumRap .cineBox .content p:nth-child(1) {
     margin: 0;
     font-size: 14px;
   }
-  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) .bhd {
+  #cine-TimetoShow .cumRap .cineBox .content p:nth-child(1) .bhd {
     color: #8bc541;
   }
-  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) .cns {
+  #cine-TimetoShow .cumRap .cineBox .content p:nth-child(1) .cns {
     color: #df0d7a;
   }
-  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) .beta {
+  #cine-TimetoShow .cumRap .cineBox .content p:nth-child(1) .beta {
     color: #008fe5;
   }
-  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) .ddc {
+  #cine-TimetoShow .cumRap .cineBox .content p:nth-child(1) .ddc {
     color: #9c9c9c;
   }
-  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) .megaGS {
+  #cine-TimetoShow .cumRap .cineBox .content p:nth-child(1) .megaGS {
     color: #e5a813;
   }
-  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) .dCine {
+  #cine-TimetoShow .cumRap .cineBox .content p:nth-child(1) .dCine {
     color: #000;
   }
-  #cine-TimetoShow .card .row .cineBox .content p:nth-child(1) .lotte {
+  #cine-TimetoShow .cumRap .cineBox .content p:nth-child(1) .lotte {
     color: #ca4137;
   }
-  #cine-TimetoShow .card .row .cineBox .content span {
-    display: block;
-    width: 100%;
+  #cine-TimetoShow .cumRap .cineBox .content p:nth-child(1) .cgv {
+    color: red;
   }
-  #cine-TimetoShow .card .row .cineBox .content .infoMovieCine {
+  #cine-TimetoShow .cumRap .cineBox .content p:nth-child(1) .glx {
+    color: orange;
+  }
+  #cine-TimetoShow .cumRap .cineBox .content p:nth-child(1) .tenRap {
     font-weight: 600;
-    margin: 0;
+  }
+  #cine-TimetoShow .cumRap .cineBox .content .infoMovieCine {
+    display: block;
+    font-weight: 600;
     font-size: 12px;
     color: #949494;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  #cine-TimetoShow .card .row .cineBox .content a {
+  #cine-TimetoShow .cumRap .cineBox .content a {
     color: #fb4226 !important;
     font-size: 12px;
   }
-  #cine-TimetoShow .card .row .cineBox:hover {
+  #cine-TimetoShow .cumRap .cineBox:hover {
     cursor: pointer;
   }
 @media only screen and (max-width: 767px) {
   #cine-TimetoShow>.card{
     margin: 0 1rem;
   }
-  #cine-TimetoShow .card .row .nav a {
-    margin: 0 auto 0 1rem;
-  }
   #cine-TimetoShow #cine-pills-tab {
     padding-bottom: 0%;
+  }
+  #cine-TimetoShow .card .row .nav a {
+    margin-left: 15px;
   }
 }

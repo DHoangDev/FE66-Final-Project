@@ -6,7 +6,6 @@ header {
     -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   }
-  
   header nav {
     background: rgba(255, 255, 255, 0.95);
     -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
@@ -16,14 +15,12 @@ header {
   header nav.navbar {
     padding: 5px 1rem;
   }
-  
   header nav.navbar .navbar-toggler {
     border: none;
     padding: 0;
     width: 25px;
     height: 20px;
   }
-  
   header nav.navbar .navbar-menu {
     margin-left: 35%;
   }
@@ -143,4 +140,9 @@ header {
     header nav.navbar .navbar-collapse.show {
       right: 0;
     }
+}
+@media only screen and (max-width: 1200px) {
+  header nav.navbar .navbar-menu {
+    margin-left: 25%;
+  }
 }

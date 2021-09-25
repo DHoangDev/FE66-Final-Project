@@ -1,104 +1,120 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
 import './XuatChieu.css';
 
-export default class XuatChieu extends Component {
-    render() {
-        return (
-            <section id="cine-TimetoShow" className="ml-auto mr-auto">
-                <div className="card mb-5">
-                    <div className="row m-0">
-                        <div className="col-12 col-md-1 p-0 border-right">
-                            <div className="nav flex-column nav-pills" id="cine-pills-tab" role="tablist" aria-orientation="vertical">
-                                <a className="border-bottom active" id="BHDtab" data-toggle="pill" href="#BHD" role="tab" aria-controls="BHD" aria-selected="true">
-                                    <div className="cine-logo"><img src="./assets/images/bhd.png" alt /></div>
-                                </a>
-                                <a className="border-bottom " id="CNStab" data-toggle="pill" href="#CNS" role="tab" aria-controls="CNS" aria-selected="false">
-                                    <div className="cine-logo"><img src="./assets/images/1721cfa98768f300c03792e25ceb0191.png" alt /></div>
-                                </a>
-                                <a className="border-bottom " id="BETAtab" data-toggle="pill" href="#BETA" role="tab" aria-controls="BETA" aria-selected="false">
-                                    <div className="cine-logo"><img src="./assets/images/77807d96b5048f1d79f45d9d7d3f6a3a.png" alt /></div>
-                                </a>
-                                <a className="border-bottom " id="DDCtab" data-toggle="pill" href="#DDC" role="tab" aria-controls="DDC" aria-selected="false">
-                                    <div className="cine-logo"><img src="./assets/images/9b240f96a233bb43203ee514a21a6004.png" alt /></div>
-                                </a>
-                                <a className="border-bottom " id="MegaGStab" data-toggle="pill" href="#MegaGS" role="tab" aria-controls="MegaGS" aria-selected="true">
-                                    <div className="cine-logo"><img src="./assets/images/7b078639bd8fdb09dd83652d207c7b90.png" alt /></div>
-                                </a>
-                                <a className="border-bottom " id="DCinetab" data-toggle="pill" href="#DCine" role="tab" aria-controls="DCine" aria-selected="false">
-                                    <div className="cine-logo"><img src="./assets/images/9ff07a03371c4a09260309faa32caa55.jpg" alt /></div>
-                                </a>
-                                <a className="border-bottom " id="Lottetab" data-toggle="pill" href="#Lotte" role="tab" aria-controls="Lotte" aria-selected="false">
-                                    <div className="cine-logo"><img src="./assets/images/404b8c4b80d77732e7426cdb7e24be20.png" alt /></div>
-                                </a>
-                            </div>
+import { GROUP_ID } from '../../../../../../Util/Setting';
+import { rapChieuAction, cumRapAction, lichChieuAction } from '../../../../../../Redux/Action/QuanLyXuatChieuAction';
+
+export default function XuatChieu() {
+
+    const { arrRap, arrCumRap, arrCumRap_ChiTiet, arrLichChieu } = useSelector(state => state.QuanLyXuatChieuReducer);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const actionRapChieu = rapChieuAction("", GROUP_ID);
+        dispatch(actionRapChieu);
+    }, [])
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const actionCumRap = cumRapAction("", GROUP_ID);
+        dispatch(actionCumRap);
+        // const actionLichChieu = lichChieuAction(arrRap[0].maHeThongRap, '', GROUP_ID);
+        // dispatch(actionLichChieu);
+    })
+
+    const getCumRap = (data) => {
+        const actionCumRap = cumRapAction(data, GROUP_ID);
+        dispatch(actionCumRap);
+    }
+
+    const getLichChieu = (data, maCumRap) => {
+        const actionLichChieu = lichChieuAction(data, maCumRap, GROUP_ID);
+        dispatch(actionLichChieu);
+    }
+
+    const renderRapChieu = () => {
+        return arrRap.map((value, index) => {
+            if (index === 0) {
+                return (
+                    <a className="rap border-bottom active" onClick={() => { getCumRap(value.maHeThongRap) }} key={index}
+                        data-toggle="pill" role="tab" aria-selected="true">
+                        <div className="cine-logo"><img src={value.logo} alt="..." /></div>
+                    </a>
+                )
+            } else {
+                return (
+                    <a className="rap border-bottom" onClick={() => { getCumRap(value.maHeThongRap) }} key={index}
+                        data-toggle="pill" role="tab" aria-selected="false">
+                        <div className="cine-logo"><img src={value.logo} alt="..." /></div>
+                    </a>
+                )
+            }
+        })
+    }
+
+    const renderCumRap = () => {
+        return arrCumRap_ChiTiet.map((value, index) => {
+            var maRap = value.maCumRap.slice(0, value.maCumRap.indexOf('-'));
+            var tenRap = value.tenCumRap.slice(0, value.tenCumRap.indexOf('-'));
+            var tenRapChiTiet = value.tenCumRap.slice(value.tenCumRap.indexOf('-'))
+            if (index === 0) {
+                return (
+                    <div className="cineBox border-bottom active" key={index}
+                        data-toggle="tab" aria-selected="true" role="tab">
+                        <div className="img-tab-pane" onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}><img src={value.hinhAnh} alt="..." /></div>
+                        <div className="content">
+                            <p onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}><b className={maRap}>{tenRap}</b><b className="tenRap"> {tenRapChiTiet}</b></p>
+                            <span className="infoMovieCine" onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}>{value.diaChi}</span>
+                            <a href="#">[chi tiết]</a>
                         </div>
-                        <div className="col-12 col-md-4 p-0 border-right">
-                            <div className="tab-content" id="cine-pills-tabContent">
-                                <div className="tab-pane fade show active" id="BHD" role="tabpanel" aria-labelledby="BHDtab">
-                                    <div className="cineBox m-3 pb-3 border-bottom">
-                                        <span className="img-tab-pane"><img src="./assets/images/bhd-star-bitexco-16105952137769.png" alt /></span>
-                                        <div className="content">
-                                            <p><b className="bhd">BDH Star</b> - Bitexco</p>
-                                            <span className="infoMovieCine">L3-Bitexco Icon 68, 2 Hải Triều, Q.1</span>
-                                            <a href>[chi tiết]</a>
-                                        </div>
-                                    </div>
-                                    <div className="cineBox m-3 pb-3 border-bottom">
-                                        <span className="img-tab-pane"><img src="./assets/images/bhd-star-bitexco-16105952137769.png" alt /></span>
-                                        <div className="content">
-                                            <p><b className="bhd">BDH Star</b> - Vincom Thảo Điền</p>
-                                            <span className="infoMovieCine">L3-Bitexco Icon 68, 2 Hải Triều, Q.1, lorem</span>
-                                            <a href>[chi tiết]</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tab-pane fade" id="CNS" role="tabpanel" aria-labelledby="CNStab">
-                                    <div className="cineBox m-3 pb-3 border-bottom">
-                                        <span className="img-tab-pane"><img src="./assets/images/bhd-star-bitexco-16105952137769.png" alt /></span>
-                                        <div className="content">
-                                            <p><b className="cns">CNS</b> - Hai Bà Trưng</p>
-                                            <span className="infoMovieCine">L3-Bitexco Icon 68, 2 Hải Triều, Q.1, lorem ipsum dolor sit amet</span>
-                                            <a href>[chi tiết]</a>
-                                        </div>
-                                    </div>
-                                    <div className="cineBox m-3 pb-3 border-bottom">
-                                        <span className="img-tab-pane"><img src="./assets/images/bhd-star-bitexco-16105952137769.png" alt /></span>
-                                        <div className="content">
-                                            <p><b className="cns">CNS</b> - Quốc Thanh</p>
-                                            <span className="infoMovieCine">L3-Bitexco Icon 68, 2 Hải Triều, Q.1</span>
-                                            <a href>[chi tiết]</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tab-pane fade" id="BETA" role="tabpanel" aria-labelledby="BETAtab">
-                                    <div className="cineBox m-3 pb-3 border-bottom">
-                                        <span className="img-tab-pane"><img src="./assets/images/bhd-star-bitexco-16105952137769.png" alt /></span>
-                                        <div className="content">
-                                            <p><b className="beta">Beta Cinemas</b> - Quang Trung</p>
-                                            <span className="infoMovieCine">L3-Bitexco Icon 68, 2 Hải Triều, Q.1</span>
-                                            <a href>[chi tiết]</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tab-pane fade" id="DDC" role="tabpanel" aria-labelledby="DDCtab">
-                                </div>
-                                <div className="tab-pane fade" id="MegaGS" role="tabpanel" aria-labelledby="MegaGStab">
-                                </div>
-                                <div className="tab-pane fade" id="DCine" role="tabpanel" aria-labelledby="DCinetab">
-                                </div>
-                                <div className="tab-pane fade" id="Lotte" role="tabpanel" aria-labelledby="Lottetab">
-                                </div>
-                            </div>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className="cineBox border-bottom" key={index}
+                        data-toggle="tab" aria-selected="false" role="tab">
+                        <div className="img-tab-pane" onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}><img src={value.hinhAnh} alt="..." /></div>
+                        <div className="content">
+                            <p onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}><b className={maRap}>{tenRap}</b><b className="tenRap"> {tenRapChiTiet}</b></p>
+                            <span className="infoMovieCine" onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}>{value.diaChi}</span>
+                            <a href="#">[chi tiết]</a>
                         </div>
-                        <div className="col-12 col-md-7 p-0">
-                            <div id="cineContentShow" className="p-3 text-center">
-                                <p className="font-weight-bold">Không có xuất chiếu</p>
-                            </div>
+                    </div>
+                )
+            }
+        })
+    }
+
+    const renderLichChieu = () => {
+        // console.log(arrLichChieu)
+        // return arrLichChieu.map((value, index) => {
+
+        // })
+    }
+
+    return (
+        <section id="cine-TimetoShow" className="ml-auto mr-auto my-5">
+            <div className="card">
+                <div className="row m-0">
+                    <div className="col-12 col-md-1 p-0 border-right">
+                        <div className="nav flex-column nav-pills" id="cine-pills-tab" role="tablist" aria-orientation="vertical">
+                            {renderRapChieu()}
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-4 p-0 border-right">
+                        <div className="nav nav-pills cumRap" id="cine-pills-tab-2" role="tablist" aria-orientation="vertical">
+                            {renderCumRap()}
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-7 p-0">
+                        <div id="cineContentShow" className="p-3 text-center">
+                            <p className="font-weight-bold">Không có xuất chiếu</p>
+                            <div>{renderLichChieu()}</div>
                         </div>
                     </div>
                 </div>
-            </section>
-        )
-    }
+            </div>
+        </section>
+    )
 }

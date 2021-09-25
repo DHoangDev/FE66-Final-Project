@@ -1,87 +1,94 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
 import "./CarouselBannel.css"
 
-export default class Test extends Component {
-    render() {
+import { bannelAction } from '../../../../../Redux/Action/BannelAction'
 
-        // const settings = {
-        //     dots: true,
-        //     infinite: true,
-        //     speed: 500,
-        //     slidesToShow: 1,
-        //     slidesToScroll: 1
-        // };
+export default function CarouselBannel() {
 
-        return (
-            <div id="BannelCarousel" className="carousel slide" data-ride="carousel">
-                <ol className="carousel-indicators">
-                    <li data-target="#BannelCarousel" data-slide-to={0} className="bannel-dotsline s active" >
-                        <b>1</b>
+    const { arrBannel } = useSelector(state => state.BannelReducer);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const actionBannel = bannelAction();
+        dispatch(actionBannel);
+    }, [])
+
+    const renderBannelIndicators = () => {
+        return arrBannel.map((value, index) => {
+            if (index === 0) {
+                return (
+                    <li data-target="#BannelCarousel" data-slide-to={index} className="bannel-dotsline s active" key={index}>
+                        <b>{value.maBanner}</b>
                     </li>
-                    <li data-target="#BannelCarousel" data-slide-to={1} className="bannel-dotsline m" >
-                        <b>2</b>
-                    </li>
-                    <li data-target="#BannelCarousel" data-slide-to={2} className="bannel-dotsline m" >
-                        <b>3</b>
-                    </li>
-                    <li data-target="#BannelCarousel" data-slide-to={3} className="bannel-dotsline e" >
-                        <b>4</b>
-                    </li>
-                </ol>
-                <div className="carousel-inner">
+                )
+            } else {
+                if (index === arrBannel.length - 1) {
+                    return (
+                        <li data-target="#BannelCarousel" data-slide-to={index} className="bannel-dotsline e" key={index}>
+                            <b>{value.maBanner}</b>
+                        </li>
+                    )
+                } else {
+                    return (
+                        <li data-target="#BannelCarousel" data-slide-to={index} className="bannel-dotsline m" key={index}>
+                            <b>{value.maBanner}</b>
+                        </li>
+                    )
+                }
+            }
+        })
+    }
+
+    const renderBannel = () => {
+        return arrBannel.map((value, index) => {
+            if (index === 0) {
+                return (
                     <div className="carousel-item active">
                         <div className="padding-bottom">
                             <a className="venobox carousel-content" data-vbtype="video" href="https://youtu.be/sx1ROHCmY-4">
-                                <img className="img" src="./assets/images/trang-ti-16194117174325.jpg" alt />
+                                <img className="img" src={value.hinhAnh} alt="..." />
                                 <button>
-                                    <img src="./assets/images/play-video.png" alt />
+                                    <img src="./assets/images/play-video.png" alt="..." />
                                 </button>
                                 <div className="background-linear" />
                             </a>
                         </div>
                     </div>
+                )
+            } else {
+                return (
                     <div className="carousel-item">
                         <div className="padding-bottom">
                             <a className="venobox carousel-content" data-vbtype="video" href="https://youtu.be/sx1ROHCmY-4">
-                                <img className="img" src="./assets/images/lat-mat-48h-16177782153424.png" alt />
+                                <img className="img" src={value.hinhAnh} alt="..." />
                                 <button>
-                                    <img src="./assets/images/play-video.png" alt />
+                                    <img src="./assets/images/play-video.png" alt="..." />
                                 </button>
                                 <div className="background-linear" />
                             </a>
                         </div>
                     </div>
-                    <div className="carousel-item">
-                        <div className="padding-bottom">
-                            <a className="venobox carousel-content" data-vbtype="video" href="https://youtu.be/sx1ROHCmY-4">
-                                <img className="img" src="./assets/images/ban-tay-diet-quy-evil-expeller-16177781815781.png" alt />
-                                <button>
-                                    <img src="./assets/images/play-video.png" alt />
-                                </button>
-                            </a>
-                            <div className="background-linear" />
-                        </div>
-                    </div>
-                    <div className="carousel-item">
-                        <div className="padding-bottom">
-                            <a className="venobox carousel-content" data-vbtype="video" href="https://youtu.be/sx1ROHCmY-4">
-                                <img className="img" src="./assets/images/lat-mat-48h-16177782153424.png" alt />
-                                <button>
-                                    <img src="./assets/images/play-video.png" alt />
-                                </button>
-                            </a>
-                            <div className="background-linear" />
-                        </div>
-                    </div>
-                </div>
-                <a className="carousel-control-prev" href="#BannelCarousel" role="button" data-slide="prev">
-                    <span className="prev-icon" aria-hidden="true" />
-                </a>
-                <a className="carousel-control-next" href="#BannelCarousel" role="button" data-slide="next">
-                    <span className="next-icon" aria-hidden="true" />
-                </a>
-            </div>
-        )
+                )
+            }
+        })
     }
+
+    return (
+        <div id="BannelCarousel" className="carousel slide" data-ride="carousel">
+            <ol className="carousel-indicators">
+                {renderBannelIndicators()}
+            </ol>
+            <div className="carousel-inner">
+                {renderBannel()}
+            </div>
+            <a className="carousel-control-prev" href="#BannelCarousel" role="button" data-slide="prev">
+                <span className="prev-icon" aria-hidden="true" />
+            </a>
+            <a className="carousel-control-next" href="#BannelCarousel" role="button" data-slide="next">
+                <span className="next-icon" aria-hidden="true" />
+            </a>
+        </div>
+    )
 }

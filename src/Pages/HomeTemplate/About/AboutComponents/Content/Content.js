@@ -7,10 +7,10 @@ export default class Content extends Component {
         return (
             <section id="banner">
                 <div className="banner_section">
-                    <img className="banner_all" src="./assets/images/trang-ti-16190592773054.jpg" alt />
+                    <img className="banner_all" src="./assets/images/trang-ti-16190592773054.jpg" alt="..." />
                     <div className="playtrailer1">
                         <a className="venobox" data-vbtype="video" href="https://youtu.be/sx1ROHCmY-4">
-                            <img src="./assets/images/play-video.png" alt />
+                            <img src="./assets/images/play-video.png" alt="..." />
                         </a>
                     </div>
                     <div className="styleGardient" />
@@ -18,7 +18,7 @@ export default class Content extends Component {
                         <div className="col-sm-3">
                             <div className="poster">
                                 <a className="playtrailer showposter venobox" data-vbtype="video" href="https://youtu.be/sx1ROHCmY-4">
-                                    <img src="./assets/images/play-video.png" alt />
+                                    <img src="./assets/images/play-video.png" alt="..." />
                                 </a>
                             </div>
                         </div>
@@ -49,10 +49,10 @@ export default class Content extends Component {
                                 </div>
                             </div>
                             <div className="star">
-                                <img className="star_icon" src="./assets/images/star1.png" alt />
-                                <img className="star_icon" src="./assets/images/star1.png" alt />
-                                <img className="star_icon" src="./assets/images/star1.png" alt />
-                                <img className="star_icon" src="./assets/images/star1.2.png" alt />
+                                <img className="star_icon" src="./assets/images/star1.png" alt="..." />
+                                <img className="star_icon" src="./assets/images/star1.png" alt="..." />
+                                <img className="star_icon" src="./assets/images/star1.png" alt="..." />
+                                <img className="star_icon" src="./assets/images/star1.2.png" alt="..." />
                             </div>
                             <div className="danhgia">
                                 <span className="banner_detail1">166 người đánh giá</span>

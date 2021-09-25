@@ -51,13 +51,7 @@ export default class Content extends Component {
                     </div>
                 </section>
                 <CarouselFilm />
-                <section id="bg_img">
-                    <div className="img" style={{ backgroundImage: `url('/assets/images/back-news.png')` }} />
-                </section>
                 <XuatChieu />
-                <section id="bg_img">
-                    <div className="img" style={{ backgroundImage: `url('/assets/images/back-news.png')` }} />
-                </section>
                 <TinTuc />
                 <AppFilm />
             </div>

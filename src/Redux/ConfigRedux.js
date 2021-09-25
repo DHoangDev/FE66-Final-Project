@@ -1,8 +1,14 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
 import ReduxThunk from 'redux-thunk';
+import { applyMiddleware, combineReducers, createStore } from "redux";
+
+import { BannelReducer } from './Reducer/BannelReducer';
+import { QuanLyXuatChieuReducer } from './Reducer/QuanLyXuatChieuReducer'
+import { QuanLyNguoiDungReducer } from './Reducer/QuanLyNguoiDungReducer'
 
 const rootReducer = combineReducers({
-
+    BannelReducer,
+    QuanLyXuatChieuReducer,
+    QuanLyNguoiDungReducer,
 });
 
 export const store = createStore(

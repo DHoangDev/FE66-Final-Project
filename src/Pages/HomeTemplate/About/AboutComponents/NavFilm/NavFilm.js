@@ -62,11 +62,11 @@ export default class NavFilm extends Component {
                                 <div className="row tab_detail">
                                     <div className="col-sm-12 col-xs-12 nav_input">
                                         <span className="imgReview">
-                                            <img src="./assets/images/avatar.png" alt />
+                                            <img src="./assets/images/avatar.png" alt="..." />
                                         </span>
                                         <input className="inputreview" type="text" placeholder="Bạn nghĩ gì về phim này?" readOnly="readonly" />
                                         <span className="imgReviewstar">
-                                            <img src="./assets/images/listStar.png" alt />
+                                            <img src="./assets/images/listStar.png" alt="..." />
                                         </span>
                                     </div>
                                 </div>
@@ -76,7 +76,7 @@ export default class NavFilm extends Component {
                                             <div className="reviewcontain_userinfo">
                                                 <div className="inforeview">
                                                     <div className="inforeviewicon">
-                                                        <img src="./assets/images/111c5808618969de941fed35348111be.jpg" alt />
+                                                        <img src="./assets/images/111c5808618969de941fed35348111be.jpg" alt="..." />
                                                     </div>
                                                     <div className="inforeviewname">
                                                         <p>Sói Cô Đơn</p>
@@ -88,11 +88,11 @@ export default class NavFilm extends Component {
                                                         <p>10</p>
                                                     </div>
                                                     <div className="info_iconstar">
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
                                                     </div>
                                                 </div>
                                             </div>
@@ -104,7 +104,7 @@ export default class NavFilm extends Component {
                                             <div className="row">
                                                 <div className="col-sm-12 count">
                                                     <div className="iconlike">
-                                                        <img src="./assets/images/like.png" alt />
+                                                        <img src="./assets/images/like.png" alt="..." />
                                                         <span className="amount like">
                                                             <strong>0</strong> Thích
                                                         </span>
@@ -118,7 +118,7 @@ export default class NavFilm extends Component {
                                             <div className="reviewcontain_userinfo">
                                                 <div className="inforeview">
                                                     <div className="inforeviewicon">
-                                                        <img src="./assets/images/5fd79d9cac62feeb075ae11430416bbf.jpg" alt />
+                                                        <img src="./assets/images/5fd79d9cac62feeb075ae11430416bbf.jpg" alt="..." />
                                                     </div>
                                                     <div className="inforeviewname">
                                                         <p>Huynhhieu</p>
@@ -130,11 +130,11 @@ export default class NavFilm extends Component {
                                                         <p>10</p>
                                                     </div>
                                                     <div className="info_iconstar">
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
                                                     </div>
                                                 </div>
                                             </div>
@@ -146,7 +146,7 @@ export default class NavFilm extends Component {
                                             <div className="row">
                                                 <div className="col-sm-12 count">
                                                     <div className="iconlike">
-                                                        <img src="./assets/images/like.png" alt />
+                                                        <img src="./assets/images/like.png" alt="..." />
                                                         <span className="amount like">
                                                             <strong>0</strong> Thích
                                                         </span>
@@ -160,7 +160,7 @@ export default class NavFilm extends Component {
                                             <div className="reviewcontain_userinfo">
                                                 <div className="inforeview">
                                                     <div className="inforeviewicon">
-                                                        <img src="./assets/images/153e0aa4708af0bac63e12b5592d330b.jpg" alt />
+                                                        <img src="./assets/images/153e0aa4708af0bac63e12b5592d330b.jpg" alt="..." />
                                                     </div>
                                                     <div className="inforeviewname">
                                                         <p>Mai Nha</p>
@@ -172,11 +172,11 @@ export default class NavFilm extends Component {
                                                         <p>8</p>
                                                     </div>
                                                     <div className="info_iconstar">
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
                                                     </div>
                                                 </div>
                                             </div>
@@ -188,7 +188,7 @@ export default class NavFilm extends Component {
                                             <div className="row">
                                                 <div className="col-sm-12 count">
                                                     <div className="iconlike">
-                                                        <img src="./assets/images/like.png" alt />
+                                                        <img src="./assets/images/like.png" alt="..." />
                                                         <span className="amount like">
                                                             <strong>0</strong> Thích
                                                         </span>
@@ -202,7 +202,7 @@ export default class NavFilm extends Component {
                                             <div className="reviewcontain_userinfo">
                                                 <div className="inforeview">
                                                     <div className="inforeviewicon">
-                                                        <img src="./assets/images/1650d6a4f08e9bbe9afe7bcd26d6c137.jpg" alt />
+                                                        <img src="./assets/images/1650d6a4f08e9bbe9afe7bcd26d6c137.jpg" alt="..." />
                                                     </div>
                                                     <div className="inforeviewname">
                                                         <p>Bất Hạnh Lắm Bạn Ơi</p>
@@ -214,11 +214,11 @@ export default class NavFilm extends Component {
                                                         <p>10</p>
                                                     </div>
                                                     <div className="info_iconstar">
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
                                                     </div>
                                                 </div>
                                             </div>
@@ -230,7 +230,7 @@ export default class NavFilm extends Component {
                                             <div className="row">
                                                 <div className="col-sm-12 count">
                                                     <div className="iconlike">
-                                                        <img src="./assets/images/like.png" alt />
+                                                        <img src="./assets/images/like.png" alt="..." />
                                                         <span className="amount like">
                                                             <strong>0</strong> Thích
                                                         </span>
@@ -244,7 +244,7 @@ export default class NavFilm extends Component {
                                             <div className="reviewcontain_userinfo">
                                                 <div className="inforeview">
                                                     <div className="inforeviewicon">
-                                                        <img src="./assets/images/93a7052a103a9cf4723a55dac2d500ce.jpg" alt />
+                                                        <img src="./assets/images/93a7052a103a9cf4723a55dac2d500ce.jpg" alt="..." />
                                                     </div>
                                                     <div className="inforeviewname">
                                                         <p>Phương</p>
@@ -256,11 +256,11 @@ export default class NavFilm extends Component {
                                                         <p>10</p>
                                                     </div>
                                                     <div className="info_iconstar">
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
-                                                        <img className="smallstar" src="./assets/images/star1.png" alt />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
+                                                        <img className="smallstar" src="./assets/images/star1.png" alt="..." />
                                                     </div>
                                                 </div>
                                             </div>
@@ -272,7 +272,7 @@ export default class NavFilm extends Component {
                                             <div className="row">
                                                 <div className="col-sm-12 count">
                                                     <div className="iconlike">
-                                                        <img src="./assets/images/like.png" alt />
+                                                        <img src="./assets/images/like.png" alt="..." />
                                                         <span className="amount like">
                                                             <strong>0</strong> Thích
                                                         </span>

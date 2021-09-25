@@ -9,7 +9,7 @@ export default function HomeTemplate(props) {
     return (
         <Route exact path={props.path} render={(propsRoute) => {
             return (
-                <div>
+                <div style={{ backgroundColor: "#1B2631" }}>
                     <Navbar {...propsRoute} />
                     <props.component {...propsRoute} />
                     <Footer />
