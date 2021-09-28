@@ -2,11 +2,11 @@ import axios from 'axios';
 
 import { qlXuatChieuService } from '../../Services/QuanLyXuatChieuService';
 
-export const rapChieuAction = (data, maNhom) => {
+export const rapChieuAction = () => {
     return async dispatch => {
         try {
 
-            const result = await qlXuatChieuService.getXuatChieu(data, maNhom);
+            const result = await qlXuatChieuService.getRapChieu();
             if (result.data.statusCode === 200) {
                 dispatch({
                     type: 'SET_DATA_RAP',

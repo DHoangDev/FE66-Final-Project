@@ -10,6 +10,7 @@ import AdminTemplate from './Pages/AdminTemplate/AdminTemplate';
 import Home from './Pages/HomeTemplate/Home/Home';
 import About from './Pages/HomeTemplate/About/About';
 import Test from './Pages/HomeTemplate/Test/Test';
+import TestGetID from './Pages/HomeTemplate/TestGetID/TestGetID';
 import Login from './Pages/HomeTemplate/Login/Login';
 
 import Admin from './Pages/AdminTemplate/Admin/Admin';
@@ -30,6 +31,7 @@ export default class App extends Component {
               <HomeTemplate exact path="/Home" component={Home} />
               <HomeTemplate exact path="/About" component={About} />
               <HomeTemplate exact path="/Test" component={Test} />
+              <HomeTemplate exact path="/TestGetID/:id" component={TestGetID} />
               <Route exact path="/Login" component={Login} />
 
               <AdminTemplate exact path="/Admin" component={Admin} />

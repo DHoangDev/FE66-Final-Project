@@ -1,30 +1,4 @@
-.testCenterMode .slick-slide {
-    text-align: center;
+#carouselExampleControls .venobox img {
+    height: 40vh;
+    width: 100%;
 }
-.testCenterMode .slick-slide .item {
-    transform: scale(.9);
-    opacity: .5;
-}
-.testCenterMode .slick-active {
-
-}
-.testCenterMode .slick-center .item {
-    transform: scale(1);
-    opacity: 1;
-}
-.item {
-    padding: 0 20px;
-    height: 100%;
-    transition: all linear .6s;
-}
-.item img {
-    
-}
-.item-1 { background: red; opacity: .5;}
-.item-2 { background: blue; opacity: .5;}
-.item-3 { background: yellow; opacity: .5;}
-.item-4 { background: green; opacity: .5;}
-.item-5 { background: purple; opacity: .5;}
-.item-6 { background: red; opacity: .5;}
-.item-7 { background: blue; opacity: .5;}
-.item-8 { background: yellow; opacity: .5;}

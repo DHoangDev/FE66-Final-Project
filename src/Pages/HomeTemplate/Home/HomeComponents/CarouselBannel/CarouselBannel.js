@@ -7,7 +7,7 @@ import { bannelAction } from '../../../../../Redux/Action/BannelAction'
 
 export default function CarouselBannel() {
 
-    const { arrBannel } = useSelector(state => state.BannelReducer);
+    const { arrBannel } = useSelector(state => state.BannelReducer)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -45,9 +45,9 @@ export default function CarouselBannel() {
         return arrBannel.map((value, index) => {
             if (index === 0) {
                 return (
-                    <div className="carousel-item active">
+                    <div className="carousel-item active" key={index}>
                         <div className="padding-bottom">
-                            <a className="venobox carousel-content" data-vbtype="video" href="https://youtu.be/sx1ROHCmY-4">
+                            <a className="venobox" data-vbtype="video" href="https://youtu.be/sx1ROHCmY-4">
                                 <img className="img" src={value.hinhAnh} alt="..." />
                                 <button>
                                     <img src="./assets/images/play-video.png" alt="..." />
@@ -59,9 +59,9 @@ export default function CarouselBannel() {
                 )
             } else {
                 return (
-                    <div className="carousel-item">
+                    <div className="carousel-item" key={index}>
                         <div className="padding-bottom">
-                            <a className="venobox carousel-content" data-vbtype="video" href="https://youtu.be/sx1ROHCmY-4">
+                            <a className="venobox" data-vbtype="video" href="https://youtu.be/sx1ROHCmY-4">
                                 <img className="img" src={value.hinhAnh} alt="..." />
                                 <button>
                                     <img src="./assets/images/play-video.png" alt="..." />
