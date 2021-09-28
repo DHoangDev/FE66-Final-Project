@@ -1,8 +1,4 @@
-#newsBlock {
-    max-width: 940px;
-  }
-  
-  #newsBlock nav .nav-tabs {
+    #newsBlock nav .nav-tabs {
     border-bottom: unset;
   }
   
@@ -15,15 +11,9 @@
     transition: all .3s ease;
     color: white;
   }
-  
   #newsBlock nav .nav-tabs .nav-link.active {
     color: #fa5238;
   }
-  
-  #newsBlock .row {
-    margin: 0 .5rem;
-  }
-  
   #newsBlock .newsContent a {
     display: -webkit-box;
     -webkit-line-clamp: 2;

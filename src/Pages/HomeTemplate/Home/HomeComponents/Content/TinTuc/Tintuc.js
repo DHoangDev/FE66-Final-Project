@@ -5,7 +5,7 @@ import './Tintuc.css';
 export default class Tintuc extends Component {
     render() {
         return (
-            <section id="newsBlock" className="ml-auto mr-auto my-5">
+            <section id="newsBlock" className="container-lg my-5">
                 <nav>
                     <div className="nav nav-tabs align-items-end" id="nav-tab-2" role="tablist">
                         <a className="nav-link ml-auto active" id="nav-cine-tab" data-toggle="tab" href="#nav-cine" role="tab" aria-controls="nav-cine" aria-selected="true">Điện Ảnh 24h</a>

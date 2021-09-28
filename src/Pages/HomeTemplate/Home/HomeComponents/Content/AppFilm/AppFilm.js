@@ -17,7 +17,7 @@ export default class AppFilm extends Component {
 
         return (
             <section id="appBlock">
-                <div className="wrapHomeapp ml-auto mr-auto">
+                <div className="wrapHomeapp container-lg">
                     <div className="row">
                         <div className="col-12 col-lg-6 d-flex align-items-center justify-content-center">
                             <div className="wrap text-center text-lg-start">

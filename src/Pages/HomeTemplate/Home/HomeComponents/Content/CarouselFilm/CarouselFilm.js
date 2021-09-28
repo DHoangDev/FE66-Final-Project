@@ -128,7 +128,7 @@ export default function CarouselFilm() {
     }
 
     return (
-        <section id="timeCine" className="ml-auto mr-auto my-5">
+        <section id="timeCine" className="container-lg my-5">
             <nav>
                 <div className="nav nav-tabs align-items-end" id="nav-tab" role="tablist">
                     <a className="nav-link ml-auto active" id="nav-dangchieu-tab" data-toggle="tab" href="#nav-dangchieu"

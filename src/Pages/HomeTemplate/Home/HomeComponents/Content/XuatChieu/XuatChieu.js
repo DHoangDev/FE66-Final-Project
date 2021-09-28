@@ -98,7 +98,7 @@ export default function XuatChieu() {
     }
 
     return (
-        <section id="cine-TimetoShow" className="ml-auto mr-auto my-5">
+        <section id="cine-TimetoShow" className="container-lg my-5">
             <div className="card">
                 <div className="row m-0">
                     <div className="col-12 col-md-1 p-0 border-right">
