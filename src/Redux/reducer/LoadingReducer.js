@@ -1,4 +1,4 @@
-import { DISPLAY_LOADING, HIDE_LOADING } from "../action/type/LoadingType"
+import { DISPLAY_LOADING, HIDE_LOADING } from "../Action/Type/LoadingType"
 
 const initialState = {
     isLoading : false,

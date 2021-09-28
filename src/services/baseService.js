@@ -1,18 +1,40 @@
-import {DOMAIN,USER_LOGIN,ACCESS_TOKEN} from '../util/setting'
+
 import axios from "axios"
-import { CYBERSOFTTOKEN } from '../util/setting' 
-export class baseService{
-    get =(url)=>{
-        return axios({
-            url:`${DOMAIN}/${url}`,
-            method:'GET',
-            headers:{
-                'Authorization':`Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
-                'TokenCybersoft':CYBERSOFTTOKEN
-           }
-        })
+import { DOMAIN, USER_LOGIN, CYBERSOFTTOKEN ,ACCESS_TOKEN} from '../Util/Setting'
+
+export class baseService {
+    // get1 =(url)=>{
+    //     return axios({
+    //         url:`${DOMAIN}/${url}`,
+    //         method:'GET',
+    //         headers:{
+    //             'Authorization':`Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
+    //             'TokenCybersoft':CYBERSOFTTOKEN
+    //        }
+    //     })
+    // }
+    get = (url, data, maNhom) => {
+        if (maNhom === null) {
+            return axios({
+                url: `${DOMAIN}/${url}${data}`,
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
+                    'TokenCybersoft': CYBERSOFTTOKEN
+                }
+            })
+        } else {
+            return axios({
+                url: `${DOMAIN}/${url}${data}&maNhom=${maNhom}`,
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
+                    'TokenCybersoft': CYBERSOFTTOKEN
+                }
+            })
+        }
     }
-    post =(url,data)=>{
+    post = (url, data) => {
         return axios({
             url:`${DOMAIN}/${url}`,
             data:data,
@@ -23,7 +45,7 @@ export class baseService{
             }
         })
     }
-    put =(url,data)=>{
+    put = (url, data) => {
         return axios({
             url:`${DOMAIN}/${url}`,
             data:data,
@@ -34,14 +56,14 @@ export class baseService{
            }
         })
     }
-    delete =(url)=>{
+    delete = (url, data) => {
         return axios({
-            url:`${DOMAIN}/${url}`,
-            method:'DELETE',
-            headers:{
-                'Authorization':`Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
-                'TokenCybersoft':CYBERSOFTTOKEN
-           }
+            url: `${DOMAIN}/${url}${data}`,
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem(USER_LOGIN)}`,
+                'TokenCybersoft': CYBERSOFTTOKEN
+            }
         })
     }
 }

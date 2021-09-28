@@ -1,8 +1,14 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
 import ReduxThunk from 'redux-thunk';
-import {QuanLyNguoiDungReducer} from './reducer/QuanLyNguoiDungReducer'
-import { LoadingReducer } from "./reducer/LoadingReducer"; 
+import {QuanLyNguoiDungReducer} from './Reducer/QuanLyNguoiDungReducer'
+import { LoadingReducer } from "./Reducer/LoadingReducer"; 
+import { applyMiddleware, combineReducers, createStore } from "redux";
+
+import { BannelReducer } from './Reducer/BannelReducer';
+import { QuanLyXuatChieuReducer } from './Reducer/QuanLyXuatChieuReducer'
+
 const rootReducer = combineReducers({
+    BannelReducer,
+    QuanLyXuatChieuReducer,
     QuanLyNguoiDungReducer,
     LoadingReducer,
 });
