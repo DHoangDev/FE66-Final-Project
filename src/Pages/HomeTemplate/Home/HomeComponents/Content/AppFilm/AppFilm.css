@@ -5,8 +5,8 @@
     background-size: cover;
 }
 #appBlock .wrapHomeapp {
-    max-width: 940px;
-    padding: 120px 15px 80px 15px;
+    padding-top: 120px;
+    padding-bottom: 80px;
 }
 #appBlock .wrapHomeapp .wrap {
     color: white;

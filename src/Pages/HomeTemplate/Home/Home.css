@@ -1,4 +1,7 @@
 body {
     overflow-y: scroll;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
   }
+.container-lg {
+  max-width: 940px;
+}
