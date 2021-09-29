@@ -9,14 +9,22 @@ export default class NavFilm extends Component {
                 <div className="nav_width">
                     <ul className="nav nav-pills">
                         <li className="nav-item">
-                            <a className="nav-link active" data-toggle="pill" href="#thongtin">Thông Tin</a>
+                            <a className="nav-link active" data-toggle="pill" href="#lichchieu">Lịch chiếu</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link " data-toggle="pill" href="#thongtin">Thông Tin</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" data-toggle="pill" href="#danhgia">Đánh Giá</a>
                         </li>
+                        
                     </ul>
                     <div className="tab-content">
-                        <div className="tab-pane container active" id="thongtin">
+                        <div className="tab-pane container active" id="lichchieu">
+                            <div className="row tab_detail">
+                            </div>
+                        </div>
+                        <div className="tab-pane container" id="thongtin">
                             <div className="row tab_detail">
                                 <div className="col-sm-6 col-xs-12 film_left">
                                     <div className="row filmleft_info">

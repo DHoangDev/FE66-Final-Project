@@ -12,7 +12,7 @@ export default function XuatChieu() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const actionRapChieu = rapChieuAction("", GROUP_ID);
+        const actionRapChieu = rapChieuAction();
         dispatch(actionRapChieu);
     }, [])
 
@@ -62,7 +62,9 @@ export default function XuatChieu() {
                 return (
                     <div className="cineBox border-bottom active" key={index}
                         data-toggle="tab" aria-selected="true" role="tab">
-                        <div className="img-tab-pane" onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}><img src={value.hinhAnh} alt="..." /></div>
+                        <div className="img-tab-pane" onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}>
+                            <img src={value.hinhAnh} className="img" alt="..." />
+                        </div>
                         <div className="content">
                             <p onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}><b className={maRap}>{tenRap}</b><b className="tenRap"> {tenRapChiTiet}</b></p>
                             <span className="infoMovieCine" onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}>{value.diaChi}</span>
@@ -74,7 +76,9 @@ export default function XuatChieu() {
                 return (
                     <div className="cineBox border-bottom" key={index}
                         data-toggle="tab" aria-selected="false" role="tab">
-                        <div className="img-tab-pane" onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}><img src={value.hinhAnh} alt="..." /></div>
+                        <div className="img-tab-pane" onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}>
+                            <img src={value.hinhAnh} className="img" alt="..." />
+                        </div>
                         <div className="content">
                             <p onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}><b className={maRap}>{tenRap}</b><b className="tenRap"> {tenRapChiTiet}</b></p>
                             <span className="infoMovieCine" onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}>{value.diaChi}</span>
@@ -87,7 +91,7 @@ export default function XuatChieu() {
     }
 
     const renderLichChieu = () => {
-        // console.log(arrLichChieu)
+        console.log(arrLichChieu)
         // return arrLichChieu.map((value, index) => {
 
         // })

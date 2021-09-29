@@ -79,14 +79,14 @@ header {
   
   @media only screen and (max-width: 991px) {
     header {
-      width: 100vw;
+      width: 100%;
     }
     header nav .navbar-login .nav-link {
       font-size: 11px;
     }
   }
   
-  @media screen and (max-width: 991px) {
+  @media screen and (max-width: 1023px) {
     header nav.navbar .navbar-collapse {
       position: absolute;
       display: -webkit-box;

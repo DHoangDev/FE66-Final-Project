@@ -1,36 +1,50 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 
 import './Content.css';
+import './Circle.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { layThongTinChiTietPhim } from '../../../../../Redux/Action/QuanLyXuatChieuAction';
+import moment from 'moment'
 
-export default class Content extends Component {
-    render() {
+export default function Content(props) {
+
+    const {filmDetail} = useSelector(state=>state.QuanLyPhimReducer)
+    console.log({filmDetail})
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        //lấy thông tin param từ url
+        let{id} = props
+
+        dispatch(layThongTinChiTietPhim(id))
+    },[])
+
         return (
-            <section id="banner">
+            <section className="banner">
                 <div className="banner_section">
-                    <img className="banner_all" src="./assets/images/trang-ti-16190592773054.jpg" alt="..." />
+                    <div style={{backgroundImage:`url(${filmDetail.hinhAnh})`,minHeight:'80vh',backgroundSize:'100%',backgroundPosition:'center',backgroundRepeat:'no-repeat'}} className="banner_all" />
                     <div className="playtrailer1">
                         <a className="venobox" data-vbtype="video" href="https://youtu.be/sx1ROHCmY-4">
-                            <img src="./assets/images/play-video.png" alt="..." />
+                            <img src="http://localhost:3000/assets/images/play-video.png" alt="..." />
                         </a>
                     </div>
                     <div className="styleGardient" />
                     <div className="banner_detail banner_width d-flex">
                         <div className="col-sm-3">
-                            <div className="poster">
+                            <div style={{backgroundImage:`url(${filmDetail.hinhAnh})`,minHeight:'80vh',backgroundSize:'100%',backgroundPosition:'center',backgroundRepeat:'no-repeat'}}  className="poster">
                                 <a className="playtrailer showposter venobox" data-vbtype="video" href="https://youtu.be/sx1ROHCmY-4">
-                                    <img src="./assets/images/play-video.png" alt="..." />
+                                    <img width='75%' src="http://localhost:3000/assets/images/play-video.png" alt="..." />
                                 </a>
                             </div>
                         </div>
                         <div className="col-sm-5 banner_info">
                             <div>
-                                <span className="banner_detail1">30.04.2021</span>
+                                <span className="banner_detail1">{moment(filmDetail.ngayKhoiChieu).format('DD.MM.YYYY')}</span>
                                 <br />
                             </div>
                             <div className="banner_content">
                                 <span className="banner_info1">
-                                    <span className="banner_P">P</span>
-                                    <span className="banner_info1__detail">Trạng Tí Phiêu Lưu Kí</span>
+                                   {filmDetail.hot ? <span className="banner_PH">P</span> : <span className="banner_P">P</span>} 
+                                    <span className="banner_info1__detail">{filmDetail.tenPhim}</span>
                                 </span>
                             </div>
                             <div className="banner_info2">
@@ -39,13 +53,13 @@ export default class Content extends Component {
                         </div>
                         <div className="col-sm-2 circle">
                             <div className="br" />
-                            <div className="circle100">
-                                <div className="circleBorder">
-                                </div>
-                                <span>6.2</span>
-                                <div className="splice">
-                                    <div className="bar" />
-                                    <div className="fill" />
+                            <div className="clearfix">
+                                <div className={`c100 p${filmDetail.danhGia *10} small green`}>
+                                    <span>{filmDetail.danhGia *10}%</span>
+                                    <div className="slice">
+                                        <div className="bar"></div>
+                                        <div className="fill"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="star">
@@ -63,4 +77,7 @@ export default class Content extends Component {
             </section>
         )
     }
-}
+
+
+
+ 

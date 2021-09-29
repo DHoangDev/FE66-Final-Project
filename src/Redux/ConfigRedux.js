@@ -4,10 +4,12 @@ import { LoadingReducer } from "./Reducer/LoadingReducer";
 import { applyMiddleware, combineReducers, createStore } from "redux";
 
 import { BannelReducer } from './Reducer/BannelReducer';
+import { QuanLyPhimReducer } from './Reducer/PhimReducer';
 import { QuanLyXuatChieuReducer } from './Reducer/QuanLyXuatChieuReducer'
 
 const rootReducer = combineReducers({
     BannelReducer,
+    QuanLyPhimReducer,
     QuanLyXuatChieuReducer,
     QuanLyNguoiDungReducer,
     LoadingReducer,

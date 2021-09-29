@@ -1,12 +1,13 @@
 import axios from 'axios';
 
 import { qlXuatChieuService } from '../../Services/QuanLyXuatChieuService';
+import { SET_CHI_TIET_PHIM } from './Type/QuanLyxuatChieu';
 
-export const rapChieuAction = (data, maNhom) => {
+export const rapChieuAction = () => {
     return async dispatch => {
         try {
 
-            const result = await qlXuatChieuService.getXuatChieu(data, maNhom);
+            const result = await qlXuatChieuService.getRapChieu();
             if (result.data.statusCode === 200) {
                 dispatch({
                     type: 'SET_DATA_RAP',
@@ -52,6 +53,22 @@ export const lichChieuAction = (data, maCumRap, maNhom) => {
             }
 
         } catch (err) {
+            console.log(err)
+            console.log(err.response?.data)
+        }
+    }
+}
+
+export const layThongTinChiTietPhim =(id)=>{
+    return async dispatch =>{
+        try{
+            const result = await qlXuatChieuService.getThongTinLichChieu(id);
+            console.log({result})
+            dispatch({
+                type:SET_CHI_TIET_PHIM,
+                filmDetail:result.data.content
+            })
+        }catch(err){
             console.log(err)
             console.log(err.response?.data)
         }
