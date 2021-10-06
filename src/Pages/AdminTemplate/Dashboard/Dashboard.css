@@ -1,0 +1,15 @@
+#dashboard .blue {
+background-color: rgba(0, 0, 255, 0.7);
+}
+#dashboard .green {
+background-color: rgba(0, 128, 0, 0.7);
+}
+#dashboard .orange {
+    background-color: rgba(255, 166, 0, 0.7);
+}
+#dashboard .red {
+background-color: rgba(255, 0, 0, 0.7);
+}
+#dashboard .card, #dashboard .card h5, #dashboard .card h3 {
+    color: white;
+}

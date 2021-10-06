@@ -1,27 +1,38 @@
 import axios from "axios"
 
-import { DOMAIN, USER_LOGIN, CYBERSOFTTOKEN } from '../Util/Setting'
+import { DOMAIN, USER_LOGIN, ACCESS_TOKEN, CYBERSOFTTOKEN } from '../Util/Setting'
 
 export class baseService {
-    get = (url, data, maNhom) => {
-        if (maNhom === null) {
+    get = (url, data, nhom) => {
+        if (nhom === null) {
             return axios({
                 url: `${DOMAIN}/${url}${data}`,
                 method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem(USER_LOGIN)}`,
+                    'Authorization': `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
                     'TokenCybersoft': CYBERSOFTTOKEN
                 }
             })
         } else {
-            return axios({
-                url: `${DOMAIN}/${url}${data}&maNhom=${maNhom}`,
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem(USER_LOGIN)}`,
-                    'TokenCybersoft': CYBERSOFTTOKEN
-                }
-            })
+            if (data === '') {
+                return axios({
+                    url: `${DOMAIN}/${url}${nhom}`,
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
+                        'TokenCybersoft': CYBERSOFTTOKEN
+                    }
+                })
+            } else {
+                return axios({
+                    url: `${DOMAIN}/${url}${data}${nhom}`,
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
+                        'TokenCybersoft': CYBERSOFTTOKEN
+                    }
+                })
+            }
         }
     }
     post = (url, data) => {
@@ -30,7 +41,7 @@ export class baseService {
             data: data,
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem(USER_LOGIN)}`,
+                'Authorization': `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
                 'TokenCybersoft': CYBERSOFTTOKEN
             }
         })
@@ -41,7 +52,7 @@ export class baseService {
             data: data,
             method: 'PUT',
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem(USER_LOGIN)}`,
+                'Authorization': `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
                 'TokenCybersoft': CYBERSOFTTOKEN
             }
         })
@@ -51,7 +62,7 @@ export class baseService {
             url: `${DOMAIN}/${url}${data}`,
             method: 'DELETE',
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem(USER_LOGIN)}`,
+                'Authorization': `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
                 'TokenCybersoft': CYBERSOFTTOKEN
             }
         })
