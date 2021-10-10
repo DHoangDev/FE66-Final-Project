@@ -29,6 +29,9 @@ export default function Admin() {
         }
     }
 
+
+
+
     const confirmEditData = () => {
         var dataSend = {
             taiKhoan: arrAdmin.taiKhoan,
@@ -42,12 +45,19 @@ export default function Admin() {
         const actionEditNguoiDung = editNguoiDungAction(dataSend);
         dispatch(actionEditNguoiDung);
     }
-
+    const updateData = () => {
+        document.getElementById('adminModalName').value = document.getElementById('adminName').value
+        document.getElementById('adminModalEmail').value = document.getElementById('adminEmail').value
+        document.getElementById('adminModalPhoneNumber').value = document.getElementById('adminPhoneNumber').value
+    }
     const passwordValidation = () => {
         var pass = document.getElementById('adminModalPassword1').value;
         var passConfirm = document.getElementById('adminModalPassword2').value;
         pass !== passConfirm ? setTurn(false) : setTurn(true)
     }
+
+
+
 
     const renderLoaiNguoiDungModal = () => {
         return arrLoaiNguoiDung.map((value, index) => {
@@ -59,10 +69,13 @@ export default function Admin() {
         })
     }
     const renderLoaiNguoiDung = () => {
-        if (arrAdmin.maLoaiNguoiDung === "QuanTri") {
-            return "Quản Trị"
-        } else {
-            return "Khách Hàng"
+        switch (arrAdmin.maLoaiNguoiDung) {
+            case "QuanTri":
+                return "Quản Trị"
+            case "KhachHang":
+                return "Khách Hàng"
+            default:
+                return "..."
         }
     }
     const renderVeDaDat = () => {
@@ -81,6 +94,9 @@ export default function Admin() {
         }
     }
 
+
+
+
     return (
         <div>
             <div className="modal fade" id="adminModal" tabIndex={-1} aria-labelledby="adminModalLabel" aria-hidden="true">
@@ -97,18 +113,18 @@ export default function Admin() {
                                 <div className="form-row">
                                     <div className="form-group col-md-7">
                                         <label htmlFor="adminModalName">Name</label>
-                                        <input type="text" className="form-control" id="adminModalName" value={arrAdmin.hoTen} />
+                                        <input type="text" className="form-control" id="adminModalName" />
                                     </div>
                                     <div className="form-group col-md-5">
                                         <label for="adminPermissionFormControl">Permission</label>
-                                        <select class="form-control" id="adminPermissionFormControl">
+                                        <select class="custom-select" id="adminPermissionFormControl">
                                             {renderLoaiNguoiDungModal()}
                                         </select>
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="adminModalEmail">Email</label>
-                                    <input type="email" className="form-control" id="adminModalEmail" placeholder="example@gmail.com" value={arrAdmin.email} />
+                                    <input type="email" className="form-control" id="adminModalEmail" placeholder="example@gmail.com" />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="adminModalPassword1">New Password</label>
@@ -133,7 +149,7 @@ export default function Admin() {
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="adminModalPhoneNumber">Phone Number</label>
-                                    <input type="tel" className="form-control" id="adminModalPhoneNumber" value={arrAdmin.soDT} />
+                                    <input type="tel" className="form-control" id="adminModalPhoneNumber" />
                                 </div>
                             </form>
                         </div>
@@ -146,7 +162,7 @@ export default function Admin() {
             </div>
             <div className="row">
                 <div className="col-4">
-                    <h4>Thông Tin Cá Nhân</h4>
+                    <h3>Thông Tin Cá Nhân</h3>
                     <div className="form-group">
                         <label htmlFor="adminName">Name</label>
                         <input type="text" className="form-control" id="adminName" value={arrAdmin.hoTen} disabled />
@@ -169,11 +185,11 @@ export default function Admin() {
                         <input type="tel" className="form-control" id="adminPhoneNumber" value={arrAdmin.soDT} disabled />
                     </div>
                     <div>
-                        <button className="btn btn-success" type="button" data-toggle="modal" data-target="#adminModal">Cập Nhật</button>
+                        <button className="btn btn-success" type="button" onClick={() => { updateData() }} data-toggle="modal" data-target="#adminModal">Cập Nhật</button>
                     </div>
                 </div>
                 <div className="col-8">
-                    <h4>Danh Sách Vé Đã Đặt</h4>
+                    <h3>Danh Sách Vé Đã Đặt</h3>
                     <table>
                         <thead>
                             <tr>

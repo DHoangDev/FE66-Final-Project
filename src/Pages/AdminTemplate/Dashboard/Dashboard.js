@@ -1,17 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Redirect } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux';
 
 import './Dashboard.css';
 
-import { USER_LOGIN } from '../../../Util/Setting'
+import { USER_LOGIN, GROUP_ID } from '../../../Util/Setting'
+import { nguoiDungAction } from '../../../Redux/Action/QuanLyNguoiDungAction';
 import Editfilm from '../FilmsManager/Editfilm';
 
 export default function Dashboard() {
 
-    const { arrPhim } = useSelector(state => state.QuanLyPhimReducer);
-    const { arrNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
+    const { arrPhim, arrPhimTemp } = useSelector(state => state.QuanLyPhimReducer);
+    const { arrNguoiDung, arrNguoiDungTemp } = useSelector(state => state.QuanLyNguoiDungReducer);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        const actionNguoiDung = nguoiDungAction(GROUP_ID);
+        dispatch(actionNguoiDung);
+    }, [])
 
     if (!localStorage.getItem(USER_LOGIN)) {
         alert('Đăng nhập để vào trang này !');
@@ -43,7 +49,7 @@ export default function Dashboard() {
                 <div className="col-3">
                     <div className="card blue p-3">
                         <h5><b>Film</b></h5>
-                        <div style={{ height: '60px', display: 'flex', alignItems: 'center' }}><h3>{arrPhim.length}</h3></div>
+                        <div style={{ height: '60px', display: 'flex', alignItems: 'center' }}><h3>{arrPhimTemp.length}</h3></div>
                         <div><i class="fas fa-chart-line"></i> <span>1,2%</span>
                             <span className="ml-3"><b>Since Last Month</b></span>
                         </div>
@@ -52,7 +58,7 @@ export default function Dashboard() {
                 <div className="col-3">
                     <div className="card green p-3">
                         <h5><b>User</b></h5>
-                        <div style={{ height: '60px', display: 'flex', alignItems: 'center' }}><h3>{arrNguoiDung.length}</h3></div>
+                        <div style={{ height: '60px', display: 'flex', alignItems: 'center' }}><h3>{arrNguoiDungTemp.length}</h3></div>
                         <div><i class="fas fa-chart-line"></i> <span>1,2%</span>
                             <span className="ml-3"><b>Since Last Month</b></span>
                         </div>

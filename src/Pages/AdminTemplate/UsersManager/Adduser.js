@@ -94,7 +94,7 @@ export default function Adduser() {
                 <Input name="soDt" onChange={formik.handleChange} />
             </Form.Item>
             <Form.Item label="Loại người dùng">
-                <select class="form-control" id="permissionUserFormControlSelect" onChange={handleChangeSelect}>
+                <select class="custom-select" id="permissionUserFormControlSelect" onChange={handleChangeSelect}>
                     <option disabled selected hidden>Please choose ...</option>
                     {renderLoaiNguoiDung()}
                 </select>

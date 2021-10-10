@@ -63,7 +63,7 @@ export default class Navbar extends Component {
                         </ul>
                         <ul className="navbar-nav navbar-login align-items-center order-1 order-lg-2">
                             <li className="nav-item">
-                                <a className="nav-link border-right" href="/#">
+                                <a className="nav-link border-right" href="/login">
                                     <img className="nav-avatar mr-2" src="http://localhost:3000/assets/images/avatar.png" alt />Đăng Nhập
                                 </a>
                             </li>

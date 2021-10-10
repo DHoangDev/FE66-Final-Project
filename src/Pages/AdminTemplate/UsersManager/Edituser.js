@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Redirect } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux';
 
-import './Edituser.css'
-
 import { USER_LOGIN, GROUP_ID } from '../../../Util/Setting';
 import {
     loaiNguoiDungAction,
@@ -20,7 +18,6 @@ export default function Edituser() {
     const dispatch = useDispatch();
     const [account, setAccount] = useState({});
     const [check, setTurn] = useState(true);
-    const [data, setdata] = useState(arrNguoiDung)
 
     useEffect(() => {
         const actionNguoiDung = nguoiDungAction(GROUP_ID);
@@ -53,20 +50,6 @@ export default function Edituser() {
         const actionEditNguoiDung = editNguoiDungAction(dataSend);
         dispatch(actionEditNguoiDung);
     }
-    const editData = (dataInput) => {
-        setAccount(dataInput.taiKhoan)
-        document.getElementById('userModalEmail').value = dataInput.email
-        document.getElementById('userModalPhoneNumber').value = dataInput.soDt
-        document.getElementById('permissionFormControlSelect').value = dataInput.maLoaiNguoiDung
-        document.getElementById('userModalName').value = dataInput.hoTen
-    }
-    const deleteData = (dataInput) => {
-        var result = window.confirm("Want to delete " + dataInput.hoTen + " ?");
-        if (result) {
-            const actionDeleteNguoiDung = deleteNguoiDungAction(dataInput.taiKhoan);
-            dispatch(actionDeleteNguoiDung);
-        }
-    }
     const passwordValidation = () => {
         var pass = document.getElementById('userModalPassword1').value;
         var passConfirm = document.getElementById('userModalPassword2').value;
@@ -83,6 +66,26 @@ export default function Edituser() {
         })
     }
 
+    const editData = (dataInput) => {
+        setAccount(dataInput.taiKhoan)
+        document.getElementById('userModalEmail').value = dataInput.email
+        document.getElementById('userModalPhoneNumber').value = dataInput.soDt
+        document.getElementById('permissionFormControlSelect').value = dataInput.maLoaiNguoiDung
+        document.getElementById('userModalName').value = dataInput.hoTen
+    }
+    const deleteData = (dataInput) => {
+        var result = window.confirm("Want to delete " + dataInput.hoTen + " ?");
+        if (result) {
+            const actionDeleteNguoiDung = deleteNguoiDungAction(dataInput.taiKhoan);
+            dispatch(actionDeleteNguoiDung);
+        }
+    }
+    const search = (dataInput) => {
+        dispatch({
+            type: 'SEARCH_USER',
+            taiKhoan: dataInput,
+        })
+    }
     const columns = [
         {
             title: 'Tên người dùng',
@@ -157,15 +160,6 @@ export default function Edituser() {
         }
     ]
 
-    const search = (dataInput) => {
-        var result = data.filter(value => value.hoTen == dataInput)
-        if (result.length !== 0) {
-            setdata(result)
-        } else {
-            setdata(arrNguoiDung)
-        }
-    }
-
     return (
         <div>
             <div className="modal fade" id="userModal" tabIndex={-1} aria-labelledby="userModalLabel" aria-hidden="true">
@@ -186,7 +180,7 @@ export default function Edituser() {
                                     </div>
                                     <div className="form-group col-md-5">
                                         <label for="permissionFormControlSelect">Permission</label>
-                                        <select class="form-control" id="permissionFormControlSelect">
+                                        <select class="custom-select" id="permissionFormControlSelect">
                                             {renderLoaiNguoiDung()}
                                         </select>
                                     </div>
@@ -231,7 +225,8 @@ export default function Edituser() {
             </div>
             <h3>User Management</h3>
             <input
-                placeholder="Search Name"
+                className="form-control w-25 mb-3"
+                placeholder="Nhập tài khoản ..."
                 onKeyUp={(e) => { search(e.target.value) }}
             />
             <Table

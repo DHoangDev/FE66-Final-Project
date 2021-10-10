@@ -20,6 +20,28 @@ export const rapChieuAction = () => {
         }
     }
 }
+export const cumRapTheoHeThongAction = (data) => {
+    return async dispatch => {
+        try {
+
+            const result = await qlXuatChieuService.getCumRap(data);
+            if (result.data.statusCode === 200) {
+                await dispatch({
+                    type: 'SET_DATA_CUM_RAP_THEO_HE_THONG',
+                    arrCumRapTheoHeThong: result.data.content,
+                });
+                await dispatch({
+                    type: 'RAP_THEO_CUM_RAP',
+                    arrRapTheoCumRap: result.data.content[0].maCumRap,
+                })
+            }
+
+        } catch (err) {
+            console.log(err)
+            console.log(err.response?.data)
+        }
+    }
+}
 export const cumRapAction = (data, maNhom) => {
     return async dispatch => {
         try {

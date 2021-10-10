@@ -1,5 +1,8 @@
 const stateDefault = {
     arrRap: [],
+    arrCumRapTheoHeThong: [],
+    arrRapTheoCumRap: [],
+    cumRap: '',
     arrCumRap: [],
     arrCumRap_ChiTiet: [],
     arrLichChieu: [],
@@ -11,6 +14,17 @@ export const QuanLyXuatChieuReducer = (state = stateDefault, action) => {
             state.arrRap = action.arrRap
             return { ...state }
         }
+
+        case 'SET_DATA_CUM_RAP_THEO_HE_THONG':
+            state.arrCumRapTheoHeThong = action.arrCumRapTheoHeThong
+            return { ...state }
+
+        case 'RAP_THEO_CUM_RAP':
+            var newArrCumRapTheoHeThong = [...state.arrCumRapTheoHeThong]
+            let rapSearching = newArrCumRapTheoHeThong.findIndex(value => value.maCumRap === action.arrRapTheoCumRap)
+            state.cumRap = newArrCumRapTheoHeThong[rapSearching].tenCumRap
+            state.arrRapTheoCumRap = newArrCumRapTheoHeThong[rapSearching].danhSachRap;
+            return { ...state }
 
         case 'SET_DATA_CUM_RAP': {
             state.arrCumRap = action.arrCumRap

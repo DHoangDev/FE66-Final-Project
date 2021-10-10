@@ -18,6 +18,8 @@ import {
 } from 'antd';
 
 export default function Addfilm() {
+
+    const { TextArea } = Input;
     const [imgSrc, setImgSrc] = useState('...');
     const [componentSize, setComponentSize] = useState('default');
     const dispatch = useDispatch();
@@ -40,12 +42,11 @@ export default function Addfilm() {
                 if (key !== 'hinhAnh') {
                     frmData.append(key, values[key])
                 } else {
-                    frmData.append(key, values.hinhAnh, values.hinhAnh.name)
+                    frmData.append(key, values.hinhAnh,)
                 }
                 // log data of form data
                 // console.log(key, frmData.get(key))
             }
-            // console.log(values)
             dispatch(addPhimAction(frmData));
         }
     })
@@ -66,7 +67,6 @@ export default function Addfilm() {
         var newDateString = ("0" + m.getUTCDate()).slice(-2) + "/" +
             ("0" + (m.getUTCMonth() + 1)).slice(-2) + "/" + m.getUTCFullYear();
         //Convert from UTC time tring to "dd/MM/YYYY"
-
         // + "T" + ("00").slice(-2) + ":" + ("00").slice(-2) + ":" + ("00").slice(-2);
         formik.setFieldValue('ngayKhoiChieu', newDateString)
     }
@@ -89,11 +89,9 @@ export default function Addfilm() {
             }   // Convert IMG data to base 64
         }
     }
-
     const onFormLayoutChange = ({ size }) => {
         setComponentSize(size);
     };
-    const { TextArea } = Input;
 
     return (
         <Form onSubmitCapture={formik.handleSubmit} labelCol={{ span: 4, }} wrapperCol={{ span: 14, }} layout="horizontal"
@@ -121,7 +119,7 @@ export default function Addfilm() {
             <Form.Item label="Đánh giá">
                 <InputNumber type="number" name="danhGia" min="0" max="10" onChange={handleChangeInputNumber} />
             </Form.Item>
-            <Form.Item label="Đang chiếu" valuePropName="checked">
+            <Form.Item label="Đang chiếu" valuePropName="checked" >
                 <Switch name="DangChieu" onChange={handleChangeSwitch} />
             </Form.Item>
             <Form.Item label="Sắp chiếu" valuePropName="checked">

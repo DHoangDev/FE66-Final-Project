@@ -36,6 +36,22 @@ export const addPhimAction = (data) => {
         }
     }
 }
+export const updatePhimAction = (data) => {
+    return async dispatch => {
+        try {
+
+            const result = await phimService.updatePhim(data);
+            if (result.data.statusCode === 200) {
+                swal('Edited !', 'Cập Nhật Phim Thành Công !', 'success')
+                window.location.reload()
+            }
+
+        } catch (error) {
+            console.log({ error })
+            console.log(error.response?.data)
+        }
+    }
+}
 export const deletePhimAction = (data) => {
     return async dispatch => {
         try {
