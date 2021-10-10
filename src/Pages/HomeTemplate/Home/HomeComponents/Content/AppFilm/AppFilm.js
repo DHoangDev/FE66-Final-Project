@@ -22,7 +22,7 @@ export default class AppFilm extends Component {
                         <div className="col-12 col-lg-6 d-flex align-items-center justify-content-center">
                             <div className="wrap text-center text-lg-start">
                                 <div className="appTitle">
-                                    <h2>Ứng dụng tiện lợi dành cho người yêu điện ảnh</h2>
+                                    <h2 className="text-light">Ứng dụng tiện lợi dành cho người yêu điện ảnh</h2>
                                 </div>
                                 <div className="appContent">
                                     <p>Không chỉ đặt vé, bạn còn có thể bình luận phim, chấm điểm rạp và đổi quà hấp dẫn.</p>

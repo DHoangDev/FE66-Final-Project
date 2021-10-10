@@ -60,14 +60,14 @@ export default function CarouselFilm(props) {
         return arrPhim.map((value, index) => {
             let dateString = value.ngayKhoiChieu, reggie = /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/;
             var dateArray = reggie.exec(dateString);
-            if (value.sapChieu === true && value.dangChieu === true) {
+            if (value.dangChieu === true) {
                 return (
                     <div className="item" key={index}>
                         <div className="card">
                             <img className="w-100" src={value.hinhAnh} alt="..." />
                             <div className="overlay">
-                                <div className="title text-light">
-                                    <h3>{value.tenPhim}</h3>
+                                <div className="title">
+                                    <h3 className="text-light">{value.tenPhim}</h3>
                                 </div>
                                 <div className="story text-light">
                                     <p>{value.moTa}</p>
@@ -96,14 +96,14 @@ export default function CarouselFilm(props) {
         return arrPhim.map((value, index) => {
             let dateString = value.ngayKhoiChieu, reggie = /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/;
             var dateArray = reggie.exec(dateString);
-            if (value.sapChieu === true && value.dangChieu === false) {
+            if (value.sapChieu === true) {
                 return (
                     <div className="item" key={index}>
                         <div className="card">
                             <img className="w-100" src={value.hinhAnh} alt="..." />
                             <div className="overlay">
-                                <div className="title text-light">
-                                    <h3>{value.tenPhim}</h3>
+                                <div className="title">
+                                    <h3 className="text-light">{value.tenPhim}</h3>
                                 </div>
                                 <div className="story text-light">
                                     <p>{value.moTa}</p>

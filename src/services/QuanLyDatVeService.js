@@ -1,5 +1,5 @@
 import { ThongTinDatVe } from "../_core/models/ThôngTinDatVe";
-import { baseService } from "./BaseService";
+import { baseService } from "./baseService";
 
 
 export class QuanLyDatVeService extends baseService{

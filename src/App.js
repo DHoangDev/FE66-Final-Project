@@ -16,6 +16,11 @@ import Login from './Pages/HomeTemplate/Login/Login';
 import LoadingComponent from './Pages/Loading/LoadingComponent';
 import Admin from './Pages/AdminTemplate/Admin/Admin';
 import Dashboard from './Pages/AdminTemplate/Dashboard/Dashboard';
+import Lichchieu from './Pages/AdminTemplate/LichChieuManager/Lichchieu';
+import Addfilm from './Pages/AdminTemplate/FilmsManager/Addfilm';
+import Editfilm from './Pages/AdminTemplate/FilmsManager/Editfilm';
+import Adduser from './Pages/AdminTemplate/UsersManager/Adduser';
+import Edituser from './Pages/AdminTemplate/UsersManager/Edituser';
 
 import Error from './Pages/Error/Error';
 import BookingTicket from './Pages/BookingTicketTemplate/BookingTicket/BookingTicket';
@@ -38,9 +43,14 @@ export default class App extends Component {
               <HomeTemplate exact path="/TestGetID/:id" component={TestGetID} />
               <Route exact path="/Login" component={Login} />
 
-              <AdminTemplate exact path="/Admin" component={Admin} />
-              <AdminTemplate exact path="/Admin/admin" component={Admin} />
+              <AdminTemplate exact path="/Admin" component={Dashboard} />
               <AdminTemplate exact path="/Admin/dashboard" component={Dashboard} />
+              <AdminTemplate exact path="/Admin/admin" component={Admin} />
+              <AdminTemplate exact path="/Admin/lichchieu" component={Lichchieu} />
+              <AdminTemplate exact path="/Admin/adduser" component={Adduser} />
+              <AdminTemplate exact path="/Admin/edituser" component={Edituser} />
+              <AdminTemplate exact path="/Admin/addfilm" component={Addfilm} />
+              <AdminTemplate exact path="/Admin/editfilm" component={Editfilm} />
 
               <Suspense fallback={<LoadingComponent />}>
                 <BookingMovieTemplateLazy exact path="/BookingTicket/:id" component={BookingTicket} />

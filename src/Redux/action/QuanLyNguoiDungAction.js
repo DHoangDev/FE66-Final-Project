@@ -1,5 +1,7 @@
 import { history } from '../../App';
 import { qlNguoiDungService } from '../../Services/QuanLyNguoiDungService'
+import axios from 'axios';
+import swal from 'sweetalert';
 import { ACCESS_TOKEN, USER_LOGIN } from '../../Util/Setting';
 import { DANG_NHAP, SET_THONG_TIN_NGUOI_DUNG } from "../Action/Type/QuanLyNguoiDungType"
 import { DISPLAY_LOADING, HIDE_LOADING } from './Type/LoadingType';
@@ -82,6 +84,108 @@ export const thongTinNguoiDungAction = () => {
                 })        
             }
             console.log({result})
+        } catch (error) {
+            console.log({ error })
+            console.log(error.response?.data)
+        }
+    }
+}
+export const adminAction = () => {
+    return async dispatch => {
+        try {
+
+            const result = await qlNguoiDungService.getAdminService();
+            if (result.data.statusCode === 200) {
+                console.log(result.data.content)
+                await dispatch({
+                    type: 'SET_ADMIN',
+                    arrAdmin: result.data.content,
+                });
+            }
+
+        } catch (error) {
+            console.log({ error })
+            console.log(error.response?.data)
+        }
+    }
+}
+export const loaiNguoiDungAction = () => {
+    return async dispatch => {
+        try {
+
+            const result = await qlNguoiDungService.getLoaiNguoiDung();
+            if (result.data.statusCode === 200) {
+                await dispatch({
+                    type: 'SET_LOAI_NGUOI_DUNG',
+                    arrLoaiNguoiDung: result.data.content,
+                });
+            }
+
+        } catch (error) {
+            console.log({ error })
+            console.log(error.response?.data)
+        }
+    }
+}
+export const nguoiDungAction = (maNhom) => {
+    return async dispatch => {
+        try {
+
+            const result = await qlNguoiDungService.getNguoiDung(maNhom);
+            if (result.data.statusCode === 200) {
+                await dispatch({
+                    type: 'SET_NGUOI_DUNG',
+                    arrNguoiDung: result.data.content,
+                });
+            }
+
+        } catch (error) {
+            console.log({ error })
+            console.log(error.response?.data)
+        }
+    }
+}
+export const addNguoiDungAction = (data) => {
+    return async dispatch => {
+        try {
+
+            const result = await qlNguoiDungService.addNguoiDung(data);
+            if (result.data.statusCode === 200) {
+                swal('Successfully !', 'Thêm Người Dùng Thành Công !', 'success')
+            }
+
+        } catch (error) {
+            console.log({ error })
+            console.log(error.response?.data)
+        }
+    }
+}
+export const editNguoiDungAction = (data) => {
+    return async dispatch => {
+        try {
+
+            const result = await qlNguoiDungService.editNguoiDung(data);
+            if (result.data.statusCode === 200) {
+                swal('Edited !', 'Cập Nhật Người Dùng Thành Công !', 'success')
+                window.location.reload()
+            }
+
+        } catch (error) {
+            console.log({ error })
+            console.log(error.response?.data)
+        }
+    }
+}
+export const deleteNguoiDungAction = (data) => {
+    return async dispatch => {
+        try {
+
+            const result = await qlNguoiDungService.deleteNguoiDung(data);
+            if (result.data.statusCode === 200) {
+                swal('Deleted !', 'Xóa Người Dùng Thành Công !', 'success')
+                window.location.reload()
+            }
+
         } catch (error) {
             console.log({ error })
             console.log(error.response?.data)
