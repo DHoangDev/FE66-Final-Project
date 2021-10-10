@@ -7,20 +7,21 @@ import Register from "./Register.js";
 import { dangNhapAction } from "../../../Redux/Action/QuanLyNguoiDungAction";
 
 export default function Login(props) {
+  
   document.addEventListener("DOMContentLoaded", () => {
     const sign_in_btn = document.querySelector("#sign-in-btn");
     const sign_up_btn = document.querySelector("#sign-up-btn");
     const container = document.querySelector(".bg-login");
-    if(sign_up_btn){
+    
       sign_up_btn.addEventListener("click", () => {
         container.classList.add("sign-up-mode");
       });
-    }
-    if(sign_in_btn){
+    
+    
       sign_in_btn.addEventListener("click", () => {
         container.classList.remove("sign-up-mode");
       });
-    } 
+     
   });
 
   const dispatch = useDispatch();

@@ -59,10 +59,10 @@ export const lichChieuAction = (data, maCumRap, maNhom) => {
     }
 }
 
-export const layThongTinChiTietPhim =(id)=>{
+export const layThongTinChiTietPhim =(maPhim)=>{
     return async dispatch =>{
         try{
-            const result = await qlXuatChieuService.getThongTinLichChieu(id);
+            const result = await qlXuatChieuService.getThongTinLichChieu(maPhim);
             console.log({result})
             dispatch({
                 type:SET_CHI_TIET_PHIM,

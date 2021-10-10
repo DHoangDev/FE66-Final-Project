@@ -6,13 +6,14 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import { BannelReducer } from './Reducer/BannelReducer';
 import { QuanLyPhimReducer } from './Reducer/PhimReducer';
 import { QuanLyXuatChieuReducer } from './Reducer/QuanLyXuatChieuReducer'
-
+import {QuanLyDatVeReducer} from './Reducer/QuanLyDatVeReducer'
 const rootReducer = combineReducers({
     BannelReducer,
     QuanLyPhimReducer,
     QuanLyXuatChieuReducer,
     QuanLyNguoiDungReducer,
     LoadingReducer,
+    QuanLyDatVeReducer,
 });
 
 export const store = createStore(

@@ -1,5 +1,5 @@
 import { USER_LOGIN } from "../../Util/Setting";
-import { DANG_NHAP } from "../Action/Type/QuanLyNguoiDungType"
+import { DANG_NHAP, SET_THONG_TIN_NGUOI_DUNG } from "../Action/Type/QuanLyNguoiDungType"
 
 
 
@@ -11,6 +11,8 @@ if(localStorage.getItem(USER_LOGIN)){
 
 const initialState = {
     userLogin:usLogin,
+
+    thongTinNguoiDung:{}
 }
 
 export const QuanLyNguoiDungReducer = (state = initialState, action) => {
@@ -18,6 +20,8 @@ export const QuanLyNguoiDungReducer = (state = initialState, action) => {
 
     case DANG_NHAP:
         return { ...state,userLogin:action.userLogin}
+    case SET_THONG_TIN_NGUOI_DUNG:
+    return{...state,thongTinNguoiDung:action.thongTinNguoiDung}
     default:
         return state
     }

@@ -73,8 +73,8 @@ export default function CarouselFilm(props) {
                                     <p>{value.moTa}</p>
                                 </div>
                                 <div className="action">
-                                    <a class="btn-hover color-1 venobox" type="button" data-vbtype="video" href={value.trailer}>TRAILER</a>
-                                    <NavLink class="btn-hover color-2" type="button" to={`/About/${value.maPhim}`}>CHITIET</NavLink>
+                                    <a className="btn-hover color-1 venobox" type="button" data-vbtype="video" href={value.trailer}>TRAILER</a>
+                                    <NavLink className="btn-hover color-2" type="button" to={`/About/${value.maPhim}`}>CHITIET</NavLink>
                                 </div>
                                 <div className="info">
                                     <div className="text-light">

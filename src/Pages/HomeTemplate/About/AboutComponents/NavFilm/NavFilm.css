@@ -273,7 +273,84 @@
     border-color: #fb4226;
     color: #fff !important;
   }
-  
+
+ 
+.ant-tabs-ink-bar {
+  height: 5px;
+  background: #ff7c00  !important;
+}
+  .ant-tabs{
+    background-color: transparent !important ;
+  }
+  .background-tab{
+    background-color: white !important;
+  }
+  .infoMovieCine{
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: normal;
+  }
+  .ant-tabs > .ant-tabs-nav, .ant-tabs > div > .ant-tabs-nav{
+    position: unset
+  }
+  .ant-tabs-tab{
+    opacity: 0.5;
+    transition: all 0.3s;
+  }
+  .ant-tabs-tab:hover{
+    opacity: 1;
+    color: #00000073;
+  }
+  .ant-tabs-tab-active{
+    opacity: 1;
+  }
+  .ant-tabs-tab-btn{
+    color: #00000073 !important;
+  }
+  .banner_info1{
+    font-size: 15px;
+    font-family: 'SF Medium';
+    font-weight: normal;
+  }
+  .banner_PH{
+    background-color: #ff7c00;
+    margin-right: 6px;
+    margin-top: 6px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 0 5px;
+    display: inline-block;
+    text-align: center;
+    min-width: 33px;
+  }
+  .banner_P{
+    background-color: #fa5238;
+    margin-right: 6px;
+    margin-top: 6px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 0 5px;
+    display: inline-block;
+    text-align: center;
+    min-width: 33px;
+  }
+ .hour-tab{
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+ }
+ .hour-tab:hover{
+  color: #ff7c00;
+ }
+ .tenRap-tab{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+ }
   @media screen and (max-width: 540px) {
     #nav .nav_width {
       padding: 26px;

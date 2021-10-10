@@ -1,7 +1,7 @@
 import { history } from '../../App';
 import { qlNguoiDungService } from '../../Services/QuanLyNguoiDungService'
 import { ACCESS_TOKEN, USER_LOGIN } from '../../Util/Setting';
-import { DANG_NHAP } from "../Action/Type/QuanLyNguoiDungType"
+import { DANG_NHAP, SET_THONG_TIN_NGUOI_DUNG } from "../Action/Type/QuanLyNguoiDungType"
 import { DISPLAY_LOADING, HIDE_LOADING } from './Type/LoadingType';
 import Swal from 'sweetalert2'
 
@@ -35,12 +35,8 @@ export const dangNhapAction =(thongTinNguoiDung)=>{
     return async dispatch =>{  
         dispatch({
             type:DISPLAY_LOADING,
-        }) 
-        setTimeout(()=>{
-            dispatch({
-                type:HIDE_LOADING,
-            }) 
-        },1000)
+        })         
+        
         try{
             const result = await qlNguoiDungService.dangNhapService(thongTinNguoiDung);
             
@@ -56,11 +52,39 @@ export const dangNhapAction =(thongTinNguoiDung)=>{
                                    
             }          
             console.log('result',result)
+            setTimeout(()=>{
+                dispatch({
+                    type:HIDE_LOADING,
+                }) 
+            },1500)
+            
         }catch(err){
+            dispatch({
+                type:HIDE_LOADING,
+            }) 
             console.log(err)
             console.log(err.response?.data)
         }
         
         
+    }
+}
+
+export const thongTinNguoiDungAction = () => {
+    return async dispatch => {
+        try {
+
+            const result = await qlNguoiDungService.layThongTinNguoiDung();
+            if(result.data.statusCode ===200){            
+                dispatch({
+                    type:SET_THONG_TIN_NGUOI_DUNG,
+                    thongTinNguoiDung: result.data.content
+                })        
+            }
+            console.log({result})
+        } catch (error) {
+            console.log({ error })
+            console.log(error.response?.data)
+        }
     }
 }

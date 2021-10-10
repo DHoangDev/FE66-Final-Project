@@ -1,9 +1,16 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
 import './NavFilm.css';
+import { Tabs } from 'antd';
+import moment from 'moment';
+import { NavLink } from 'react-router-dom';
 
-export default class NavFilm extends Component {
-    render() {
+const { TabPane } = Tabs;
+export default function NavFilm (props) {
+    
+    const {filmDetail} = props ;
+    console.log('props',props)
+
         return (
             <section id="nav">
                 <div className="nav_width">
@@ -20,16 +27,78 @@ export default class NavFilm extends Component {
                         
                     </ul>
                     <div className="tab-content">
-                        <div className="tab-pane container active" id="lichchieu">
-                            <div className="row tab_detail">
-                            </div>
+                        <div className="tab-pane container tabs active" id="lichchieu">
+                            <Tabs className="bg-white py-3 rounded"centered>
+                                {filmDetail.heThongRapChieu?.map((rc,index)=>{
+                                    return <TabPane tab={<div className="d-flex" >
+                                                <img src={rc.logo} width={70} height={70} alt='' />
+                                                </div>} key={index}>
+
+                                             <Tabs tabPosition={'left'} className="py-3 rounded background-tab">
+                                                 {rc.cumRapChieu?.map((cumRap,index)=>{
+                                                    var tenRap = cumRap.tenCumRap.slice(0, cumRap.tenCumRap.indexOf('-'));
+                                                    var tenRapChiTiet = cumRap.tenCumRap.slice(cumRap.tenCumRap.indexOf('-'))
+                                                    
+                                                    return  <TabPane key={index} tab={<div className="mt-3">
+                                                        <div className="d-flex">
+                                                            <img width={55} height={55} src={cumRap.hinhAnh} alt='' />
+                                                            <div className="ml-2 text-left">
+                                                                <p className="text-2xl" style={{width:'30vh'}}>
+                                                                    <div className="tenRap-tab"><b style={{color:'#fd7d03c7'}}>{tenRap}</b>
+                                                                    <b>{tenRapChiTiet}</b></div>
+                                                                    <i className="infoMovieCine">{cumRap.diaChi}</i>
+                                                                </p>
+                                                               
+                                                            </div>
+                                                        </div>   
+                                                    </div>
+                                                    }>
+                                                    {/* <Tabs className="bg-white py-3 rounded"> */}
+                                                   
+                                                        {/* return <TabPane key={index} tab={<div className="font-weight-bold">
+                                                             ngày đặt phim
+                                                            {lich.tenRap}</div>}> */}
+                                                           <div className="d-flex">
+                                                                <img width={100} height={100} src={filmDetail.hinhAnh} alt='' />
+                                                                <div className="banner_content mt-4 ml-3 ">
+                                                                    <div className="banner_info1">
+                                                                    {filmDetail.hot ? <span className="banner_PH">HOT</span> : <span className="banner_P">N</span>} 
+                                                                        <b className="banner_info1__detail">{filmDetail.tenPhim}</b>
+                                                                        <i style={{display:'block',fontSize:'14px'}}>120 phút - 0 IMDb - 2D/Digital</i>
+                                                                    </div>
+                                                                    
+                                                                    
+                                                                </div>
+                                                                
+                                                           </div>
+                                                           <div className="d-flex mt-3">
+                                                                        {/* giờ đặt phim */}
+                                                                    {cumRap.lichChieuPhim?.slice(0,4).map((lc,index)=>{
+                                                                        return <NavLink className="hour-tab col-3" to={`/BookingTicket/${lc.maLichChieu}`} key={index} >
+                                                                        {moment(lc.ngayChieuGioChieu)?.format('hh:mm A')}
+                                                                    </NavLink>
+                                                                    })}
+                                                                    </div>
+                                                           
+                                                     {/* </TabPane> */}
+                                                       
+                                                    {/* </Tabs> */}
+                                                    </TabPane>
+                                                })}
+
+                                                 
+                                                    </Tabs>
+                                               
+                                            </TabPane>
+                                })}
+                            </Tabs>
                         </div>
                         <div className="tab-pane container" id="thongtin">
                             <div className="row tab_detail">
                                 <div className="col-sm-6 col-xs-12 film_left">
                                     <div className="row filmleft_info">
                                         <p className="filmleft_title1">Ngày công chiếu</p>
-                                        <p className="filmleft_title2">30.04.2021</p>
+                                        <p className="filmleft_title2">{moment(filmDetail.ngayKhoiChieu).format('DD.MM.YYYY')}</p>
                                     </div>
                                     <div className="row filmleft_info">
                                         <p className="filmleft_title1">Đạo diễn</p>
@@ -57,10 +126,7 @@ export default class NavFilm extends Component {
                                         <p className="filmleft_title1">Nội dung</p>
                                     </div>
                                     <div className="row filmleft_info">
-                                        <p className="filmleft_decription">Trạng Tí chuyển thể từ truyện tranh nổi tiếng Thần đồng đất Việt, xoay
-                                            quanh
-                                            Tí - cậu bé thông minh, láu lỉnh. Cùng các bạn Sửu, Dần, Mẹo, cậu nhiều lần giúp triều đình thoát khỏi
-                                            các tình huống nguy hiểm, chống lại ngoại bang</p>
+                                        <p className="filmleft_decription">{filmDetail.moTa}</p>
                                     </div>
                                 </div>
                             </div>
@@ -299,5 +365,5 @@ export default class NavFilm extends Component {
                 </div>
             </section>
         )
-    }
+    
 }

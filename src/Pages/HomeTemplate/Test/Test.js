@@ -9,6 +9,9 @@ export default function Test() {
     var value = 10;
 
     return (
-        <div></div>
+        <div>
+             <a className="venobox"data-vbtype="video" href='https://www.youtube.com/'>TRAILER</a>
+        dsaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        </div>
     )
 }
