@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import { NavLink } from 'react-router-dom';
+import UserLogin from '../Login/UserLogin';
 import './Navbar.css';
 
 export default class Navbar extends Component {
@@ -37,53 +38,14 @@ export default class Navbar extends Component {
                             <li className="nav-item">
                                 <a className="nav-link" href="#appBlock" >Ứng dụng</a>
                             </li>
-                            <li className="nav-item dropdown d-lg-none d-block">
-                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i className="fas fa-map-marker-alt" /> Hồ Chí Minh
-                                </a>
-                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a className="dropdown-item" href="#">Hồ Chí Minh</a>
-                                    <a className="dropdown-item" href="#">Hà Nội</a>
-                                    <a className="dropdown-item" href="#">Đà Nẵng</a>
-                                    <a className="dropdown-item" href="#">Hải Phòng</a>
-                                    <a className="dropdown-item" href="#">Hồ Chí Minh</a>
-                                    <a className="dropdown-item" href="#">Hà Nội</a>
-                                    <a className="dropdown-item" href="#">Đà Nẵng</a>
-                                    <a className="dropdown-item" href="#">Hải Phòng</a>
-                                    <a className="dropdown-item" href="#">Hồ Chí Minh</a>
-                                    <a className="dropdown-item" href="#">Hà Nội</a>
-                                    <a className="dropdown-item" href="#">Đà Nẵng</a>
-                                    <a className="dropdown-item" href="#">Hải Phòng</a>
-                                    <a className="dropdown-item" href="#">Hồ Chí Minh</a>
-                                    <a className="dropdown-item" href="#">Hà Nội</a>
-                                    <a className="dropdown-item" href="#">Đà Nẵng</a>
-                                    <a className="dropdown-item" href="#">Hải Phòng</a>
-                                </div>
-                            </li>
                         </ul>
                         <ul className="navbar-nav navbar-login align-items-center order-1 order-lg-2">
-                            <li className="nav-item">
-                                <a className="nav-link border-right" href="/login">
-                                    <img className="nav-avatar mr-2" src="http://localhost:3000/assets/images/avatar.png" alt />Đăng Nhập
-                                </a>
-                            </li>
+                            <UserLogin />
                             <li className="nav-item dropdown d-none d-lg-block">
                                 <a className="nav-link dropdown-toggle" href="/#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i className="fas fa-map-marker-alt" /> Hồ Chí Minh
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a className="dropdown-item" href="#">Hồ Chí Minh</a>
-                                    <a className="dropdown-item" href="#">Hà Nội</a>
-                                    <a className="dropdown-item" href="#">Đà Nẵng</a>
-                                    <a className="dropdown-item" href="#">Hải Phòng</a>
-                                    <a className="dropdown-item" href="#">Hồ Chí Minh</a>
-                                    <a className="dropdown-item" href="#">Hà Nội</a>
-                                    <a className="dropdown-item" href="#">Đà Nẵng</a>
-                                    <a className="dropdown-item" href="#">Hải Phòng</a>
-                                    <a className="dropdown-item" href="#">Hồ Chí Minh</a>
-                                    <a className="dropdown-item" href="#">Hà Nội</a>
-                                    <a className="dropdown-item" href="#">Đà Nẵng</a>
-                                    <a className="dropdown-item" href="#">Hải Phòng</a>
                                     <a className="dropdown-item" href="#">Hồ Chí Minh</a>
                                     <a className="dropdown-item" href="#">Hà Nội</a>
                                     <a className="dropdown-item" href="#">Đà Nẵng</a>

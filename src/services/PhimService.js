@@ -1,6 +1,6 @@
-import { baseService } from './BaseService'
+import { BaseService } from './BaseService'
 
-export class PhimService extends baseService {
+export class PhimService extends BaseService {
 
     getPhim = (maNhom) => {
         return this.get('api/QuanLyPhim/LayDanhSachPhim', '', `?maNhom=${maNhom}`)

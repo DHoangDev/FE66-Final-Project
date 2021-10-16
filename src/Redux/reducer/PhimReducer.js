@@ -1,6 +1,9 @@
+import { SET_CHI_TIET_PHIM } from "../Action/Type/QuanLyxuatChieu"
+
 const stateDefault = {
     arrPhim: [],
     arrPhimTemp: [],
+    filmDetail: {}
 }
 
 export const QuanLyPhimReducer = (state = stateDefault, action) => {
@@ -23,6 +26,9 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
                 state.arrPhim = state.arrPhimTemp
             }
             return { ...state }
+        }
+        case SET_CHI_TIET_PHIM: {
+            return { ...state, filmDetail: action.filmDetail }
         }
         default:
             return { ...state }

@@ -2,6 +2,9 @@ import axios from 'axios';
 import swal from 'sweetalert';
 
 import { phimService } from '../../Services/PhimService';
+import {
+    SET_DATA_PHIM
+} from './Type/PhimType'
 
 export const phimAction = (maNhom) => {
     return async dispatch => {
@@ -10,7 +13,7 @@ export const phimAction = (maNhom) => {
             const result = await phimService.getPhim(maNhom);
             if (result.data.statusCode === 200) {
                 await dispatch({
-                    type: 'SET_DATA_PHIM',
+                    type: SET_DATA_PHIM,
                     arrPhim: result.data.content,
                 });
             }

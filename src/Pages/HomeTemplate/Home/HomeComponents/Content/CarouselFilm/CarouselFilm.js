@@ -9,8 +9,9 @@ import Rating from './Rating';
 
 import { GROUP_ID } from '../../../../../../Util/Setting';
 import { phimAction } from '../../../../../../Redux/Action/PhimAction';
+import { NavLink } from 'react-router-dom';
 
-export default function CarouselFilm() {
+export default function CarouselFilm(props) {
 
     const settings = {
         arrows: true,
@@ -34,6 +35,13 @@ export default function CarouselFilm() {
                 settings: {
                     arrows: false,
                     slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 540,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1
                 }
             },
             {
@@ -71,8 +79,8 @@ export default function CarouselFilm() {
                                     <p>{value.moTa}</p>
                                 </div>
                                 <div className="action">
-                                    <a class="btn-hover color-1 venobox" type="button" data-vbtype="video" href={value.trailer}>TRAILER</a>
-                                    <a class="btn-hover color-2" type="button" href="#">CHITIET</a>
+                                    <a className="btn-hover color-1 venobox" type="button" data-vbtype="video" href={value.trailer}>TRAILER</a>
+                                    <NavLink className="btn-hover color-2" type="button" to={`/About/${value.maPhim}`}>CHITIET</NavLink>
                                 </div>
                                 <div className="info">
                                     <div className="text-light">

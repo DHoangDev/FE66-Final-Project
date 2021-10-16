@@ -70,7 +70,7 @@ export default function Adduser() {
     return (
         <Form onSubmitCapture={formik.handleSubmit} labelCol={{ span: 4, }} wrapperCol={{ span: 14, }} layout="horizontal"
             initialValues={{ size: componentSize, }} onValuesChange={onFormLayoutChange} size={componentSize} >
-            <h3 className="text-center">Add New User</h3>
+            <h3 className="text-center">Thêm Người Dùng Mới</h3>
             <Form.Item label="Form Size" name="size">
                 <Radio.Group>
                     <Radio.Button value="small">Small</Radio.Button>
@@ -100,7 +100,7 @@ export default function Adduser() {
                 </select>
             </Form.Item>
             <Form.Item label="Tác vụ">
-                <button type="submit" className="btn btn-outline-success">Thêm Người Dùng</button>
+                <button type="submit" className="btn btn-outline-success">Thêm người dùng</button>
             </Form.Item>
         </Form>
     )

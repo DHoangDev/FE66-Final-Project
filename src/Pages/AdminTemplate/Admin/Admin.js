@@ -103,7 +103,7 @@ export default function Admin() {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="adminModalLabel">Update Admin Information</h5>
+                            <h5 className="modal-title" id="adminModalLabel">Cập Nhật Thông Tin Admin</h5>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
@@ -112,11 +112,11 @@ export default function Admin() {
                             <form>
                                 <div className="form-row">
                                     <div className="form-group col-md-7">
-                                        <label htmlFor="adminModalName">Name</label>
+                                        <label htmlFor="adminModalName">Họ tên</label>
                                         <input type="text" className="form-control" id="adminModalName" />
                                     </div>
                                     <div className="form-group col-md-5">
-                                        <label for="adminPermissionFormControl">Permission</label>
+                                        <label for="adminPermissionFormControl">Quyền</label>
                                         <select class="custom-select" id="adminPermissionFormControl">
                                             {renderLoaiNguoiDungModal()}
                                         </select>
@@ -127,12 +127,12 @@ export default function Admin() {
                                     <input type="email" className="form-control" id="adminModalEmail" placeholder="example@gmail.com" />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="adminModalPassword1">New Password</label>
+                                    <label htmlFor="adminModalPassword1">Mật khẩu mới</label>
                                     <input type="password" className="form-control" id="adminModalPassword1"
                                         onChange={() => { passwordValidation() }} />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="adminModalPassword2">Confirm Password</label>
+                                    <label htmlFor="adminModalPassword2">Xác nhận mật khẩu</label>
                                     <input type="password" className="form-control" id="adminModalPassword2"
                                         onChange={() => { passwordValidation() }} aria-describedby="adminPasswordHelp" />
                                     {(() => {
@@ -142,20 +142,20 @@ export default function Admin() {
                                             </small>)
                                         } else {
                                             return (<small id="adminPasswordHelp" className="form-text text-danger">
-                                                Not Matching ! Please Retype Your Password !
+                                                Mật khẩu không khớp ! Hãy nhập lại !
                                             </small>)
                                         }
                                     })()}
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="adminModalPhoneNumber">Phone Number</label>
+                                    <label htmlFor="adminModalPhoneNumber">Số điện thoại</label>
                                     <input type="tel" className="form-control" id="adminModalPhoneNumber" />
                                 </div>
                             </form>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary" onClick={() => { confirmEditData() }}>Save changes</button>
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Thoát</button>
+                            <button type="button" className="btn btn-primary" onClick={() => { confirmEditData() }}>Lưu thay đổi</button>
                         </div>
                     </div>
                 </div>
@@ -164,11 +164,11 @@ export default function Admin() {
                 <div className="col-4">
                     <h3>Thông Tin Cá Nhân</h3>
                     <div className="form-group">
-                        <label htmlFor="adminName">Name</label>
+                        <label htmlFor="adminName">Họ tên</label>
                         <input type="text" className="form-control" id="adminName" value={arrAdmin.hoTen} disabled />
                     </div>
                     <div className="form-group">
-                        <label for="adminPermission">Permission</label>
+                        <label for="adminPermission">Quyền</label>
                         <input type="text" className="form-control" id="adminPermission" value={renderLoaiNguoiDung()} disabled />
                     </div>
                     <div className="form-group">
@@ -176,12 +176,12 @@ export default function Admin() {
                         <input type="email" className="form-control" id="adminEmail" placeholder="example@gmail.com" value={arrAdmin.email} disabled />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="adminPassword">Password</label>
+                        <label htmlFor="adminPassword">Mật khẩu</label>
                         <input type="password" className="form-control" id="adminPassword"
                             value={arrAdmin.matKhau} disabled />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="adminPhoneNumber">Phone Number</label>
+                        <label htmlFor="adminPhoneNumber">Số điện thoại</label>
                         <input type="tel" className="form-control" id="adminPhoneNumber" value={arrAdmin.soDT} disabled />
                     </div>
                     <div>

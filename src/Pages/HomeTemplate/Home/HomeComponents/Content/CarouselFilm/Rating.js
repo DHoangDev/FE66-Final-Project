@@ -41,7 +41,6 @@ export default function Rating({ value }) {
                 return [100, 100, 100, 100, 100]
         }
     }
-
     return (
         <span>
             {getStars(value).map((value, index) => (<i className={getStar(value)} key={index}></i>))}

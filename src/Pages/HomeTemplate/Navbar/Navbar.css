@@ -22,7 +22,7 @@ header {
     height: 20px;
   }
   header nav.navbar .navbar-menu {
-    margin-left: 35%;
+    margin-left: 33%;
   }
   
   header nav.navbar .navbar-menu .nav-link {
@@ -45,28 +45,29 @@ header {
     padding: 0 1rem;
     line-height: 2.5;
   }
-  
   header nav.navbar .navbar-login .nav-link i {
     margin-right: .5rem;
   }
-  
   header nav.navbar .navbar-login .nav-link.dropdown-toggle::after {
     margin-left: .5rem;
   }
-  
   header nav.navbar .navbar-login .nav-item .nav-link .nav-avatar {
     width: 30px;
     height: auto;
     border-radius: 25px;
   }
-  
   header nav.navbar .navbar-login .dropdown-menu {
     font-size: 14px;
     height: 300px;
     overflow-y: scroll;
     top: 36px;
   }
-  
+  header nav.navbar .navbar-login .dropdown-user {
+    font-size: 14px;
+    height: unset;
+    overflow-y: unset;
+    top: unset;
+  }
   header nav.navbar .navbar-login .dropdown-menu .dropdown-item {
     color: #333;
     font-weight: 600;

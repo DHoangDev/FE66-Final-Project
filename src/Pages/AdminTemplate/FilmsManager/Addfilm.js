@@ -96,7 +96,7 @@ export default function Addfilm() {
     return (
         <Form onSubmitCapture={formik.handleSubmit} labelCol={{ span: 4, }} wrapperCol={{ span: 14, }} layout="horizontal"
             initialValues={{ size: componentSize, }} onValuesChange={onFormLayoutChange} size={componentSize} >
-            <h3 className="text-center">Add New Film</h3>
+            <h3 className="text-center">Thêm phim mới</h3>
             <Form.Item label="Form Size" name="size">
                 <Radio.Group>
                     <Radio.Button value="small">Small</Radio.Button>

@@ -260,12 +260,14 @@ export default function Editfilm() {
                     </div>
                 </div>
             </div>
-            <h3>Film Management</h3>
-            <input
-                className="form-control w-25 mb-3"
-                placeholder="Nhập tên phim ..."
-                onKeyUp={(e) => { search(e.target.value) }}
-            />
+            <div className="d-flex">
+                <h3>Quản lý Phim</h3>
+                <input
+                    className="form-control w-25 mb-3 ml-auto"
+                    placeholder="Nhập tên phim ..."
+                    onKeyUp={(e) => { search(e.target.value) }}
+                />
+            </div>
             <Table dataSource={arrPhim} columns={columns} responsive={true}
                 pagination={{ defaultPageSize: 5, showSizeChanger: true, pageSizeOptions: ['5', '10', '20', '30', '40'] }} />
         </div>

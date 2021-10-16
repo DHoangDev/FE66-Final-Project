@@ -42,7 +42,7 @@ export default function AdminTemplate(props) {
     const menu = (
         <Menu>
             <Menu.Item key="0">
-                <a href="https://www.antgroup.com">1st menu item</a>
+                <a href="/Home">Trang Chủ</a>
             </Menu.Item>
             <Menu.Item key="1">
                 <NavLink to="/Admin/admin" />Thông Tin

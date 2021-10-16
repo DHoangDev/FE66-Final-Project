@@ -1,17 +1,39 @@
+import { history } from '../../App';
+import { qlNguoiDungService } from '../../Services/QuanLyNguoiDungService'
 import axios from 'axios';
 import swal from 'sweetalert';
+// import Swal from 'sweetalert2';
 
-import { qlNguoiDungService } from '../../Services/QuanLyNguoiDungService';
 import { ACCESS_TOKEN, USER_LOGIN } from '../../Util/Setting';
+
+import {
+    DANG_NHAP,
+    SET_THONG_TIN_NGUOI_DUNG,
+    SET_ADMIN,
+    SET_LOAI_NGUOI_DUNG,
+    SET_NGUOI_DUNG
+} from "./Type/QuanLyNguoiDungType"
+import { DISPLAY_LOADING, HIDE_LOADING } from './Type/LoadingType';
 
 export const dangKyAction = (thongTinNguoiDung) => {
     return async dispatch => {
         try {
 
             const result = await qlNguoiDungService.dangKyService(thongTinNguoiDung);
-            //Sau khi đăng nhập thành công => chuyển hướng trang
+            if (result.data.statusCode === 200) {
+                swal.fire({
+                    icon: 'success',
+                    title: 'Đăng ký thành công',
+                    // text: 'Something went wrong!',
+                    confirmButtonText: 'OK',
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        window.location.reload()
+                    }
+                })
+            }
             console.log({ result })
-
         } catch (error) {
             console.log({ error })
             console.log(error.response?.data)
@@ -20,22 +42,57 @@ export const dangKyAction = (thongTinNguoiDung) => {
 }
 export const dangNhapAction = (thongTinNguoiDung) => {
     return async dispatch => {
-        try {
+        dispatch({
+            type: DISPLAY_LOADING,
+        })
 
+        try {
             const result = await qlNguoiDungService.dangNhapService(thongTinNguoiDung);
+
             if (result.data.statusCode === 200) {
+                //lưu vào localStorage
                 localStorage.setItem(USER_LOGIN, JSON.stringify(result.data.content));
                 localStorage.setItem(ACCESS_TOKEN, result.data.content.accessToken)
                 dispatch({
-                    type: 'DANG_NHAP',
+                    type: DANG_NHAP,
                     userLogin: result.data.content
                 })
-            }
+                history.goBack()
 
+            }
             console.log('result', result)
+            setTimeout(() => {
+                dispatch({
+                    type: HIDE_LOADING,
+                })
+            }, 1500)
+
         } catch (err) {
+            dispatch({
+                type: HIDE_LOADING,
+            })
             console.log(err)
             console.log(err.response?.data)
+        }
+
+
+    }
+}
+export const thongTinNguoiDungAction = () => {
+    return async dispatch => {
+        try {
+
+            const result = await qlNguoiDungService.layThongTinNguoiDung();
+            if (result.data.statusCode === 200) {
+                dispatch({
+                    type: SET_THONG_TIN_NGUOI_DUNG,
+                    thongTinNguoiDung: result.data.content
+                })
+            }
+            console.log({ result })
+        } catch (error) {
+            console.log({ error })
+            console.log(error.response?.data)
         }
     }
 }
@@ -47,7 +104,7 @@ export const adminAction = () => {
             if (result.data.statusCode === 200) {
                 console.log(result.data.content)
                 await dispatch({
-                    type: 'SET_ADMIN',
+                    type: SET_ADMIN,
                     arrAdmin: result.data.content,
                 });
             }
@@ -65,7 +122,7 @@ export const loaiNguoiDungAction = () => {
             const result = await qlNguoiDungService.getLoaiNguoiDung();
             if (result.data.statusCode === 200) {
                 await dispatch({
-                    type: 'SET_LOAI_NGUOI_DUNG',
+                    type: SET_LOAI_NGUOI_DUNG,
                     arrLoaiNguoiDung: result.data.content,
                 });
             }
@@ -83,7 +140,7 @@ export const nguoiDungAction = (maNhom) => {
             const result = await qlNguoiDungService.getNguoiDung(maNhom);
             if (result.data.statusCode === 200) {
                 await dispatch({
-                    type: 'SET_NGUOI_DUNG',
+                    type: SET_NGUOI_DUNG,
                     arrNguoiDung: result.data.content,
                 });
             }

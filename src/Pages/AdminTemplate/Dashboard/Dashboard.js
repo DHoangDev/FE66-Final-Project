@@ -46,7 +46,7 @@ export default function Dashboard() {
                 </div></div>
             </div>
             <div className="row mb-5">
-                <div className="col-3">
+                <div className="col-md-6 col-lg-3">
                     <div className="card blue p-3">
                         <h5><b>Film</b></h5>
                         <div style={{ height: '60px', display: 'flex', alignItems: 'center' }}><h3>{arrPhimTemp.length}</h3></div>
@@ -55,7 +55,7 @@ export default function Dashboard() {
                         </div>
                     </div>
                 </div>
-                <div className="col-3">
+                <div className="col-md-6 col-lg-3">
                     <div className="card green p-3">
                         <h5><b>User</b></h5>
                         <div style={{ height: '60px', display: 'flex', alignItems: 'center' }}><h3>{arrNguoiDungTemp.length}</h3></div>
@@ -64,7 +64,7 @@ export default function Dashboard() {
                         </div>
                     </div>
                 </div>
-                <div className="col-3">
+                <div className="col-md-6 col-lg-3">
                     <div className="card orange p-3">
                         <h5><b>Lorem</b></h5>
                         <div style={{ height: '60px', display: 'flex', alignItems: 'center' }}><h3>12.345</h3></div>
@@ -73,7 +73,7 @@ export default function Dashboard() {
                         </div>
                     </div>
                 </div>
-                <div className="col-3">
+                <div className="col-md-6 col-lg-3">
                     <div className="card red p-3">
                         <h5><b>Lorem</b></h5>
                         <div style={{ height: '60px', display: 'flex', alignItems: 'center' }}><h3>12.345</h3></div>

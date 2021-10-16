@@ -166,7 +166,7 @@ export default function Edituser() {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="userModalLabel">Update User Information</h5>
+                            <h5 className="modal-title" id="userModalLabel">Cập Nhật Thông Tin Người Dùng</h5>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
@@ -175,11 +175,11 @@ export default function Edituser() {
                             <form>
                                 <div className="form-row">
                                     <div className="form-group col-md-7">
-                                        <label htmlFor="userModalName">Name</label>
+                                        <label htmlFor="userModalName">Họ tên</label>
                                         <input type="text" className="form-control" id="userModalName" />
                                     </div>
                                     <div className="form-group col-md-5">
-                                        <label for="permissionFormControlSelect">Permission</label>
+                                        <label for="permissionFormControlSelect">Quyền</label>
                                         <select class="custom-select" id="permissionFormControlSelect">
                                             {renderLoaiNguoiDung()}
                                         </select>
@@ -190,12 +190,12 @@ export default function Edituser() {
                                     <input type="email" className="form-control" id="userModalEmail" placeholder="example@gmail.com" />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="userModalPassword1">New Password</label>
+                                    <label htmlFor="userModalPassword1">Mật khẩu mới</label>
                                     <input type="password" className="form-control" id="userModalPassword1"
                                         onChange={() => { passwordValidation() }} />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="userModalPassword2">Confirm Password</label>
+                                    <label htmlFor="userModalPassword2">Xác nhận mật khẩu</label>
                                     <input type="password" className="form-control" id="userModalPassword2"
                                         onChange={() => { passwordValidation() }} aria-describedby="userPasswordHelp" />
                                     {(() => {
@@ -205,30 +205,32 @@ export default function Edituser() {
                                             </small>)
                                         } else {
                                             return (<small id="userPasswordHelp" className="form-text text-danger">
-                                                Not Matching ! Please Retype Your Password !
+                                                Mật khẩu không khớp ! Hãy nhập lại !
                                             </small>)
                                         }
                                     })()}
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="userModalPhoneNumber">Phone Number</label>
+                                    <label htmlFor="userModalPhoneNumber">Số điện thoại</label>
                                     <input type="tel" className="form-control" id="userModalPhoneNumber" />
                                 </div>
                             </form>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary" onClick={() => { confirmEditData() }}>Save changes</button>
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Thoát</button>
+                            <button type="button" className="btn btn-primary" onClick={() => { confirmEditData() }}>Lưu thay đổi</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <h3>User Management</h3>
-            <input
-                className="form-control w-25 mb-3"
-                placeholder="Nhập tài khoản ..."
-                onKeyUp={(e) => { search(e.target.value) }}
-            />
+            <div className="d-flex">
+                <h3>Quản lý người dùng</h3>
+                <input
+                    className="form-control w-25 ml-auto"
+                    placeholder="Nhập tài khoản ..."
+                    onKeyUp={(e) => { search(e.target.value) }}
+                />
+            </div>
             <Table
                 columns={columns} dataSource={arrNguoiDung} responsive={true}
                 pagination={{ defaultPageSize: 5, showSizeChanger: true, pageSizeOptions: ['5', '10', '20', '30', '40'] }}

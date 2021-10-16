@@ -1,12 +1,15 @@
-import { baseService } from './BaseService'
+import { BaseService } from './BaseService'
 
-export class QuanLyNguoiDungService extends baseService {
+export class QuanLyNguoiDungService extends BaseService {
 
     dangNhapService = (thongTinNguoiDung) => {
         return this.post('api/QuanLyNguoiDung/DangNhap', thongTinNguoiDung)
     }
     dangKyService = (thongTinNguoiDung) => {
         return this.post('api/QuanLyNguoiDung/DangKy', thongTinNguoiDung)
+    }
+    layThongTinNguoiDung = () => {
+        return this.post('api/QuanLyNguoiDung/ThongTinTaiKhoan');
     }
     getAdminService = () => {
         return this.post('api/QuanLyNguoiDung/ThongTinTaiKhoan', '')

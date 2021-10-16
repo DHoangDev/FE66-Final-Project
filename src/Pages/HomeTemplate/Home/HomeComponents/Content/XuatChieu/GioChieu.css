@@ -1,0 +1,20 @@
+#cine-TimetoShow #cineContentShow #accordionXuatChieu .collapse-box .ngay-chieu {
+
+}
+#cine-TimetoShow #cineContentShow #accordionXuatChieu .collapse-box .box-gio-chieu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+#cine-TimetoShow #cineContentShow #accordionXuatChieu .collapse-box .gio-chieu {
+    background-color: gray;
+}
+#cine-TimetoShow #cineContentShow #accordionXuatChieu .collapse-box a.gio-chieu {
+    color: white !important;
+    width: 50px;
+    text-align: center;
+    margin: .25rem;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+}
