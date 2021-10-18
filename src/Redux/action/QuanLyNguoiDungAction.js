@@ -86,16 +86,24 @@ export const dangNhapAction =(thongTinNguoiDung)=>{
 export const thongTinNguoiDungAction = () => {
     return async dispatch => {
         try {
-
+            dispatch({
+                type:DISPLAY_LOADING,
+            })
             const result = await qlNguoiDungService.layThongTinNguoiDung();
             if(result.data.statusCode ===200){            
-                dispatch({
+                await dispatch({
                     type:SET_THONG_TIN_NGUOI_DUNG,
                     thongTinNguoiDung: result.data.content
-                })        
+                })  
+                dispatch({
+                    type:HIDE_LOADING,
+                })      
             }
             console.log({result})
         } catch (error) {
+            dispatch({
+                type:HIDE_LOADING,
+            })  
             console.log({ error })
             console.log(error.response?.data)
         }

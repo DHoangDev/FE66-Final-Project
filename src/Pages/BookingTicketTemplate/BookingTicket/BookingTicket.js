@@ -287,7 +287,7 @@ function BookingResult(props) {
               <div className="card-block text-center text-white">
                 <div className="m-b-25"> <img src="http://localhost:3000/assets/images/avatar.png" className="img-radius" alt="..." /> </div>
                 <h6 className="f-w-600">{thongTinNguoiDung.hoTen}</h6>
-                <p>{loaiNguoiDung.tenLoai}</p> <i className=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16" />
+                <p>{loaiNguoiDung?.tenLoai}</p> <i className=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16" />
               </div>
             </div>
             <div className="col-sm-8">
