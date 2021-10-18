@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Route } from "react-router-dom"
 
 import Navbar from "./Navbar/Navbar"
@@ -15,7 +15,9 @@ export default function HomeTemplate(props) {
         //     localStorage.removeItem('userLogin')
         // }
     })
-
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    })
     return (
         <Route exact path={props.path} render={(propsRoute) => {
             return (

@@ -1,20 +1,24 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { CloseOutlined, UserOutlined, CheckOutlined } from '@ant-design/icons';
+import { CloseOutlined, UserOutlined, CheckOutlined ,UserSwitchOutlined} from '@ant-design/icons';
 import { datVeAction, layChiTietPhongVeAction } from '../../../Redux/Action/QuanLyDatVeAction'
 import './BookingTicket.css'
 import _ from 'lodash';
 import { Tabs } from 'antd';
-import { DAT_VE } from '../../../Redux/Action/Type/QuanLyDatVeType';
+import { CHUYEN_TAB_ACTIVE, DAT_VE } from '../../../Redux/Action/Type/QuanLyDatVeType';
 import { ThongTinDatVe } from '../../../_core/models/ThôngTinDatVe';
 import { thongTinNguoiDungAction } from '../../../Redux/Action/QuanLyNguoiDungAction';
 import moment from 'moment'
+import { QuanLyNguoiDungService } from '../../../Services/QuanLyNguoiDungService';
+import { QuanLyNguoiDungReducer } from '../../../Redux/Reducer/QuanLyNguoiDungReducer';
+import { history } from '../../../App';
+import { ACCESS_TOKEN, USER_LOGIN } from '../../../Util/Setting';
+
 
 function BookingTicket(props) {
 
     const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer)
-    const { chiTietPhongVe, danhSachGheDangDat } = useSelector(state => state.QuanLyDatVeReducer)
-
+    const { chiTietPhongVe, danhSachGheDangDat,danhSachGheKhachDat } = useSelector(state => state.QuanLyDatVeReducer)
 
     console.log({ chiTietPhongVe })
     const dispatch = useDispatch()
@@ -23,6 +27,11 @@ function BookingTicket(props) {
         //id lấy từ url
         let { id } = props.match.params
         dispatch(layChiTietPhongVeAction(id))
+
+       
+
+
+
     }, [])
     const { thongTinPhim, danhSachGhe } = chiTietPhongVe
 
@@ -30,13 +39,22 @@ function BookingTicket(props) {
         return danhSachGhe.map((ghe, index) => {
             let gheVip = ghe.loaiGhe === 'Vip' ? 'gheVip' : ''
             let gheDaDat = ghe.daDat === true ? 'gheDaDat' : '';
+            
+            //test có ghế khách khác đặt
+            let classGheKhachDat=''
+            let indexGheKD = danhSachGheKhachDat.findIndex(gheKD=>gheKD.maGhe === ghe.maGhe);
+            if(indexGheKD !== -1){
+                classGheKhachDat='gheKhachDat'
+            }
+
+
 
             let classUserDatGhe = '';
             if (userLogin.taiKhoan === ghe.taiKhoanNguoiDat) {
                 classUserDatGhe = 'gheUserDat'
             }
 
-            //check từng ghế trong mảng
+            //test từng ghế trong mảng
             let classGheDangDat = '';
             let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === ghe.maGhe)
             if (indexGheDD !== -1) {
@@ -49,9 +67,9 @@ function BookingTicket(props) {
                         gheDuocChon: ghe
                     })
                 }}
-                    disabled={ghe.daDat} className={`ghe ${gheVip} ${gheDaDat} ${classGheDangDat} ${classUserDatGhe}`}>
+                    disabled={ghe.daDat || classGheKhachDat !==''} className={`ghe ${gheVip} ${gheDaDat} ${classGheDangDat} ${classUserDatGhe} ${classGheKhachDat}`}>
 
-                    {ghe.daDat ? classUserDatGhe !== '' ? <UserOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> : <CloseOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> : ghe.stt}
+                    {ghe.daDat ? classUserDatGhe !== '' ? <UserOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> : <CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> :classGheKhachDat !==''?<UserSwitchOutlined  style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> :ghe.stt}
 
                 </button>
                 {(index + 1) % 16 === 0 ? <br /> : ''}
@@ -80,6 +98,7 @@ function BookingTicket(props) {
                                     <th>Ghế đang đặt</th>
                                     <th>Ghế đã đặt</th>
                                     <th>Ghế vip</th>
+                                    <th>Ghế người khác đang đặt</th>
                                     <th>Ghế quý khách đặt</th>
                                 </tr>
                             </thead>
@@ -89,14 +108,15 @@ function BookingTicket(props) {
                                     <td><button className="ghe gheDangDat text-center"><CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button></td>
                                     <td><button className="ghe gheDaDat text-center"><CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button></td>
                                     <td><button className="ghe gheVip text-center"><CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button></td>
-                                    <td><button className="ghe gheUserDat text-center"><CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button></td>
+                                    <td><button className="ghe gheKhachDat text-center"><UserSwitchOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button></td>                                    
+                                    <td><button className="ghe gheUserDat text-center"><UserOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <div className="col-3 mt-4">
+                <div className="col-3 mt-4" style={{boxShadow: '1px 6px 12px -5px #888'}}>
                     <h3 className="text-center display-6 text-success font-weight-bold">
                         {danhSachGheDangDat.reduce((tongTien, ghe, index) => {
                             return tongTien += ghe.giaVe;
@@ -134,7 +154,7 @@ function BookingTicket(props) {
                         <span>{userLogin.soDT}</span>
                     </div>
                     <hr />
-                    <div className="mb-0 d-flex flex-column justify-content-end align-items-center">
+                    <div className="mb-0 h-25 d-flex flex-column justify-content-end align-items-center">
                         <div className="text-white w-100 text-center py-2 font-weight-bold bg-orange" style={{ cursor: 'pointer' }} onClick={() => {
                             const thongTinDatVe = new ThongTinDatVe()
                             thongTinDatVe.maLichChieu = props.match.params.id;
@@ -155,13 +175,39 @@ function BookingTicket(props) {
 
 const { TabPane } = Tabs;
 
-function callback(key) {
-    console.log(key);
-}
+
 
 export default function BookingSteps(props) {
+    
+    const {tabActive} = useSelector(state=>state.QuanLyDatVeReducer)
+    const dispatch = useDispatch();
+    const {userLogin} = useSelector(state=>state.QuanLyNguoiDungReducer) 
+                   
+    const OperationsSlot = {
+        left: <a href='/home'>
+            <img width={50} src="http://localhost:3000/assets/images/web-logo.png" alt='...'></img>
+        </a>,
+        right: <Fragment>
+        {localStorage.getItem(USER_LOGIN)?<Fragment> <div onClick={()=>{
+           
+        }}><div style={{cursor:'pointer',color:'white',backgroundColor:'#c75800',borderRadius:'50%',width:'35px',height:'35px',margin:'auto'}} className="d-flex align-items-center justify-content-center font-weight-bold">
+        {userLogin.hoTen.substr(0,1)}
+        </div>
+        {userLogin?.hoTen} 
+         </div>
+         </Fragment>
+         :''}        
+    </Fragment>,
+      };
+      
+
     return <div className="p-4">
-        <Tabs defaultActiveKey="1" onChange={callback}>
+        <Tabs centered tabBarExtraContent={OperationsSlot} className="bsnone"  defaultActiveKey='1' activeKey={tabActive} onChange={(key=>{
+            dispatch({
+                type:CHUYEN_TAB_ACTIVE,
+                key:key.toString()
+            })
+        })}>
             <TabPane tab="01 CHỌN GHẾ & THANH TOÁN" key="1">
                 <BookingTicket {...props} />
             </TabPane>
@@ -177,7 +223,7 @@ export default function BookingSteps(props) {
 function BookingResult(props) {
 
     const {thongTinNguoiDung , userLogin} = useSelector(state=> state.QuanLyNguoiDungReducer)
-
+    const {loaiNguoiDung} = thongTinNguoiDung
     const dispatch = useDispatch();
     console.log({thongTinNguoiDung})
     useEffect(() => {
@@ -230,8 +276,56 @@ function BookingResult(props) {
         </div>
         })
     }
+    const renderProfile=()=>{
+        return <div className="page-content page-container" id="page-content">
+  <div className="padding">
+    <div className="row container d-flex justify-content-center">
+      <div className="col-xl-6 col-md-12">
+        <div className="card user-card-full">
+          <div className="row m-l-0 m-r-0">
+            <div className="col-sm-4 bg-c-lite-green user-profile">
+              <div className="card-block text-center text-white">
+                <div className="m-b-25"> <img src="http://localhost:3000/assets/images/avatar.png" className="img-radius" alt="..." /> </div>
+                <h6 className="f-w-600">{thongTinNguoiDung.hoTen}</h6>
+                <p>{loaiNguoiDung.tenLoai}</p> <i className=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16" />
+              </div>
+            </div>
+            <div className="col-sm-8">
+              <div className="card-block">
+                <h6 className="m-b-20 p-b-5 b-b-default f-w-600">Thông Tin Khách Hàng</h6>
+                <div className="row">
+                  <div className="col-sm-6">
+                    <p className="m-b-10 f-w-600">Email</p>
+                    <h6 className="text-muted f-w-400">{thongTinNguoiDung.email}</h6>
+                  </div>
+                  <div className="col-sm-6">
+                    <p className="m-b-10 f-w-600">Số điện thoại</p>
+                    <h6 className="text-muted f-w-400">{thongTinNguoiDung.soDT}</h6>
+                  </div>
+                </div>
+                <br />
+                <div className="row">
+                  <div className="col-sm-6">
+                    <p className="m-b-10 f-w-600">Địa chỉ</p>
+                    <h6 className="text-muted f-w-400">459 Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh</h6>
+                  </div>
+                  <div className="col-sm-6">
+                    <p className="m-b-10 f-w-600">Tài khoản</p>
+                    <h6 className="text-muted f-w-400">{thongTinNguoiDung.taiKhoan}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+    }
     return <div className="container">
+        {renderProfile()}
         <div className="text-center py-5">
             <h3 className="font-weight-bold" style={{color:'#c75800'}}>Lịch sử đặt vé</h3>
             <i className="font-weight-bold">Chúc quý khách coi phim vui vẻ!</i>

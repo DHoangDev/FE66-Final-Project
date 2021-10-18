@@ -35,14 +35,14 @@ export const dangKyAction = (thongTinNguoiDung) => {
 
 export const dangNhapAction =(thongTinNguoiDung)=>{
     return async dispatch =>{  
-        dispatch({
-            type:DISPLAY_LOADING,
-        })         
-        
         try{
+             
             const result = await qlNguoiDungService.dangNhapService(thongTinNguoiDung);
             
             if(result.data.statusCode === 200){
+                dispatch({
+                    type:DISPLAY_LOADING,
+                })  
                 //lưu vào localStorage
                 localStorage.setItem(USER_LOGIN,JSON.stringify(result.data.content));
                 localStorage.setItem(ACCESS_TOKEN,result.data.content.accessToken)
@@ -61,9 +61,20 @@ export const dangNhapAction =(thongTinNguoiDung)=>{
             },1500)
             
         }catch(err){
-            dispatch({
-                type:HIDE_LOADING,
-            }) 
+            Swal.fire({
+                icon: 'warning',
+                title: 'Tài khoản hoặc mật khẩu sai',
+                // text: 'Something went wrong!',
+                confirmButtonText: 'OK',
+              }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    dispatch({
+                        type:HIDE_LOADING,
+                    }) 
+                } 
+              })  
+          
             console.log(err)
             console.log(err.response?.data)
         }
