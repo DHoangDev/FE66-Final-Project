@@ -2,36 +2,36 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import './XuatChieu.css';
+import GioChieu from './GioChieu';
 
 import { GROUP_ID } from '../../../../../../Util/Setting';
-import { rapChieuAction, cumRapAction, lichChieuAction } from '../../../../../../Redux/Action/QuanLyXuatChieuAction';
+import { rapChieuAction, cumRapAction } from '../../../../../../Redux/Action/QuanLyXuatChieuAction';
 
 export default function XuatChieu() {
 
-    const { arrRap, arrCumRap, arrCumRap_ChiTiet, arrLichChieu } = useSelector(state => state.QuanLyXuatChieuReducer);
+    const { arrRap, arrCumRap_ChiTiet, arrDanhSachPhim } = useSelector(state => state.QuanLyXuatChieuReducer);
     const dispatch = useDispatch();
 
     useEffect(() => {
         const actionRapChieu = rapChieuAction();
         dispatch(actionRapChieu);
     }, [])
-
     document.addEventListener("DOMContentLoaded", () => {
         const actionCumRap = cumRapAction("", GROUP_ID);
         dispatch(actionCumRap);
-        // const actionLichChieu = lichChieuAction(arrRap[0].maHeThongRap, '', GROUP_ID);
-        // dispatch(actionLichChieu);
     })
-
     const getCumRap = (data) => {
         const actionCumRap = cumRapAction(data, GROUP_ID);
         dispatch(actionCumRap);
     }
-
-    const getLichChieu = (data, maCumRap) => {
-        const actionLichChieu = lichChieuAction(data, maCumRap, GROUP_ID);
-        dispatch(actionLichChieu);
+    const getDanhSachPhim = (maCumRap) => {
+        dispatch({
+            type: 'FIND_CUM_RAP_XUAT_CHIEU',
+            maCumRap: maCumRap,
+        })
     }
+
+
 
     const renderRapChieu = () => {
         return arrRap.map((value, index) => {
@@ -52,7 +52,6 @@ export default function XuatChieu() {
             }
         })
     }
-
     const renderCumRap = () => {
         return arrCumRap_ChiTiet.map((value, index) => {
             var maRap = value.maCumRap.slice(0, value.maCumRap.indexOf('-'));
@@ -62,12 +61,12 @@ export default function XuatChieu() {
                 return (
                     <div className="cineBox border-bottom active" key={index}
                         data-toggle="tab" aria-selected="true" role="tab">
-                        <div className="img-tab-pane" onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}>
+                        <div className="img-tab-pane" onClick={() => { getDanhSachPhim(value.maCumRap) }}>
                             <img src={value.hinhAnh} className="img" alt="..." />
                         </div>
                         <div className="content">
-                            <p onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}><b className={maRap}>{tenRap}</b><b className="tenRap"> {tenRapChiTiet}</b></p>
-                            <span className="infoMovieCine" onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}>{value.diaChi}</span>
+                            <p onClick={() => { getDanhSachPhim(value.maCumRap) }}><b className={maRap}>{tenRap}</b><b className="tenRap"> {tenRapChiTiet}</b></p>
+                            <span className="infoMovieCine" onClick={() => { getDanhSachPhim(value.maCumRap) }}>{value.diaChi}</span>
                             <a href="#">[chi tiết]</a>
                         </div>
                     </div>
@@ -76,12 +75,12 @@ export default function XuatChieu() {
                 return (
                     <div className="cineBox border-bottom" key={index}
                         data-toggle="tab" aria-selected="false" role="tab">
-                        <div className="img-tab-pane" onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}>
+                        <div className="img-tab-pane" onClick={() => { getDanhSachPhim(value.maCumRap) }}>
                             <img src={value.hinhAnh} className="img" alt="..." />
                         </div>
                         <div className="content">
-                            <p onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}><b className={maRap}>{tenRap}</b><b className="tenRap"> {tenRapChiTiet}</b></p>
-                            <span className="infoMovieCine" onClick={() => { getLichChieu(arrCumRap.maHeThongRap, value.maCumRap) }}>{value.diaChi}</span>
+                            <p onClick={() => { getDanhSachPhim(value.maCumRap) }}><b className={maRap}>{tenRap}</b><b className="tenRap"> {tenRapChiTiet}</b></p>
+                            <span className="infoMovieCine" onClick={() => { getDanhSachPhim(value.maCumRap) }}>{value.diaChi}</span>
                             <a href="#">[chi tiết]</a>
                         </div>
                     </div>
@@ -89,13 +88,45 @@ export default function XuatChieu() {
             }
         })
     }
-
-    const renderLichChieu = () => {
-        console.log(arrLichChieu)
-        // return arrLichChieu.map((value, index) => {
-
-        // })
+    const renderPhim = () => {
+        if (arrDanhSachPhim.length !== 0)
+            return arrDanhSachPhim.map((value, index) => {
+                return (
+                    <div className="mb-3 pb-3 border-bottom" key={index}>
+                        <div className="film-box" data-toggle="collapse"
+                            data-target={`#collapse${index}`} aria-expanded="true" aria-controls={`collapse${index}`}>
+                            <div className="d-flex">
+                                <span className="film-img">
+                                    <img src={value.hinhAnh} className="w-100" alt="..." />
+                                </span>
+                                <span className="film-name ml-2">
+                                    <h6><b>{value.tenPhim}</b></h6>
+                                </span>
+                            </div>
+                        </div>
+                        {renderLichChieuTheoPhim(value.lstLichChieuTheoPhim, index)}
+                    </div>
+                )
+            })
     }
+    const renderLichChieuTheoPhim = (indexValue, index) => {
+        var reggie = /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/;
+        var thisMonth = new Date().getMonth()
+        var thisYear = new Date().getFullYear();
+        var arrNew = []
+        for (let i = 0; i < indexValue.length; i++) {
+            var dateArray = reggie.exec(indexValue[i].ngayChieuGioChieu);
+            if (dateArray[1] === `${thisYear}`) arrNew.push(indexValue[i])
+            // && dateArray[2] === `${thisMonth + 1}`
+        }
+        return (
+            <div id={`collapse${index}`} className="collapse collapse-box" data-parent="#accordionXuatChieu">
+                <GioChieu arr={arrNew} />
+            </div>
+        )
+    }
+
+
 
     return (
         <section id="cine-TimetoShow" className="container-lg my-5">
@@ -112,9 +143,12 @@ export default function XuatChieu() {
                         </div>
                     </div>
                     <div className="col-12 col-md-7 p-0">
-                        <div id="cineContentShow" className="p-3 text-center">
-                            <p className="font-weight-bold">Không có xuất chiếu</p>
-                            <div>{renderLichChieu()}</div>
+                        <div id="cineContentShow" className="p-3">
+                            {arrDanhSachPhim.length !== 0 ?
+                                <div className="accordion" id="accordionXuatChieu">
+                                    {renderPhim()}
+                                </div> :
+                                <p className="font-weight-bold text-center">Không có xuất chiếu</p>}
                         </div>
                     </div>
                 </div>

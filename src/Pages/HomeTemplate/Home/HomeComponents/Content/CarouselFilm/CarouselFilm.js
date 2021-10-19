@@ -38,6 +38,13 @@ export default function CarouselFilm(props) {
                 }
             },
             {
+                breakpoint: 540,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1
+                }
+            },
+            {
                 breakpoint: 480,
                 settings: {
                     arrows: false,
@@ -48,7 +55,6 @@ export default function CarouselFilm(props) {
     };
 
     const { arrPhim } = useSelector(state => state.QuanLyPhimReducer);
-    console.log('arrPhim',arrPhim)
     const dispatch = useDispatch();
 
     useEffect(() => {

@@ -7,21 +7,21 @@ import Register from "./Register.js";
 import { dangNhapAction } from "../../../Redux/Action/QuanLyNguoiDungAction";
 
 export default function Login(props) {
-  
+
   document.addEventListener("DOMContentLoaded", () => {
     const sign_in_btn = document.querySelector("#sign-in-btn");
     const sign_up_btn = document.querySelector("#sign-up-btn");
     const container = document.querySelector(".bg-login");
-    
-      sign_up_btn.addEventListener("click", () => {
-        container.classList.add("sign-up-mode");
-      });
-    
-    
-      sign_in_btn.addEventListener("click", () => {
-        container.classList.remove("sign-up-mode");
-      });
-     
+
+    sign_up_btn.addEventListener("click", () => {
+      container.classList.add("sign-up-mode");
+    });
+
+
+    sign_in_btn.addEventListener("click", () => {
+      container.classList.remove("sign-up-mode");
+    });
+
   });
 
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ export default function Login(props) {
   });
 
   return (
-    <div className="bg-login">
+    <div className="bg-login" id="login">
       <div className="forms-container">
         <div className="signin-signup">
           <form className="sign-in-form" onSubmit={formik.handleSubmit}>
@@ -56,13 +56,13 @@ export default function Login(props) {
                 type="text"
                 placeholder="Tài Khoản"
                 onChange={formik.handleChange}
-              />     
+              />
             </div>
             <div className="text text-danger">
-                {formik.errors.taiKhoan && formik.touched.taiKhoan ? (
-                  <div>{formik.errors.taiKhoan}</div>
-                ) : null}
-              </div>
+              {formik.errors.taiKhoan && formik.touched.taiKhoan ? (
+                <div>{formik.errors.taiKhoan}</div>
+              ) : null}
+            </div>
             <div className="input-field">
               <i className="fas fa-lock" />
               <input
@@ -73,10 +73,10 @@ export default function Login(props) {
               />
             </div>
             <div className="text text-danger text-left">
-                {formik.errors.matKhau && formik.touched.matKhau ? (
-                  <div>{formik.errors.matKhau}</div>
-                ) : null}{" "}
-              </div>
+              {formik.errors.matKhau && formik.touched.matKhau ? (
+                <div>{formik.errors.matKhau}</div>
+              ) : null}{" "}
+            </div>
             <button type="submit" className="button solid">
               Xác nhận
             </button>

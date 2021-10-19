@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { NavLink, Route, Redirect } from "react-router-dom"
 
+import './AdminTemplate.css';
+
 import { USER_LOGIN, ACCESS_TOKEN } from '../../Util/Setting'
 
 import { Layout, Menu, Dropdown } from 'antd'
@@ -40,7 +42,7 @@ export default function AdminTemplate(props) {
     const menu = (
         <Menu>
             <Menu.Item key="0">
-                <a href="https://www.antgroup.com">1st menu item</a>
+                <a href="/Home">Trang Chủ</a>
             </Menu.Item>
             <Menu.Item key="1">
                 <NavLink to="/Admin/admin" />Thông Tin
@@ -103,9 +105,9 @@ export default function AdminTemplate(props) {
                                     <a className="ant-dropdown-link text-light d-flex align-items-center" onClick={e => e.preventDefault()}>
                                         <img style={{ width: '27px', height: '27px', borderRadius: '50%' }}
                                             src="http://localhost:3000/assets/images/avatar.png" alt="..." />
-                                        &nbsp;&nbsp;{
+                                        &ensp;{
                                             JSON.parse(localStorage.getItem(USER_LOGIN)).hoTen
-                                        }&nbsp;&nbsp;
+                                        }&ensp;
                                         <DownOutlined />
                                     </a>
                                 </Dropdown>

@@ -1,7 +1,6 @@
 
-
-export class ThongTinDatVe{
+export class ThongTinDatVe {
     maLichChieu = '';
-    danhSachVe=[]
+    danhSachVe = []
 
 }

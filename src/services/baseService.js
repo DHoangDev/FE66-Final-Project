@@ -2,7 +2,7 @@
 import axios from 'axios'
 import { DOMAIN, USER_LOGIN, ACCESS_TOKEN, CYBERSOFTTOKEN } from '../Util/Setting'
 
-export class baseService {
+export class BaseService {
     get = (url, data, nhom) => {
         if (nhom === null) {
             return axios({

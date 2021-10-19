@@ -16,6 +16,7 @@ let initialState = {
     arrAdmin: [],
     arrLoaiNguoiDung: [],
     arrNguoiDung: [],
+    arrNguoiDungTemp: [],
 }
 
 export const QuanLyNguoiDungReducer = (state = initialState, action) => {
@@ -37,8 +38,22 @@ export const QuanLyNguoiDungReducer = (state = initialState, action) => {
         }
         case 'SET_NGUOI_DUNG': {
             state.arrNguoiDung = action.arrNguoiDung
+            state.arrNguoiDungTemp = action.arrNguoiDung
             return { ...state }
         }
+        case 'SEARCH_USER':
+            let arrNguoiDungUpdate = [...state.arrNguoiDungTemp];
+            if (action.taiKhoan !== "") {
+                let nguoiDungSearching = arrNguoiDungUpdate.filter(value => value.taiKhoan.toUpperCase().includes(action.taiKhoan.toUpperCase()))
+                if (nguoiDungSearching.length !== 0) {
+                    state.arrNguoiDung = nguoiDungSearching
+                } else {
+                    state.arrNguoiDung = ""
+                }
+            } else {
+                state.arrNguoiDung = state.arrNguoiDungTemp
+            }
+            return { ...state }
         default:
             return state
     }

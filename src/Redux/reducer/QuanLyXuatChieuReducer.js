@@ -1,8 +1,12 @@
 const stateDefault = {
-    arrRap: [],
-    arrCumRap: [],
-    arrCumRap_ChiTiet: [],
-    arrLichChieu: [],
+    arrRap: [], // Admin lich chieu + Home Xuat chieu
+
+    arrCumRapTheoHeThong: [], // Admin lich chieu
+    arrCumRap_ChiTiet: [], // Admin lich chieu + Home Xuat chieu
+    arrPhimTheoCumRap: [], // Admin lich chieu
+    arrLichChieuTheoPhim: [], // Admin lich chieu
+
+    arrDanhSachPhim: [], // Home Xuat chieu
 }
 
 export const QuanLyXuatChieuReducer = (state = stateDefault, action) => {
@@ -11,18 +15,37 @@ export const QuanLyXuatChieuReducer = (state = stateDefault, action) => {
             state.arrRap = action.arrRap
             return { ...state }
         }
-
+        case 'SET_DATA_CUM_RAP_THEO_HE_THONG':
+            state.arrCumRapTheoHeThong = action.arrCumRapTheoHeThong
+            return { ...state }
         case 'SET_DATA_CUM_RAP': {
-            state.arrCumRap = action.arrCumRap
             state.arrCumRap_ChiTiet = action.arrCumRap.lstCumRap
+            state.arrDanhSachPhim = []
             return { ...state }
         }
 
-        case 'SET_DATA_LICH_CHIEU': {
-            const vitri = action.arrLichChieu.findIndex(value => action.maCumRap === value.maCumRap)
-            if (vitri !== -1) {
-                state.arrLichChieu = action.arrLichChieu[vitri].danhSachPhim
-            }
+
+        case 'FIND_PHIM': {
+            let arrCumRap_ChiTiet_Update = [...state.arrCumRap_ChiTiet]
+            var data = arrCumRap_ChiTiet_Update.findIndex(value => value.maCumRap === action.maCumRap)
+            if (data !== -1)
+                state.arrPhimTheoCumRap = arrCumRap_ChiTiet_Update[data].danhSachPhim
+            return { ...state }
+        }
+        case 'FIND_LICH_CHIEU_THEO_PHIM': {
+            let arrPhimTheoCumRapUpdate = [...state.arrPhimTheoCumRap]
+            var data = arrPhimTheoCumRapUpdate.findIndex(value => value.maPhim === Number(action.maPhim))
+            if (data !== -1)
+                state.arrLichChieuTheoPhim = arrPhimTheoCumRapUpdate[data].lstLichChieuTheoPhim
+            return { ...state }
+        }
+
+        case 'FIND_CUM_RAP_XUAT_CHIEU': {
+            let arrCumRap_ChiTiet_Update = [...state.arrCumRap_ChiTiet]
+            var data = arrCumRap_ChiTiet_Update.findIndex(value => value.maCumRap === action.maCumRap)
+            if (data !== -1)
+                state.arrDanhSachPhim = arrCumRap_ChiTiet_Update[data].danhSachPhim
+            state.lichChieuTheoPhim = []
             return { ...state }
         }
 

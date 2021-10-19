@@ -106,6 +106,30 @@
   #cine-TimetoShow .cumRap .cineBox:hover {
     cursor: pointer;
   }
+  #cine-TimetoShow #cineContentShow #accordionXuatChieu {
+
+  }
+  #cine-TimetoShow #cineContentShow #accordionXuatChieu .film-box:hover {
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 0.1);
+  }
+  #cine-TimetoShow #cineContentShow #accordionXuatChieu .film-box .film-img {
+    width: 40px;
+    height: auto;
+  }
+  #cine-TimetoShow #cineContentShow #accordionXuatChieu .film-box .film-name {
+
+  }
+  #cine-TimetoShow #cineContentShow #accordionXuatChieu .collapse-box {
+
+  }
+  #cine-TimetoShow #cineContentShow #accordionXuatChieu .collapse-box .rap-name {
+
+  }
+
+
+
+
 @media only screen and (max-width: 767px) {
   #cine-TimetoShow>.card{
     margin: 0 1rem;

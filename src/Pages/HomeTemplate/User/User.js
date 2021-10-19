@@ -11,7 +11,7 @@ export default function Admin() {
     const [check, setTurn] = useState(true)
     const dispatch = useDispatch();
 
-    useEffect(() => {
+    useEffect(()=> {
         const actionAdmin = adminAction();
         const actionLoaiNguoiDung = loaiNguoiDungAction();
         dispatch(actionAdmin)
@@ -21,12 +21,6 @@ export default function Admin() {
     if (!localStorage.getItem(USER_LOGIN)) {
         alert('Đăng nhập để vào trang này !');
         return <Redirect to="/Home" />
-    } else {
-        let userLogin = JSON.parse(localStorage.getItem(USER_LOGIN));
-        if (userLogin.maLoaiNguoiDung !== "QuanTri") {
-            alert('Không đủ quyền truy cập !')
-            return <Redirect to="/Home" />
-        }
     }
 
 
@@ -98,7 +92,7 @@ export default function Admin() {
 
 
     return (
-        <div>
+        <div className="container-lg">
             <div className="modal fade" id="adminModal" tabIndex={-1} aria-labelledby="adminModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
@@ -161,36 +155,36 @@ export default function Admin() {
                 </div>
             </div>
             <div className="row">
-                <div className="col-4">
-                    <h3>Thông Tin Cá Nhân</h3>
+                <div className="col-12 col-lg-4" style={{ margin: '100px 0' }}>
+                    <h3 className="text-light">Thông Tin Cá Nhân</h3>
                     <div className="form-group">
-                        <label htmlFor="adminName">Họ tên</label>
+                        <label htmlFor="adminName" className="text-light">Họ tên</label>
                         <input type="text" className="form-control" id="adminName" value={arrAdmin.hoTen} disabled />
                     </div>
                     <div className="form-group">
-                        <label for="adminPermission">Quyền</label>
+                        <label for="adminPermission" className="text-light">Quyền</label>
                         <input type="text" className="form-control" id="adminPermission" value={renderLoaiNguoiDung()} disabled />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="adminEmail">Email</label>
+                        <label htmlFor="adminEmail" className="text-light">Email</label>
                         <input type="email" className="form-control" id="adminEmail" placeholder="example@gmail.com" value={arrAdmin.email} disabled />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="adminPassword">Mật khẩu</label>
+                        <label htmlFor="adminPassword" className="text-light">Mật khẩu</label>
                         <input type="password" className="form-control" id="adminPassword"
                             value={arrAdmin.matKhau} disabled />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="adminPhoneNumber">Số điện thoại</label>
+                        <label htmlFor="adminPhoneNumber" className="text-light">Số điện thoại</label>
                         <input type="tel" className="form-control" id="adminPhoneNumber" value={arrAdmin.soDT} disabled />
                     </div>
                     <div>
                         <button className="btn btn-success" type="button" onClick={() => { updateData() }} data-toggle="modal" data-target="#adminModal">Cập Nhật</button>
                     </div>
                 </div>
-                <div className="col-8">
-                    <h3>Danh Sách Vé Đã Đặt</h3>
-                    <table>
+                <div className="col-12 col-lg-8" style={{ margin: '100px 0' }}>
+                    <h3 className="text-light">Danh Sách Vé Đã Đặt</h3>
+                    <table className="text-light table">
                         <thead>
                             <tr>
                                 <th>Mã Vé</th>

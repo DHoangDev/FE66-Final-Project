@@ -1,0 +1,1 @@
+export const SET_DATA_BANNEL = 'SET_DATA_BANNEL';

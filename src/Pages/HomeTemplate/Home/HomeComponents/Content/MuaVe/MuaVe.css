@@ -1,0 +1,31 @@
+#selectFilm {
+    margin-top: -40px;
+  }
+  #selectFilm .card {
+    z-index: 12;
+    max-width: 940px;
+    padding: 12px 0;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  #selectFilm .card .btn {
+    font-size: 85%;
+    font-weight: 700;
+  }
+  #selectFilm .main-block {
+    width: 25%;
+  }
+  #selectFilm .small-block {
+    width: calc(75% / 5);
+  }
+#selectFilm select {
+  font-size: .9rem;
+  font-weight: 600;
+  padding: 14px;
+  border: 1px solid white;
+  background: none;
+  outline: none;
+}
+#selectFilm select:hover{
+  cursor: pointer;
+}

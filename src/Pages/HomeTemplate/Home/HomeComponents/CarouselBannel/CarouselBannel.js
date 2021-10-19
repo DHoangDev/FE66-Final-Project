@@ -10,6 +10,12 @@ export default function CarouselBannel() {
     const { arrBannel } = useSelector(state => state.BannelReducer)
     const dispatch = useDispatch();
 
+    const video = [
+        'https://youtu.be/uqJ9u7GSaYM',
+        'https://youtu.be/ykBfss-8H4Y',
+        'https://youtu.be/NYH2sLid0Zc',
+    ]
+
     useEffect(() => {
         const actionBannel = bannelAction();
         dispatch(actionBannel);
@@ -47,7 +53,7 @@ export default function CarouselBannel() {
                 return (
                     <div className="carousel-item active" key={index}>
                         <div className="padding-bottom">
-                            <a className="venobox" data-vbtype="video" href="https://youtu.be/sx1ROHCmY-4">
+                            <a className="venobox" data-vbtype="video" href={video[index]}>
                                 <img className="img" src={value.hinhAnh} alt="..." />
                                 <button>
                                     <img src="./assets/images/play-video.png" alt="..." />
@@ -61,7 +67,7 @@ export default function CarouselBannel() {
                 return (
                     <div className="carousel-item" key={index}>
                         <div className="padding-bottom">
-                            <a className="venobox" data-vbtype="video" href="https://youtu.be/sx1ROHCmY-4">
+                            <a className="venobox" data-vbtype="video" href={video[index]}>
                                 <img className="img" src={value.hinhAnh} alt="..." />
                                 <button>
                                     <img src="./assets/images/play-video.png" alt="..." />

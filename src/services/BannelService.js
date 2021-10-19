@@ -1,6 +1,6 @@
-import { baseService } from './BaseService'
+import { BaseService } from './BaseService'
 
-export class BannelService extends baseService {
+export class BannelService extends BaseService {
 
     getBannel = () => {
         return this.get('api/QuanLyPhim/LayDanhSachBanner', '', null)

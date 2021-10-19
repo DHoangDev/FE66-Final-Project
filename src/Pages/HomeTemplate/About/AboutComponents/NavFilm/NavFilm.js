@@ -56,7 +56,6 @@ export default function NavFilm(props) {
                                             </div>
                                             }>
                                                 {/* <Tabs className="bg-white py-3 rounded"> */}
-
                                                 {/* return <TabPane key={index} tab={<div className="font-weight-bold">
                                                              ngày đặt phim
                                                             {lich.tenRap}</div>}> */}

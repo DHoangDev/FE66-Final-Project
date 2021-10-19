@@ -225,55 +225,55 @@ function BookingResult(props) {
     const {thongTinNguoiDung , userLogin} = useSelector(state=> state.QuanLyNguoiDungReducer)
     const {loaiNguoiDung} = thongTinNguoiDung
     const dispatch = useDispatch();
-    console.log({thongTinNguoiDung})
+    console.log({ thongTinNguoiDung })
     useEffect(() => {
         dispatch(thongTinNguoiDungAction())
-        
+
     }, [])
 
-    const renderTicket =()=>{
-        const {thongTinDatVe} = thongTinNguoiDung;
-        
-        return thongTinDatVe?.map((ticket,index)=>{
+    const renderTicket = () => {
+        const { thongTinDatVe } = thongTinNguoiDung;
+
+        return thongTinDatVe?.map((ticket, index) => {
             return <div className="col-lg-4" key={index}>
-            <div className="card card-margin">
-                <div className="card-header no-border justify-content-center">
-                    <h5 className="card-title " style={{color:'#c75800',marginTop:'14px'}}>
-                        {/* Lodash lấy ra phần tử trong mảng */}
-                        {_.first(ticket.danhSachGhe).maHeThongRap} 
-                    </h5>
-                </div>
-                <div className="card-body pt-0">
-                    <div className="widget-49">
-                        <div className="widget-49-title-wrapper">
-                            <div className="widget-49-date-primary">
-                                <span className="widget-49-date-day"><img width={60} height={60} className="rounded-circle" alt="..." src={ticket.hinhAnh}/></span>
-    
+                <div className="card card-margin">
+                    <div className="card-header no-border justify-content-center">
+                        <h5 className="card-title " style={{ color: '#c75800', marginTop: '14px' }}>
+                            {/* Lodash lấy ra phần tử trong mảng */}
+                            {_.first(ticket.danhSachGhe).maHeThongRap}
+                        </h5>
+                    </div>
+                    <div className="card-body pt-0">
+                        <div className="widget-49">
+                            <div className="widget-49-title-wrapper">
+                                <div className="widget-49-date-primary">
+                                    <span className="widget-49-date-day"><img width={60} height={60} className="rounded-circle" alt="..." src={ticket.hinhAnh} /></span>
+
+                                </div>
+                                <div className="widget-49-meeting-info">
+                                    <span className="widget-49-pro-title font-weight-bold">{ticket.tenPhim}</span>
+                                    <span className="widget-49-meeting-time">Ngày chiếu: {moment(ticket.ngayDat).format('DD-MM-YYYY')} & {moment(ticket.ngayDat).format('hh:mm A')}</span>
+                                </div>
                             </div>
-                            <div className="widget-49-meeting-info">
-                                <span className="widget-49-pro-title font-weight-bold">{ticket.tenPhim}</span>
-                                <span className="widget-49-meeting-time">Ngày chiếu: {moment(ticket.ngayDat).format('DD-MM-YYYY')} & {moment(ticket.ngayDat).format('hh:mm A')}</span>
-                            </div>
-                        </div>
-                        <ul className="widget-49-meeting-points">
-                            <li className="widget-49-meeting-item">
-                                <span className="font-weight-bold">Tên Rạp: </span> {_.first(ticket.danhSachGhe).tenCumRap} 
-                            </li>
-                            <li className="widget-49-meeting-item">    
-                                <span className="font-weight-bold">Ghế:</span>{_.sortBy(ticket.danhSachGhe,['tenGhe']).map((ghe,index)=>{
-                                    return <span style={{color:'#c75800'}} key={index}>[{ghe.tenGhe}]</span>
-                                })}
-                            </li>
-                            <li className="widget-49-meeting-item"><span className="font-weight-bold">Giá vé:</span> {(ticket.giaVe * (ticket.danhSachGhe).length).toLocaleString('de-DE')} VNĐ</li>
-                            <li className="widget-49-meeting-item"><span className="font-weight-bold">Địa chỉ: </span>{_.first(ticket.danhSachGhe).tenHeThongRap}</li>
-                        </ul>
-                        {/* <div className="widget-49-meeting-action">
+                            <ul className="widget-49-meeting-points">
+                                <li className="widget-49-meeting-item">
+                                    <span className="font-weight-bold">Tên Rạp: </span> {_.first(ticket.danhSachGhe).tenCumRap}
+                                </li>
+                                <li className="widget-49-meeting-item">
+                                    <span className="font-weight-bold">Ghế:</span>{_.sortBy(ticket.danhSachGhe, ['tenGhe']).map((ghe, index) => {
+                                        return <span style={{ color: '#c75800' }} key={index}>[{ghe.tenGhe}]</span>
+                                    })}
+                                </li>
+                                <li className="widget-49-meeting-item"><span className="font-weight-bold">Giá vé:</span> {(ticket.giaVe * (ticket.danhSachGhe).length).toLocaleString('de-DE')} VNĐ</li>
+                                <li className="widget-49-meeting-item"><span className="font-weight-bold">Địa chỉ: </span>{_.first(ticket.danhSachGhe).tenHeThongRap}</li>
+                            </ul>
+                            {/* <div className="widget-49-meeting-action">
                             <a href="/#" className="btn btn-sm btn-flash-border-primary">View All</a>
                         </div> */}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         })
     }
     const renderProfile=()=>{
@@ -327,7 +327,7 @@ function BookingResult(props) {
     return <div className="container">
         {renderProfile()}
         <div className="text-center py-5">
-            <h3 className="font-weight-bold" style={{color:'#c75800'}}>Lịch sử đặt vé</h3>
+            <h3 className="font-weight-bold" style={{ color: '#c75800' }}>Lịch sử đặt vé</h3>
             <i className="font-weight-bold">Chúc quý khách coi phim vui vẻ!</i>
         </div>
         <div className="d-flex align-items-center justify-content-center flex-wrap">

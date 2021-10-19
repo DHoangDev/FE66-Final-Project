@@ -1,6 +1,9 @@
 import axios from 'axios';
 
 import { bannelService } from '../../Services/BannelService';
+import {
+    SET_DATA_BANNEL,
+} from './Type/BannelType'
 
 export const bannelAction = () => {
     return async dispatch => {
@@ -9,7 +12,7 @@ export const bannelAction = () => {
             const result = await bannelService.getBannel();
             if (result.data.statusCode === 200) {
                 await dispatch({
-                    type: 'SET_DATA_BANNEL',
+                    type: SET_DATA_BANNEL,
                     arrBannel: result.data.content,
                 });
             }

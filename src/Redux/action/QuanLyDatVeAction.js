@@ -1,5 +1,7 @@
 import { connection } from "../.."
 import { qlDatVeService } from "../../Services/QuanLyDatVeService"
+import swal from 'sweetalert';
+
 import { ThongTinDatVe } from "../../_core/models/ThôngTinDatVe"
 import { DISPLAY_LOADING, HIDE_LOADING } from "./Type/LoadingType"
 import { CHUYEN_TAB, DAT_VE, DAT_VE_HOAN_TAT, SET_CHI_TIET_PHONG_VE } from "./Type/QuanLyDatVeType"
@@ -7,27 +9,39 @@ import Swal from 'sweetalert2'
 
 
 
-export const layChiTietPhongVeAction=(maLichChieu)=>{
-    return async dispatch =>{
-        try{
+export const layChiTietPhongVeAction = (maLichChieu) => {
+    return async dispatch => {
+        try {
             const result = await qlDatVeService.layChiTietPhongVe(maLichChieu)
-            
-            if(result.data.statusCode === 200){
+
+            if (result.data.statusCode === 200) {
                 dispatch({
-                    type:SET_CHI_TIET_PHONG_VE,
+                    type: SET_CHI_TIET_PHONG_VE,
                     chiTietPhongVe: result.data.content
                 })
             }
-            console.log({result})
-        }catch(err){
-            console.log('err',err)
-            console.log('err',err.response?.data)
+            console.log({ result })
+        } catch (err) {
+            console.log('err', err)
+            console.log('err', err.response?.data)
         }
     }
 }
-
-export const datVeAction = (thongTinDatVe = new ThongTinDatVe())=>{
-    return async dispatch =>{
+export const taoLichChieuAction = (data) => {
+    return async dispatch => {
+        try {
+            const result = await qlDatVeService.taoLichChieu(data)
+            if (result.data.statusCode === 200) {
+                swal('Successfully !', 'Thêm Phim Thành Công !', 'success')
+            }
+        } catch (err) {
+            console.log('err', err)
+            console.log('err', err.response?.data)
+        }
+    }
+}
+export const datVeAction = (thongTinDatVe = new ThongTinDatVe()) => {
+    return async dispatch => {
 
         try{
             const result = await qlDatVeService.datVe(thongTinDatVe);
@@ -62,10 +76,25 @@ export const datVeAction = (thongTinDatVe = new ThongTinDatVe())=>{
                 confirmButtonText: 'OK',
               })
             dispatch({
-                type:HIDE_LOADING
+                type: HIDE_LOADING
             })
-            console.log('err',err);
-            console.log('err',err.response?.data)
+            console.log('err', err);
+            console.log('err', err.response?.data)
+        }
+    }
+}
+export const layThongTinPhimDatVe = (maPhim) => {
+    return async dispatch => {
+        try {
+            const result = await qlDatVeService.getThongTinPhim(maPhim);
+            console.log(result.data.content)
+            dispatch({
+                type: 'SET_CHI_TIET_PHIM',
+                filmDetail: result.data.content
+            })
+        } catch (err) {
+            console.log(err)
+            console.log(err.response?.data)
         }
     }
 }
