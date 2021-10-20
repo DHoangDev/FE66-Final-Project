@@ -22,7 +22,7 @@ export default class Navbar extends Component {
                         <img className="w-50" src="http://localhost:3000/assets/images/web-logo.png" alt="..." />
                     </a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                        <img className=" w-100" src="./assets/images/menu-options.png" alt="..." />
+                        <img className=" w-100" src="http://localhost:3000/assets/images/menu-options.png" alt="..." />
                     </button>
                     <div className="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul className="navbar-nav navbar-menu mr-md-auto order-2 order-lg-1">

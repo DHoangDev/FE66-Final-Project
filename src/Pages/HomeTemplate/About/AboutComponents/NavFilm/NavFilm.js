@@ -7,12 +7,23 @@ import { NavLink } from 'react-router-dom';
 
 const { TabPane } = Tabs;
 export default function NavFilm(props) {
-
+    const [screen,setScreen] = useState('top')
     const { filmDetail } = props;
     console.log('props', props)
     const ratingChanged = (newRating) => {
         console.log(newRating);
       };
+    //   const width  = window.innerWidth || document.documentElement.clientWidth || 
+    //   document.body.clientWidth;
+    //   const height = window.innerHeight|| document.documentElement.clientHeight|| 
+    //   document.body.clientHeight;
+      
+    //   if(width <= 790){
+    //         setScreen({
+    //             screen:'top'
+    //         })
+    //   }
+    
     return (
         <section id="nav">
             <div className="nav_width">
@@ -30,7 +41,8 @@ export default function NavFilm(props) {
                 </ul>
                 <div className="tab-content">
                     <div className="tab-pane container tabs active" id="lichchieu">
-                        <Tabs className="bg-white py-3 rounded" centered>
+                        
+                       <Tabs tabPosition={screen} className="bg-white py-3 rounded" centered>
                             {filmDetail.heThongRapChieu?.map((rc, index) => {
                                 return <TabPane tab={<div className="d-flex" >
                                     <img src={rc.logo} width={70} height={70} alt='' />
@@ -93,6 +105,7 @@ export default function NavFilm(props) {
                                 </TabPane>
                             })}
                         </Tabs>
+                       
                     </div>
                     <div className="tab-pane container" id="thongtin">
                         <div className="row tab_detail">

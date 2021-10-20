@@ -500,3 +500,48 @@ h6 {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out
 }
+
+@media only screen and (max-width: 540px) {
+  .logo{
+    width: 40px;
+  }
+  .rsp{
+    flex-direction: column
+  }
+  .rspr{
+    width: 100%;
+  }
+  #trapezoid{
+    border-bottom: 33px solid gray;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+  }
+  .ghe {
+    width: 25px;
+    height: 25px;
+    font-size: 11px;
+  }
+  .ant-tabs-tab{
+    font-size: 10px;
+  }
+  .ant-tabs-nav{
+  font-size: 10px;
+  }
+  tr{
+    font-size: 9px;
+  }
+}
+@media screen and (min-width:360px) and (max-width:411px) {
+  .ant-tabs-tab{
+    font-size: 9px;
+  }
+  .ant-tabs-nav{
+  font-size: 9px;
+  }
+  .ghe {
+    width: 23px;
+    height: 23px;
+    font-size: 10px;
+    margin: 6px;
+  }
+}

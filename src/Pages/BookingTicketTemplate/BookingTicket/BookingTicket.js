@@ -36,7 +36,7 @@ function BookingTicket(props) {
     const { thongTinPhim, danhSachGhe } = chiTietPhongVe
 
     const renderGhe = () => {
-        return danhSachGhe.map((ghe, index) => {
+        return danhSachGhe.slice(0,40).map((ghe, index) => {
             let gheVip = ghe.loaiGhe === 'Vip' ? 'gheVip' : ''
             let gheDaDat = ghe.daDat === true ? 'gheDaDat' : '';
             
@@ -72,14 +72,14 @@ function BookingTicket(props) {
                     {ghe.daDat ? classUserDatGhe !== '' ? <UserOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> : <CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> :classGheKhachDat !==''?<UserSwitchOutlined  style={{ marginBottom: 7.5, fontWeight: 'bold' }} /> :ghe.stt}
 
                 </button>
-                {(index + 1) % 16 === 0 ? <br /> : ''}
+                {(index + 1) % 8 === 0 ? <br /> : ''}
             </Fragment>
         })
     }
     return (
         <div>
-            <div className="d-flex">
-                <div className="col-9">
+            <div className="rsp d-flex">
+                <div className="col-sm-9 col-12">
                     <div className="text-center font-weight-bold mt-5">Màn Hình</div>
                     <div className="d-flex flex-column align-items-center">
                         <div style={{ backgroundColor: '#c75800', width: '80%', height: 15 }}>
@@ -98,7 +98,6 @@ function BookingTicket(props) {
                                     <th>Ghế đang đặt</th>
                                     <th>Ghế đã đặt</th>
                                     <th>Ghế vip</th>
-                                    <th>Ghế người khác đang đặt</th>
                                     <th>Ghế quý khách đặt</th>
                                 </tr>
                             </thead>
@@ -108,15 +107,15 @@ function BookingTicket(props) {
                                     <td><button className="ghe gheDangDat text-center"><CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button></td>
                                     <td><button className="ghe gheDaDat text-center"><CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button></td>
                                     <td><button className="ghe gheVip text-center"><CheckOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button></td>
-                                    <td><button className="ghe gheKhachDat text-center"><UserSwitchOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button></td>                                    
+               
                                     <td><button className="ghe gheUserDat text-center"><UserOutlined style={{ marginBottom: 7.5, fontWeight: 'bold' }} /></button></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-
-                <div className="col-3 mt-4" style={{boxShadow: '1px 6px 12px -5px #888'}}>
+                
+                <div className="col-sm-3 col-12 mt-4 rspr" style={{boxShadow: '1px 6px 12px -5px #888'}}>
                     <h3 className="text-center display-6 text-success font-weight-bold">
                         {danhSachGheDangDat.reduce((tongTien, ghe, index) => {
                             return tongTien += ghe.giaVe;
@@ -185,7 +184,7 @@ export default function BookingSteps(props) {
                    
     const OperationsSlot = {
         left: <a href='/home'>
-            <img width={50} src="http://localhost:3000/assets/images/web-logo.png" alt='...'></img>
+            <img className="logo" width={50} src="http://localhost:3000/assets/images/web-logo.png" alt='...'></img>
         </a>,
         right: <Fragment>
         {localStorage.getItem(USER_LOGIN)?<Fragment> <div onClick={()=>{
@@ -208,10 +207,10 @@ export default function BookingSteps(props) {
                 key:key.toString()
             })
         })}>
-            <TabPane tab="01 CHỌN GHẾ & THANH TOÁN" key="1">
+            <TabPane   tab="01 CHỌN GHẾ & THANH TOÁN" key="1">
                 <BookingTicket {...props} />
             </TabPane>
-            <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
+            <TabPane  tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
                 <BookingResult {...props} />
             </TabPane>
         </Tabs>
