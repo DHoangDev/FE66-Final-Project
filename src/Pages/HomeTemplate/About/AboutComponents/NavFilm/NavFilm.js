@@ -42,13 +42,13 @@ export default function NavFilm(props) {
                 <div className="tab-content">
                     <div className="tab-pane container tabs active" id="lichchieu">
                         
-                       <Tabs tabPosition={screen} className="bg-white py-3 rounded" centered>
+                       <Tabs tabPosition={screen} className="bg-white py-3 rounded rpsPane" centered>
                             {filmDetail.heThongRapChieu?.map((rc, index) => {
-                                return <TabPane tab={<div className="d-flex" >
+                                return <TabPane tab={<div className="d-flex rpsPane1" >
                                     <img src={rc.logo} width={70} height={70} alt='' />
                                 </div>} key={index}>
 
-                                    <Tabs tabPosition={'left'} className="py-3 rounded background-tab">
+                                    <Tabs tabPosition={'left'} className="py-3 rounded background-tab rpsTab">
                                         {rc.cumRapChieu?.map((cumRap, index) => {
                                             var tenRap = cumRap.tenCumRap.slice(0, cumRap.tenCumRap.indexOf('-'));
                                             var tenRapChiTiet = cumRap.tenCumRap.slice(cumRap.tenCumRap.indexOf('-'))
