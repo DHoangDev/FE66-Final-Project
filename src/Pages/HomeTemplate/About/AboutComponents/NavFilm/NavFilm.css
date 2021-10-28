@@ -339,9 +339,11 @@
     min-width: 33px;
   }
  .hour-tab{
-  color: black;
+  color: white;
   font-size: 15px;
-  font-weight: 600;
+  padding: 3px !important;
+  
+  background: gray;
  }
  .hour-tab:hover{
   color: #ff7c00;

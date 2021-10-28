@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import ReactStars from "react-rating-stars-component";
 import './NavFilm.css';
 import { Tabs } from 'antd';
@@ -84,12 +84,16 @@ export default function NavFilm(props) {
                                                     </div>
 
                                                 </div>
-                                                <div className="d-flex mt-3">
+                                                <div className="d-flex mt-3 ">
                                                     {/* giờ đặt phim */}
-                                                    {cumRap.lichChieuPhim?.slice(0, 4).map((lc, index) => {
-                                                        return <NavLink className="hour-tab col-3" to={`/BookingTicket/${lc.maLichChieu}`} key={index} >
-                                                            {moment(lc.ngayChieuGioChieu)?.format('hh:mm A')}
+                                                    {cumRap.lichChieuPhim?.slice(0, 3).map((lc, index) => {
+                                                        return <div className="ml-4">
+                                                            <div className="font-weight-bold mb-2">Ngày : {moment(lc.ngayChieuGioChieu)?.format('DD/MM')}</div>
+                                                            <span>Giờ:</span>
+                                                            <NavLink  className="hour-tab font-weight-normal col-4 ml-3" to={`/BookingTicket/${lc.maLichChieu}`} key={index} >
+                                                             {moment(lc.ngayChieuGioChieu)?.format('hh:mm A')}
                                                         </NavLink>
+                                                        </div>
                                                     })}
                                                 </div>
 

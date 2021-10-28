@@ -104,7 +104,7 @@ export default function Login(props) {
       <div className="panels-container">
         <div className="panel left-panel">
           <div className="content">
-            <h3>Tạo tài khoản!!!!</h3>
+            <h3 className="text-light">Tạo tài khoản!!!!</h3>
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
               ex ratione. Aliquid!
@@ -121,7 +121,7 @@ export default function Login(props) {
         </div>
         <div className="panel right-panel">
           <div className="content">
-            <h3>Đăng nhập tại đây !!!</h3>
+            <h3 className="text-light">Đăng nhập tại đây !!!</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
               laboriosam ad deleniti.
