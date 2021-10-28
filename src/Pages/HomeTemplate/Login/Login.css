@@ -168,7 +168,7 @@
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: url('http://localhost:3000/assets/images/bg2.jpg');
+  background-image: url('https://fe-66-final-project.vercel.app/assets/images/bg2.jpg');
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
