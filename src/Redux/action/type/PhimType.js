@@ -1,1 +1,0 @@
-export const SET_DATA_PHIM = 'SET_DATA_PHIM';
