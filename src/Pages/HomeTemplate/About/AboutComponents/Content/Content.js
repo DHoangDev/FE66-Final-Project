@@ -16,10 +16,10 @@ export default function Content(props) {
     useEffect(() => {
         let { id } = props
         dispatch(layThongTinChiTietPhim(id))
-        if (!window.location.hash) {
-            window.location = window.location + '#loaded';
-            window.location.reload();
-        }
+        // if (!window.location.hash) {
+        //     window.location = window.location + '#loaded';
+        //     window.location.reload();
+        // }
     }, [])
 
     return (
