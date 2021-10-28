@@ -114,7 +114,7 @@ export default function Login(props) {
             </button>
           </div>
           <img
-            src="./assets/images/kisspng-ticket-film-cinema-cinema-ticket-5abf0992ef7f17.897789881522469266981.png"
+            src="https://fe-66-final-project.vercel.app/assets/images/kisspng-ticket-film-cinema-cinema-ticket-5abf0992ef7f17.897789881522469266981.png"
             className="image singin"
             alt=""
           />
@@ -131,7 +131,7 @@ export default function Login(props) {
             </button>
           </div>
           <img
-            src="./assets/images/PngItem_3014574.png"
+            src="https://fe-66-final-project.vercel.app/assets/images/PngItem_3014574.png"
             className="image right"
             alt=""
           />

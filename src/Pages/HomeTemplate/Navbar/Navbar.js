@@ -19,10 +19,10 @@ export default class Navbar extends Component {
             <header>
                 <nav className="navbar navbar-expand-lg">
                     <a className="navbar-brand p-0" href="/#">
-                        <img className="w-50" src="http://localhost:3000/assets/images/web-logo.png" alt="..." />
+                        <img className="w-50" src="https://fe-66-final-project.vercel.app/assets/images/web-logo.png" alt="..." />
                     </a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                        <img className=" w-100" src="http://localhost:3000/assets/images/menu-options.png" alt="..." />
+                        <img className=" w-100" src="https://fe-66-final-project.vercel.app/assets/images/menu-options.png" alt="..." />
                     </button>
                     <div className="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul className="navbar-nav navbar-menu mr-md-auto order-2 order-lg-1">
