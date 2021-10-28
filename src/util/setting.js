@@ -1,3 +1,4 @@
+
 export const DOMAIN = 'https://movienew.cybersoft.edu.vn';
 export const GROUP_ID = 'GP01';
 export const USER_LOGIN = 'userLogin';
