@@ -35,7 +35,7 @@ export default function Content(props) {
                     }} className="banner_all" />
                     <div className="playtrailer1">
                         <a className="venobox" data-vbtype="video" href={filmDetail.trailer}>
-                            <img src="http://localhost:3000/assets/images/play-video.png" alt="..." />
+                            <img src="https://fe-66-final-project.vercel.app/assets/images/play-video.png" alt="..." />
                         </a>
                     </div>
                     <div className="styleGardient" />
@@ -49,7 +49,7 @@ export default function Content(props) {
                                 backgroundRepeat: 'no-repeat'
                             }} className="poster">
                                 <a className="playtrailer showposter venobox" data-vbtype="video" href={filmDetail.trailer}>
-                                    <img width='75%' src="http://localhost:3000/assets/images/play-video.png" alt="..." />
+                                    <img width='75%' src="https://fe-66-final-project.vercel.app/assets/images/play-video.png" alt="..." />
                                 </a>
                             </div>
                         </div>

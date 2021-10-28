@@ -18,7 +18,7 @@
 }
 #timeCine .carousel_slick_2 .slick-prev {
   left: -45px;
-  background-image: url("http://localhost:3000/assets/images/back-session.png");
+  background-image: url("https://fe-66-final-project.vercel.app/assets/images/back-session.png");
   top: 50%;
   z-index: 10;
   background-position: center;
@@ -32,7 +32,7 @@
 }
 #timeCine .carousel_slick_2 .slick-next {
   right: -45px;
-  background-image: url("http://localhost:3000/assets/images/next-session.png");
+  background-image: url("https://fe-66-final-project.vercel.app/assets/images/next-session.png");
   top: 50%;
   z-index: 10;
   background-position: center;
@@ -138,7 +138,7 @@
 }
 #timeCine .carousel_slick_3 .slick-prev {
   left: -45px;
-  background-image: url("http://localhost:3000/assets/images/back-session.png");
+  background-image: url("https://fe-66-final-project.vercel.app/assets/images/back-session.png");
   top: 50%;
   z-index: 10;
   background-position: center;
@@ -152,7 +152,7 @@
 }
 #timeCine .carousel_slick_3 .slick-next {
   right: -45px;
-  background-image: url("http://localhost:3000/assets/images/next-session.png");
+  background-image: url("https://fe-66-final-project.vercel.app/assets/images/next-session.png");
   top: 50%;
   z-index: 10;
   background-position: center;

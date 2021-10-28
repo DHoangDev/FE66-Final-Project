@@ -1,5 +1,5 @@
 #appBlock {
-    background-image: url("http://localhost:3000/assets/images/backapp.jpg");
+    background-image: url("https://fe-66-final-project.vercel.app/assets/images/backapp.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -43,7 +43,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: url("http://localhost:3000/assets/images/mobile.png");
+    background-image: url("https://fe-66-final-project.vercel.app/assets/images/mobile.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
