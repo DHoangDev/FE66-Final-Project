@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Redirect } from "react-router-dom"
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
+import swal from 'sweetalert'
 
 import { USER_LOGIN } from '../../../Util/Setting'
 import {
@@ -51,16 +52,6 @@ export default function Addfilm() {
         }
     })
 
-    if (!localStorage.getItem(USER_LOGIN)) {
-        alert('Đăng nhập để vào trang này !');
-        return <Redirect to="/Home" />
-    } else {
-        let userLogin = JSON.parse(localStorage.getItem(USER_LOGIN));
-        if (userLogin.maLoaiNguoiDung !== "QuanTri") {
-            alert('Không đủ quyền truy cập !');
-            return <Redirect to="/Home" />
-        }
-    }
 
     const handleChangeDatePicker = (dateString) => {
         var m = new Date(dateString);
@@ -92,6 +83,7 @@ export default function Addfilm() {
     const onFormLayoutChange = ({ size }) => {
         setComponentSize(size);
     };
+
 
     return (
         <Form onSubmitCapture={formik.handleSubmit} labelCol={{ span: 4, }} wrapperCol={{ span: 14, }} layout="horizontal"

@@ -45,8 +45,13 @@ export const updatePhimAction = (data) => {
 
             const result = await phimService.updatePhim(data);
             if (result.data.statusCode === 200) {
-                swal('Edited !', 'Cập Nhật Phim Thành Công !', 'success')
-                window.location.reload()
+                swal({
+                    title: 'Edited !',
+                    text: 'Cập Nhật Phim Thành Công !',
+                    icon: 'success'
+                }).then(() => {
+                    window.location.reload()
+                })
             }
 
         } catch (error) {
@@ -61,8 +66,13 @@ export const deletePhimAction = (data) => {
 
             const result = await phimService.deletePhim(data);
             if (result.data.statusCode === 200) {
-                swal('Deleted !', 'Xóa Phim Thành Công !', 'success')
-                window.location.reload()
+                swal({
+                    title: 'Deleted !',
+                    text: 'Xóa Phim Thành Công !',
+                    icon: 'success'
+                }).then(() => {
+                    window.location.reload()
+                })
             }
 
         } catch (error) {
