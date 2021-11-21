@@ -32,7 +32,7 @@ export const taoLichChieuAction = (data) => {
         try {
             const result = await qlDatVeService.taoLichChieu(data)
             if (result.data.statusCode === 200) {
-                swal('Successfully !', 'Thêm Phim Thành Công !', 'success')
+                swal('Successfully !', 'Tạo lịch chiêu thành công !', 'success')
             }
         } catch (err) {
             console.log('err', err)
@@ -43,38 +43,38 @@ export const taoLichChieuAction = (data) => {
 export const datVeAction = (thongTinDatVe = new ThongTinDatVe()) => {
     return async dispatch => {
 
-        try{
+        try {
             const result = await qlDatVeService.datVe(thongTinDatVe);
-            console.log({result})
+            console.log({ result })
             Swal.fire({
                 icon: 'success',
                 title: 'Đặt vé thành công',
                 // text: 'Something went wrong!',
                 confirmButtonText: 'OK',
-              }).then((result) => {
+            }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
                     dispatch({
-                        type:DISPLAY_LOADING
+                        type: DISPLAY_LOADING
                     })
-                } 
-              })  
+                }
+            })
             //load lại trang khi thành công
-                await dispatch(layChiTietPhongVeAction(thongTinDatVe.maLichChieu))
-        
-                  // clear form khi đk thành công
-                await dispatch({type:DAT_VE_HOAN_TAT })
-                
-                await dispatch({type:HIDE_LOADING})
-                  dispatch({type:CHUYEN_TAB})
+            await dispatch(layChiTietPhongVeAction(thongTinDatVe.maLichChieu))
 
-        }catch(err){
+            // clear form khi đk thành công
+            await dispatch({ type: DAT_VE_HOAN_TAT })
+
+            await dispatch({ type: HIDE_LOADING })
+            dispatch({ type: CHUYEN_TAB })
+
+        } catch (err) {
             Swal.fire({
                 icon: 'warning',
                 title: '402',
                 // text: 'Something went wrong!',
                 confirmButtonText: 'OK',
-              })
+            })
             dispatch({
                 type: HIDE_LOADING
             })

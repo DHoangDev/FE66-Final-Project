@@ -42,16 +42,7 @@ export default function Adduser() {
         }
     })
 
-    if (!localStorage.getItem(USER_LOGIN)) {
-        alert('Đăng nhập để vào trang này !');
-        return <Redirect to="/Home" />
-    } else {
-        let userLogin = JSON.parse(localStorage.getItem(USER_LOGIN));
-        if (userLogin.maLoaiNguoiDung !== "QuanTri") {
-            alert('Không đủ quyền truy cập !');
-            return <Redirect to="/Home" />
-        }
-    }
+
 
     const renderLoaiNguoiDung = () => {
         return arrLoaiNguoiDung.map((value, index) => {

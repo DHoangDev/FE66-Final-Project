@@ -20,6 +20,9 @@ export class QuanLyNguoiDungService extends BaseService {
     getNguoiDung = (maNhom) => {
         return this.get('api/QuanLyNguoiDung/LayDanhSachNguoiDung', '', `?MaNhom=${maNhom}`)
     }
+    getNguoiDungPhanTrang = (maNhom, soPhanTu) => {
+        return this.get('api/QuanLyNguoiDung/LayDanhSachNguoiDungPhanTrang', `?MaNhom=${maNhom}&soPhanTuTrenTrang=${soPhanTu}`, '')
+    }
     addNguoiDung = (data) => {
         return this.post('api/QuanLyNguoiDung/ThemNguoiDung', data)
     }

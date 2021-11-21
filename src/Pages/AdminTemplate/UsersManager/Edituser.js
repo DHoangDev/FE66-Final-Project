@@ -26,16 +26,7 @@ export default function Edituser() {
         dispatch(actionLoaiNguoiDung);
     }, [])
 
-    if (!localStorage.getItem(USER_LOGIN)) {
-        alert('Đăng nhập để vào trang này !');
-        return <Redirect to="/Home" />
-    } else {
-        let userLogin = JSON.parse(localStorage.getItem(USER_LOGIN));
-        if (userLogin.maLoaiNguoiDung !== "QuanTri") {
-            alert('Không đủ quyền truy cập !');
-            return <Redirect to="/Home" />
-        }
-    }
+
 
     const confirmEditData = () => {
         var dataSend = {
@@ -223,13 +214,17 @@ export default function Edituser() {
                     </div>
                 </div>
             </div>
-            <div className="d-flex">
-                <h3>Quản lý người dùng</h3>
-                <input
-                    className="form-control w-25 ml-auto"
-                    placeholder="Nhập tài khoản ..."
-                    onKeyUp={(e) => { search(e.target.value) }}
-                />
+            <div className="row">
+                <h3 className="col-12 col-md-3">Quản lý người dùng</h3>
+                <div className="col-12 d-none d-sm-block col-md-3"></div>
+                <div className="col-12 d-none d-sm-block col-md-3"></div>
+                <div className="col-12 col-md-3">
+                    <input
+                        className="form-control mb-3"
+                        placeholder="Nhập tài khoản ..."
+                        onKeyUp={(e) => { search(e.target.value) }}
+                    />
+                </div>
             </div>
             <Table
                 columns={columns} dataSource={arrNguoiDung} responsive={true}

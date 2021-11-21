@@ -176,6 +176,24 @@ export const nguoiDungAction = (maNhom) => {
         }
     }
 }
+export const nguoiDungPhanTrangAction = (maNhom, soPhanTu) => {
+    return async dispatch => {
+        try {
+
+            const result = await qlNguoiDungService.getNguoiDungPhanTrang(maNhom, soPhanTu);
+            if (result.data.statusCode === 200) {
+                await dispatch({
+                    type: SET_NGUOI_DUNG,
+                    arrNguoiDung: result.data.content.items,
+                });
+            }
+
+        } catch (error) {
+            console.log({ error })
+            console.log(error.response?.data)
+        }
+    }
+}
 export const addNguoiDungAction = (data) => {
     return async dispatch => {
         try {
@@ -197,8 +215,13 @@ export const editNguoiDungAction = (data) => {
 
             const result = await qlNguoiDungService.editNguoiDung(data);
             if (result.data.statusCode === 200) {
-                swal('Edited !', 'Cập Nhật Người Dùng Thành Công !', 'success')
-                window.location.reload()
+                swal({
+                    title: 'Edited !',
+                    text: 'Cập Nhật Người Dùng Thành Công !',
+                    icon: 'success'
+                }).then(() => {
+                    window.location.reload()
+                })
             }
 
         } catch (error) {
@@ -213,8 +236,13 @@ export const deleteNguoiDungAction = (data) => {
 
             const result = await qlNguoiDungService.deleteNguoiDung(data);
             if (result.data.statusCode === 200) {
-                swal('Deleted !', 'Xóa Người Dùng Thành Công !', 'success')
-                window.location.reload()
+                swal({
+                    title: 'Deleted !',
+                    text: 'Xóa Người Dùng Thành Công !',
+                    icon: 'success'
+                }).then(() => {
+                    window.location.reload()
+                })
             }
 
         } catch (error) {

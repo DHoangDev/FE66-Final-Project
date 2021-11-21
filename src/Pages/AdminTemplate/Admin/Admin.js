@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux';
+import swal from 'sweetalert'
 
 import { USER_LOGIN, GROUP_ID } from '../../../Util/Setting'
 import { adminAction, loaiNguoiDungAction, editNguoiDungAction } from '../../../Redux/Action/QuanLyNguoiDungAction';
@@ -17,17 +18,6 @@ export default function Admin() {
         dispatch(actionAdmin)
         dispatch(actionLoaiNguoiDung);
     }, [])
-
-    if (!localStorage.getItem(USER_LOGIN)) {
-        alert('Đăng nhập để vào trang này !');
-        return <Redirect to="/Home" />
-    } else {
-        let userLogin = JSON.parse(localStorage.getItem(USER_LOGIN));
-        if (userLogin.maLoaiNguoiDung !== "QuanTri") {
-            alert('Không đủ quyền truy cập !')
-            return <Redirect to="/Home" />
-        }
-    }
 
 
 
@@ -161,7 +151,7 @@ export default function Admin() {
                 </div>
             </div>
             <div className="row">
-                <div className="col-4">
+                <div className="col-12 col-md-4">
                     <h3>Thông Tin Cá Nhân</h3>
                     <div className="form-group">
                         <label htmlFor="adminName">Họ tên</label>
@@ -188,7 +178,7 @@ export default function Admin() {
                         <button className="btn btn-success" type="button" onClick={() => { updateData() }} data-toggle="modal" data-target="#adminModal">Cập Nhật</button>
                     </div>
                 </div>
-                <div className="col-8">
+                <div className="col-12 col-md-8">
                     <h3>Danh Sách Vé Đã Đặt</h3>
                     <table>
                         <thead>

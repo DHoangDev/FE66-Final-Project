@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux';
+import swal from 'sweetalert'
 
 import './Dashboard.css';
 
@@ -19,31 +20,27 @@ export default function Dashboard() {
         dispatch(actionNguoiDung);
     }, [])
 
-    if (!localStorage.getItem(USER_LOGIN)) {
-        alert('Đăng nhập để vào trang này !');
-        return <Redirect to="/Home" />
-    } else {
-        let userLogin = JSON.parse(localStorage.getItem(USER_LOGIN));
-        if (userLogin.maLoaiNguoiDung !== "QuanTri") {
-            alert('Không đủ quyền truy cập !');
-            return <Redirect to="/Home" />
-        }
-    }
+
 
     const show = () => {
         console.log(arrPhim)
         console.log(arrNguoiDung)
     }
 
+
     return (
         <div id="dashboard">
             <div className="row">
-                <div className="col-6"><h3 >Dashboard</h3></div>
-                <div className="col-6"><div className="text-right">
-                    <button className="btn btn-primary ml-auto" onClick={() => { show() }}
-                        style={{ fontSize: '.8rem' }}>Generate Report <i class="fas fa-download"></i>
-                    </button>
-                </div></div>
+                <div className="col-12 col-sm-6 col-lg-3"><h3 >Dashboard</h3></div>
+                <div className="col-12 d-none d-lg-block col-lg-3"></div>
+                <div className="col-12 d-none d-lg-block col-lg-3"></div>
+                <div className="col-12 col-sm-6 col-lg-3">
+                    <div className="text-right mb-3">
+                        <button className="btn btn-primary ml-auto" onClick={() => { show() }}
+                            style={{ fontSize: '.8rem' }}>Generate Report <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
             <div className="row mb-5">
                 <div className="col-md-6 col-lg-3">

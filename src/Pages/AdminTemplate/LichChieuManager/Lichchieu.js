@@ -36,6 +36,7 @@ export default function Lichchieu() {
         }
     })
 
+
     useEffect(() => {
         const actionPhim = phimAction(GROUP_ID);
         dispatch(actionPhim);
@@ -43,16 +44,7 @@ export default function Lichchieu() {
         dispatch(actionRapChieu);
     }, [])
 
-    if (!localStorage.getItem(USER_LOGIN)) {
-        alert('Đăng nhập để vào trang này !');
-        return <Redirect to="/Home" />
-    } else {
-        let userLogin = JSON.parse(localStorage.getItem(USER_LOGIN));
-        if (userLogin.maLoaiNguoiDung !== "QuanTri") {
-            alert('Không đủ quyền truy cập !')
-            return <Redirect to="/Home" />
-        }
-    }
+
 
 
     const renderPhim = () => {
@@ -209,7 +201,7 @@ export default function Lichchieu() {
                 initialValues={{ size: 'large', }} size="large">
                 <h3 className="text-center">Thêm Lịch Chiếu</h3>
                 <div className="row">
-                    <div className="col-6">
+                    <div className="col-12 col-md-6">
                         <div className="row">
                             <div className="col-12">
                                 <Form.Item label="Tên phim">
@@ -229,14 +221,9 @@ export default function Lichchieu() {
                                     <input name="giaVe" className="form-control" min={75000} onChange={giaVeHandleChange} />
                                 </Form.Item>
                             </div>
-                            <div className="col-12">
-                                <Form.Item label="Tác vụ">
-                                    <button type="submit" className="btn btn-outline-success">Thêm Lịch Chiếu</button>
-                                </Form.Item>
-                            </div>
                         </div>
                     </div>
-                    <div className="col-6">
+                    <div className="col-12 col-md-6">
                         <div className="row">
                             <div className="col-12">
                                 <Form.Item label="Hệ thống rạp">
@@ -264,33 +251,42 @@ export default function Lichchieu() {
                             </div>
                         </div>
                     </div>
+                    <div className="col-12 col-md-6">
+                        <div className="row">
+                            <div className="col-12">
+                                <Form.Item label="Tác vụ">
+                                    <button type="submit" className="btn btn-outline-success">Thêm Lịch Chiếu</button>
+                                </Form.Item>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </Form>
 
             <h3 className="text-center">Bảng Lịch Chiếu</h3>
             <div className="row mb-3">
-                <div className="col-3">
+                <div className="col-12 col-sm-6 col-md-3">
                     <b>Hệ thống rạp</b>
                     <select class="custom-select" onChange={tableHeThongRap}>
                         <option disabled selected hidden>Please choose ...</option>
                         {renderHeThongRap()}
                     </select>
                 </div>
-                <div className="col-3">
+                <div className="col-12 col-sm-6 col-md-3">
                     <b>Cụm rạp</b>
                     <select class="custom-select" onChange={tableCumRap}>
                         <option disabled selected hidden>Please choose ...</option>
                         {renderCumRapTable()}
                     </select>
                 </div>
-                <div className="col-3">
+                <div className="col-12 col-sm-6 col-md-3">
                     <b>Phim</b>
                     <select class="custom-select" onChange={tablePhim}>
                         <option disabled selected hidden>Please choose ...</option>
                         {renderArrPhim()}
                     </select>
                 </div>
-                <div className="col-3">
+                <div className="col-12 col-sm-6 col-md-3">
                     <b>Tìm kiếm</b>
                     <input type="text" className="form-control" placeholder="Search ..." />
                 </div>

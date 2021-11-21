@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Redirect } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
+import swal from 'sweetalert'
 
 import Rating from '../../HomeTemplate/Home/HomeComponents/Content/CarouselFilm/Rating';
 import { USER_LOGIN, GROUP_ID } from '../../../Util/Setting';
@@ -25,22 +26,10 @@ export default function Editfilm() {
 
 
 
-
     useEffect(() => {
         const actionPhim = phimAction(GROUP_ID);
         dispatch(actionPhim);
     }, [])
-
-    if (!localStorage.getItem(USER_LOGIN)) {
-        alert('Đăng nhập để vào trang này !');
-        return <Redirect to="/Home" />
-    } else {
-        let userLogin = JSON.parse(localStorage.getItem(USER_LOGIN));
-        if (userLogin.maLoaiNguoiDung !== "QuanTri") {
-            alert('Không đủ quyền truy cập !');
-            return <Redirect to="/Home" />
-        }
-    }
 
 
 
@@ -260,13 +249,17 @@ export default function Editfilm() {
                     </div>
                 </div>
             </div>
-            <div className="d-flex">
-                <h3>Quản lý Phim</h3>
-                <input
-                    className="form-control w-25 mb-3 ml-auto"
-                    placeholder="Nhập tên phim ..."
-                    onKeyUp={(e) => { search(e.target.value) }}
-                />
+            <div className="row">
+                <h3 className="col-12 col-lg-3">Quản lý Phim</h3>
+                <div className="col-12 d-none d-md-block col-lg-3"></div>
+                <div className="col-12 d-none d-md-block col-lg-3"></div>
+                <div className="col-12 col-lg-3">
+                    <input
+                        className="form-control mb-3"
+                        placeholder="Nhập tên phim ..."
+                        onKeyUp={(e) => { search(e.target.value) }}
+                    />
+                </div>
             </div>
             <Table dataSource={arrPhim} columns={columns} responsive={true}
                 pagination={{ defaultPageSize: 5, showSizeChanger: true, pageSizeOptions: ['5', '10', '20', '30', '40'] }} />

@@ -20,6 +20,7 @@ import Addfilm from './Pages/AdminTemplate/FilmsManager/Addfilm';
 import Editfilm from './Pages/AdminTemplate/FilmsManager/Editfilm';
 import Adduser from './Pages/AdminTemplate/UsersManager/Adduser';
 import Edituser from './Pages/AdminTemplate/UsersManager/Edituser';
+import Pagination from './Pages/AdminTemplate/Pagination/Pagination';
 
 import Error from './Pages/Error/Error';
 import BookingTicket from './Pages/BookingTicketTemplate/BookingTicket/BookingTicket';
@@ -50,12 +51,12 @@ export default class App extends Component {
             <AdminTemplate exact path="/Admin/edituser" component={Edituser} />
             <AdminTemplate exact path="/Admin/addfilm" component={Addfilm} />
             <AdminTemplate exact path="/Admin/editfilm" component={Editfilm} />
+            <AdminTemplate exact path="/Admin/pagination" component={Pagination} />
 
 
-
-            <Suspense fallback={<LoadingComponent />}>
+            {/* <Suspense fallback={<LoadingComponent />}>
               <BookingMovieTemplateLazy exact path="/BookingTicket/:id" component={BookingTicket} />
-            </Suspense>
+            </Suspense> */}
 
             <Route path="*" component={Error} />
           </Switch>
