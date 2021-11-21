@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 
 export default function Table({ items, itemsPerPage, totalItems, paginate, currentPage, search }) {
 
+    const pages = 10;
     const pageNumbers = [];
     const minPage = 1;
     const maxPage = Math.ceil(totalItems / itemsPerPage);
     const [disablePre, setDisablePre] = useState('disabled')
     const [disableNext, setDisableNext] = useState('')
 
-    for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
+    for (let i = 1; i <= pages; i++) {
         pageNumbers.push(i)
     }
 

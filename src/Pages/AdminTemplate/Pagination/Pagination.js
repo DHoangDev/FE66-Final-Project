@@ -13,7 +13,7 @@ export default function Pagination() {
 
     const { arrNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(5);
+    const [itemsPerPage, setItemsPerPage] = useState(10);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -54,25 +54,24 @@ export default function Pagination() {
             <div className="col-md-12">
                 <h3 className="">Quản lý người dùng</h3>
             </div>
-            <div className="col-md-5">
+            <div className="col-md-4">
                 <div className="form-group d-flex align-items-center">
                     <label for="itemNums" className="m-0">Số lượng người dùng muốn lấy :</label>
                     <input type="text" id="itemNums" className=" form-control form-control-sm mx-2 w-25" />
                     <button className="btn btn-primary btn-sm" onClick={getData}>Show</button>
                 </div>
             </div>
-            <div className="col-md-3">
-                <div className="form-group d-flex align-items-center">
-                    <label for="itemNums" className="m-0 w-50">Số phần tử trên trang :</label>
+            <div className="col-md-4">
+                <div className="form-group">
                     <select class="custom-select custom-select-sm w-50" onChange={itemPerPage}>
-                        <option value="5" selected>5</option>
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                        <option value="200">200</option>
-                        <option value="350">350</option>
-                        <option value="500">500</option>
+                        <option value="5">5 / page</option>
+                        <option value="10" selected>10 / page</option>
+                        <option value="20">20 / page</option>
+                        <option value="50">50 / page</option>
+                        <option value="100">100 / page</option>
+                        <option value="200">200 / page</option>
+                        <option value="350">350 / page</option>
+                        <option value="500">500 / page</option>
                     </select>
                 </div>
             </div>
