@@ -9,7 +9,8 @@ import { adminAction, loaiNguoiDungAction, editNguoiDungAction } from '../../../
 export default function Admin() {
 
     const { arrAdmin, arrLoaiNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
-    const [check, setTurn] = useState(true)
+    const [check, setTurn] = useState(true);
+    const [change, setChange] = useState(false);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -23,17 +24,25 @@ export default function Admin() {
 
 
     const confirmEditData = () => {
-        var dataSend = {
-            taiKhoan: arrAdmin.taiKhoan,
-            matKhau: document.getElementById('adminModalPassword2').value,
-            email: document.getElementById('adminModalEmail').value,
-            soDt: document.getElementById('adminModalPhoneNumber').value,
-            maNhom: GROUP_ID,
-            maLoaiNguoiDung: document.getElementById('adminPermissionFormControl').value,
-            hoTen: document.getElementById('adminModalName').value,
+        if (change === true) {
+            var dataSend = {
+                taiKhoan: arrAdmin.taiKhoan,
+                matKhau: document.getElementById('adminModalPassword2').value,
+                email: document.getElementById('adminModalEmail').value,
+                soDt: document.getElementById('adminModalPhoneNumber').value,
+                maNhom: GROUP_ID,
+                maLoaiNguoiDung: document.getElementById('adminPermissionFormControl').value,
+                hoTen: document.getElementById('adminModalName').value,
+            }
+            const actionEditNguoiDung = editNguoiDungAction(dataSend);
+            dispatch(actionEditNguoiDung);
+        } else {
+            swal({
+                title: 'Not Changed !',
+                text: 'Không có dữ liệu nào thay đổi',
+                icon: 'info'
+            })
         }
-        const actionEditNguoiDung = editNguoiDungAction(dataSend);
-        dispatch(actionEditNguoiDung);
     }
     const updateData = () => {
         document.getElementById('adminModalName').value = document.getElementById('adminName').value
@@ -44,6 +53,9 @@ export default function Admin() {
         var pass = document.getElementById('adminModalPassword1').value;
         var passConfirm = document.getElementById('adminModalPassword2').value;
         pass !== passConfirm ? setTurn(false) : setTurn(true)
+    }
+    const formChange = () => {
+        setChange(true)
     }
 
 
@@ -99,7 +111,7 @@ export default function Admin() {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <form>
+                            <form onChange={formChange}>
                                 <div className="form-row">
                                     <div className="form-group col-md-7">
                                         <label htmlFor="adminModalName">Họ tên</label>

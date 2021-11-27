@@ -77,8 +77,6 @@ export default function Lichchieu() {
     }
     const renderArrPhim = () => {
         if (arrPhimTheoCumRap) {
-            console.log(arrPhimTheoCumRap)
-            console.log(arrLichChieuTheoPhim)
             return arrPhimTheoCumRap.map((value, index) => {
                 if (value.dangChieu === true) {
                     return <option value={value.maPhim} key={index} style={{ color: 'green' }}>{value.tenPhim}</option>
@@ -205,7 +203,7 @@ export default function Lichchieu() {
                         <div className="row">
                             <div className="col-12">
                                 <Form.Item label="Tên phim">
-                                    <select class="custom-select" onChange={phimHandleChange}>
+                                    <select className="custom-select" onChange={phimHandleChange}>
                                         <option disabled selected hidden>Please choose ...</option>
                                         {renderPhim()}
                                     </select>
@@ -227,7 +225,7 @@ export default function Lichchieu() {
                         <div className="row">
                             <div className="col-12">
                                 <Form.Item label="Hệ thống rạp">
-                                    <select class="custom-select" id="rapChieuFormSelect" onChange={handleChangeHeThongRap}>
+                                    <select className="custom-select" id="rapChieuFormSelect" onChange={handleChangeHeThongRap}>
                                         <option disabled selected hidden>Please choose ...</option>
                                         {renderHeThongRap()}
                                     </select>
@@ -235,7 +233,7 @@ export default function Lichchieu() {
                             </div>
                             <div className="col-12">
                                 <Form.Item label="Cụm rạp">
-                                    <select class="custom-select" onChange={handleChangeCumRap}>
+                                    <select className="custom-select" onChange={handleChangeCumRap}>
                                         <option disabled selected hidden>Please choose ...</option>
                                         {renderCumRap()}
                                     </select>
@@ -267,21 +265,21 @@ export default function Lichchieu() {
             <div className="row mb-3">
                 <div className="col-12 col-sm-6 col-md-3">
                     <b>Hệ thống rạp</b>
-                    <select class="custom-select" onChange={tableHeThongRap}>
+                    <select className="custom-select" onChange={tableHeThongRap}>
                         <option disabled selected hidden>Please choose ...</option>
                         {renderHeThongRap()}
                     </select>
                 </div>
                 <div className="col-12 col-sm-6 col-md-3">
                     <b>Cụm rạp</b>
-                    <select class="custom-select" onChange={tableCumRap}>
+                    <select className="custom-select" onChange={tableCumRap}>
                         <option disabled selected hidden>Please choose ...</option>
                         {renderCumRapTable()}
                     </select>
                 </div>
                 <div className="col-12 col-sm-6 col-md-3">
                     <b>Phim</b>
-                    <select class="custom-select" onChange={tablePhim}>
+                    <select className="custom-select" onChange={tablePhim}>
                         <option disabled selected hidden>Please choose ...</option>
                         {renderArrPhim()}
                     </select>

@@ -9,7 +9,7 @@ export default function Table({ items, itemsPerPage, totalItems, paginate, curre
     const [disablePre, setDisablePre] = useState('disabled')
     const [disableNext, setDisableNext] = useState('')
 
-    for (let i = 1; i <= pages; i++) {
+    for (let i = 1; i <= maxPage; i++) {
         pageNumbers.push(i)
     }
 
@@ -33,18 +33,34 @@ export default function Table({ items, itemsPerPage, totalItems, paginate, curre
         }
 
     }
+    const paginationChange = (value) => {
+        paginate(value)
+        if (value === minPage) {
+            setDisablePre('disabled')
+            setDisableNext('')
+        }
+        if (value === maxPage) {
+            setDisableNext('disabled')
+            setDisablePre('')
+        }
+        if (value > minPage && value < maxPage) {
+            setDisableNext('')
+            setDisablePre('')
+        }
+    }
+
     const renderPageNumber = () => {
         return pageNumbers.map((value, index) => {
             if (currentPage === value) {
                 return (
-                    <li class="page-item active" key={index}>
-                        <a class="page-link" href="#" onClick={() => paginate(value)}>{value}</a>
+                    <li className="page-item active" key={index}>
+                        <a className="page-link" href="#" onClick={() => paginationChange(value)}>{value}</a>
                     </li>
                 )
             } else {
                 return (
-                    <li class="page-item" key={index}>
-                        <a class="page-link" href="#" onClick={() => paginate(value)}>{value}</a>
+                    <li className="page-item" key={index}>
+                        <a className="page-link" href="#" onClick={() => paginationChange(value)}>{value}</a>
                     </li>
                 )
             }
@@ -63,10 +79,6 @@ export default function Table({ items, itemsPerPage, totalItems, paginate, curre
         if (currentPage + 1 >= maxPage)
             setDisableNext('disabled')
     }
-    const disNextButton = () => {
-        console.log(Math.ceil(totalItems / itemsPerPage))
-        Math.ceil(totalItems / itemsPerPage) === 1 ? setDisableNext('disabled') : setDisableNext('')
-    }
 
     return (
         <div className="col-md-12">
@@ -79,7 +91,7 @@ export default function Table({ items, itemsPerPage, totalItems, paginate, curre
                     />
                 </div>
             </div>
-            <table class="table table-hover table-dark" onChange={disNextButton}>
+            <table className="table table-hover table-dark">
                 <thead>
                     <tr>
                         <th scope="col">Tên người dùng</th>
@@ -98,12 +110,12 @@ export default function Table({ items, itemsPerPage, totalItems, paginate, curre
             <div className="row">
                 <div className="col-md-9">
                     <nav aria-label="Page navigation example">
-                        <ul class="pagination pagination-sm">
-                            <li class={`page-item ${disablePre}`}>
+                        <ul className="pagination pagination-sm">
+                            <li className={`page-item ${disablePre}`}>
                                 <a class="page-link" onClick={pre} href="#">Previous</a></li>
                             {renderPageNumber()}
-                            <li class={`page-item ${disableNext}`}>
-                                <a class="page-link" onClick={next} href="#">Next</a></li>
+                            <li className={`page-item ${disableNext}`}>
+                                <a className="page-link" onClick={next} href="#">Next</a></li>
                         </ul>
                     </nav>
                 </div>

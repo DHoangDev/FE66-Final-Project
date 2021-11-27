@@ -133,7 +133,7 @@ export default function Edituser() {
             key: 'maLoaiNguoiDung',
             width: '12%',
             sorter: (a, b) => {
-                if (String(a.maLoaiNguoiDung) < String(b.soDt)) { return -1; }
+                if (String(a.maLoaiNguoiDung) < String(b.maLoaiNguoiDung)) { return -1; }
                 if (String(a.maLoaiNguoiDung) > String(b.maLoaiNguoiDung)) { return 1; }
                 return 0;
             }

@@ -50,7 +50,7 @@ export default function Pagination() {
     }
 
     return (
-        <div class="row">
+        <div className="row">
             <div className="col-md-12">
                 <h3 className="">Quản lý người dùng</h3>
             </div>
@@ -63,7 +63,7 @@ export default function Pagination() {
             </div>
             <div className="col-md-4">
                 <div className="form-group">
-                    <select class="custom-select custom-select-sm w-50" onChange={itemPerPage}>
+                    <select className="custom-select custom-select-sm w-50" onChange={itemPerPage}>
                         <option value="5">5 / page</option>
                         <option value="10" selected>10 / page</option>
                         <option value="20">20 / page</option>
