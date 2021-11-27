@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux';
+import swal from 'sweetalert'
 
 import { USER_LOGIN, GROUP_ID } from '../../../Util/Setting';
 import {
@@ -18,6 +19,7 @@ export default function Edituser() {
     const dispatch = useDispatch();
     const [account, setAccount] = useState({});
     const [check, setTurn] = useState(true);
+    const [change, setChange] = useState(false);
 
     useEffect(() => {
         const actionNguoiDung = nguoiDungAction(GROUP_ID);
@@ -29,17 +31,25 @@ export default function Edituser() {
 
 
     const confirmEditData = () => {
-        var dataSend = {
-            taiKhoan: account,
-            matKhau: document.getElementById('userModalPassword2').value,
-            email: document.getElementById('userModalEmail').value,
-            soDt: document.getElementById('userModalPhoneNumber').value,
-            maNhom: GROUP_ID,
-            maLoaiNguoiDung: document.getElementById('permissionFormControlSelect').value,
-            hoTen: document.getElementById('userModalName').value,
+        if (change === true) {
+            var dataSend = {
+                taiKhoan: account,
+                matKhau: document.getElementById('userModalPassword2').value,
+                email: document.getElementById('userModalEmail').value,
+                soDt: document.getElementById('userModalPhoneNumber').value,
+                maNhom: GROUP_ID,
+                maLoaiNguoiDung: document.getElementById('permissionFormControlSelect').value,
+                hoTen: document.getElementById('userModalName').value,
+            }
+            const actionEditNguoiDung = editNguoiDungAction(dataSend);
+            dispatch(actionEditNguoiDung);
+        } else {
+            swal({
+                title: 'Not Changed !',
+                text: 'Không có dữ liệu nào thay đổi',
+                icon: 'info'
+            })
         }
-        const actionEditNguoiDung = editNguoiDungAction(dataSend);
-        dispatch(actionEditNguoiDung);
     }
     const passwordValidation = () => {
         var pass = document.getElementById('userModalPassword1').value;
@@ -55,6 +65,9 @@ export default function Edituser() {
                 return <option value={value.maLoaiNguoiDung} key={index}>{value.tenLoai}</option>
             }
         })
+    }
+    const formChange = () => {
+        setChange(true)
     }
 
     const editData = (dataInput) => {
@@ -163,7 +176,7 @@ export default function Edituser() {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <form>
+                            <form onChange={formChange}>
                                 <div className="form-row">
                                     <div className="form-group col-md-7">
                                         <label htmlFor="userModalName">Họ tên</label>

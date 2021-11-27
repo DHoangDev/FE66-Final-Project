@@ -23,6 +23,7 @@ export default function Editfilm() {
     const [sapChieu, setSapChieu] = useState(true);
     const [hot, setHot] = useState(true);
     const [img, setImg] = useState('');
+    const [change, setChange] = useState(false);
 
 
 
@@ -35,19 +36,27 @@ export default function Editfilm() {
 
 
     const confirmData = () => {
-        let frmData = new FormData();
-        frmData.append('maPhim', maPhim)
-        // frmData.append('biDanh', biDanh)
-        frmData.append('tenPhim', document.getElementById('filmModalName').value)
-        frmData.append('trailer', document.getElementById('filmModalTrailer').value)
-        frmData.append('moTa', document.getElementById('filmModalDetail').value)
-        frmData.append('ngayKhoiChieu', date)
-        frmData.append('danhGia', document.getElementById('filmModalDanhGia').value)
-        frmData.append('DangChieu', dangChieu)
-        frmData.append('SapChieu', sapChieu)
-        frmData.append('Hot', hot)
-        frmData.append('hinhAnh', img)
-        dispatch(updatePhimAction(frmData));
+        if (change === true) {
+            let frmData = new FormData();
+            frmData.append('maPhim', maPhim)
+            // frmData.append('biDanh', biDanh)
+            frmData.append('tenPhim', document.getElementById('filmModalName').value)
+            frmData.append('trailer', document.getElementById('filmModalTrailer').value)
+            frmData.append('moTa', document.getElementById('filmModalDetail').value)
+            frmData.append('ngayKhoiChieu', date)
+            frmData.append('danhGia', document.getElementById('filmModalDanhGia').value)
+            frmData.append('DangChieu', dangChieu)
+            frmData.append('SapChieu', sapChieu)
+            frmData.append('Hot', hot)
+            frmData.append('hinhAnh', img)
+            dispatch(updatePhimAction(frmData));
+        } else {
+            swal({
+                title: 'Not Changed !',
+                text: 'Không có dữ liệu nào thay đổi',
+                icon: 'info'
+            })
+        }
     }
     const editData = (dataInput) => {
         setMaPhim(dataInput.maPhim)
@@ -66,6 +75,9 @@ export default function Editfilm() {
             const actionDeletePhim = deletePhimAction(dataInput.maPhim);
             dispatch(actionDeletePhim);
         }
+    }
+    const formChange = () => {
+        setChange(true)
     }
 
 
@@ -189,7 +201,7 @@ export default function Editfilm() {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <form>
+                            <form onChange={formChange}>
                                 <div className="form-row">
                                     <div className="form-group col-md-6">
                                         <label htmlFor="filmModalName">Tên phim</label>
