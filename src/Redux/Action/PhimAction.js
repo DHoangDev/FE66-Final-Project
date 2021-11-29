@@ -36,6 +36,13 @@ export const addPhimAction = (data) => {
         } catch (error) {
             console.log({ error })
             console.log(error.response?.data)
+            if (error.response?.data) {
+                swal({
+                    title: 'Error !',
+                    text: error.response?.data.content,
+                    icon: 'error'
+                })
+            }
         }
     }
 }
@@ -57,6 +64,13 @@ export const updatePhimAction = (data) => {
         } catch (error) {
             console.log({ error })
             console.log(error.response?.data)
+            if (error.response?.data) {
+                swal({
+                    title: 'Error !',
+                    text: error.response?.data.content,
+                    icon: 'error'
+                })
+            }
         }
     }
 }
@@ -78,6 +92,13 @@ export const deletePhimAction = (data) => {
         } catch (error) {
             console.log({ error })
             console.log(error.response?.data)
+            if (error.response?.data) {
+                swal({
+                    title: 'Error !',
+                    text: error.response?.data.content,
+                    icon: 'error'
+                })
+            }
         }
     }
 }

@@ -173,6 +173,13 @@ export const nguoiDungAction = (maNhom) => {
         } catch (error) {
             console.log({ error })
             console.log(error.response?.data)
+            if (error.response?.data) {
+                swal({
+                    title: 'Error !',
+                    text: error.response?.data.content,
+                    icon: 'error'
+                })
+            }
         }
     }
 }
@@ -191,6 +198,13 @@ export const nguoiDungPhanTrangAction = (maNhom, soPhanTu) => {
         } catch (error) {
             console.log({ error })
             console.log(error.response?.data)
+            if (error.response?.data) {
+                swal({
+                    title: 'Error !',
+                    text: error.response?.data.content,
+                    icon: 'error'
+                })
+            }
         }
     }
 }
@@ -206,6 +220,13 @@ export const addNguoiDungAction = (data) => {
         } catch (error) {
             console.log({ error })
             console.log(error.response?.data)
+            if (error.response?.data) {
+                swal({
+                    title: 'Error !',
+                    text: error.response?.data.content,
+                    icon: 'error'
+                })
+            }
         }
     }
 }
@@ -227,6 +248,13 @@ export const editNguoiDungAction = (data) => {
         } catch (error) {
             console.log({ error })
             console.log(error.response?.data)
+            if (error.response?.data) {
+                swal({
+                    title: 'Error !',
+                    text: error.response?.data.content,
+                    icon: 'error'
+                })
+            }
         }
     }
 }
@@ -248,6 +276,13 @@ export const deleteNguoiDungAction = (data) => {
         } catch (error) {
             console.log({ error })
             console.log(error.response?.data)
+            if (error.response?.data) {
+                swal({
+                    title: 'Error !',
+                    text: error.response?.data.content,
+                    icon: 'error'
+                })
+            }
         }
     }
 }

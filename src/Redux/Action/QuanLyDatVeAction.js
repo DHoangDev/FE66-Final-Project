@@ -1,12 +1,11 @@
 import { connection } from "../.."
 import { qlDatVeService } from "../../Services/QuanLyDatVeService"
 import swal from 'sweetalert';
+import Swal from 'sweetalert2'
 
 import { ThongTinDatVe } from "../../_core/models/ThôngTinDatVe"
 import { DISPLAY_LOADING, HIDE_LOADING } from "./Type/LoadingType"
 import { CHUYEN_TAB, DAT_VE, DAT_VE_HOAN_TAT, SET_CHI_TIET_PHONG_VE } from "./Type/QuanLyDatVeType"
-import Swal from 'sweetalert2'
-
 
 
 export const layChiTietPhongVeAction = (maLichChieu) => {
@@ -20,7 +19,6 @@ export const layChiTietPhongVeAction = (maLichChieu) => {
                     chiTietPhongVe: result.data.content
                 })
             }
-            console.log({ result })
         } catch (err) {
             console.log('err', err)
             console.log('err', err.response?.data)
@@ -37,6 +35,11 @@ export const taoLichChieuAction = (data) => {
         } catch (err) {
             console.log('err', err)
             console.log('err', err.response?.data)
+            swal({
+                title: 'Error !',
+                text: err.response?.data.content,
+                icon: 'error'
+            })
         }
     }
 }
@@ -45,7 +48,6 @@ export const datVeAction = (thongTinDatVe = new ThongTinDatVe()) => {
 
         try {
             const result = await qlDatVeService.datVe(thongTinDatVe);
-            console.log({ result })
             Swal.fire({
                 icon: 'success',
                 title: 'Đặt vé thành công',
